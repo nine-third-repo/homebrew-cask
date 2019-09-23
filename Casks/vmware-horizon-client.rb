@@ -1,9 +1,10 @@
 cask 'vmware-horizon-client' do
-  version '5.0.0-12557381,CART20FQ1'
-  sha256 'ac3c7338c536c766ac2bad7f4f9b98a9e970c1c053beae2941d5f449829f7328'
+  version '5.2.0-14625369,CART20FQ3'
+  sha256 '0446c8ab2faca9a6e7c80adf1d27e3493d9630748edcc35f8972320bd46885c9'
 
   url "https://download3.vmware.com/software/view/viewclients/#{version.after_comma}/VMware-Horizon-Client-#{version.before_comma}.dmg"
-  appcast 'https://docs.vmware.com/en/VMware-Horizon-Client-for-Mac/'
+  appcast 'https://docs.vmware.com/en/VMware-Horizon-Client-for-Mac/',
+          configuration: version.major_minor
   name 'VMware Horizon Client'
   homepage 'https://www.vmware.com/'
 

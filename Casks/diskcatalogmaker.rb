@@ -1,9 +1,10 @@
 cask 'diskcatalogmaker' do
-  version '7.4.12'
-  sha256 '16e96429e255f216250a83649ba3b10f107a1845d129d61fe8c76b376481d1f9'
+  version '7.5.6'
+  sha256 'b18c2cf8a00c0c6964f79bf3f76058c0c3f8e9b3fbc58a1c5376f17cc7b8269b'
 
   url 'https://download.diskcatalogmaker.com/zip/DiskCatalogMaker.zip'
-  appcast 'https://fujiwara.sakura.ne.jp/info/appcast/DiskCatalogMaker.xml'
+  appcast 'https://macupdater.net/cgi-bin/check_urls/check_url_redirect.cgi?url=https://download.diskcatalogmaker.com/zip/DiskCatalogMaker.zip',
+          configuration: version.no_dots
   name 'DiskCatalogMaker'
   homepage 'https://diskcatalogmaker.com/'
 

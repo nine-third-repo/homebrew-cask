@@ -1,6 +1,6 @@
 cask 'dropshare' do
-  version '5.1.6,5091'
-  sha256 '33f68f00bb2387137a540472c2b8bd4af2fc21ae3fba0958bf07c416905f55fe'
+  version '5.4.4,5120'
+  sha256 '86eedd0ab392ba7ad303d235c835850d96d942110af6ad930b4f4b73fe858676'
 
   # d2wvuuix8c9e48.cloudfront.net was verified as official when first introduced to the cask
   url "https://d2wvuuix8c9e48.cloudfront.net/Dropshare#{version.major}-#{version.after_comma}.app.zip"

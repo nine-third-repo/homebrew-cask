@@ -1,6 +1,6 @@
 cask 'macupdater' do
-  version '1.4.8'
-  sha256 'bec108e03a4b9a03b1bd61ebabd36f1ef5377530449d24fc9dd26de361a21987'
+  version '1.4.17'
+  sha256 'bf49043ceda44afb1cfe1e998516eb6d27ef33240511170e879fd92bd04c3a7b'
 
   url "https://www.corecode.io/downloads/macupdater_#{version}.zip"
   appcast 'https://www.corecode.io/macupdater/macupdater.xml'

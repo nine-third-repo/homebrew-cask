@@ -1,9 +1,10 @@
 cask 'yinxiangbiji' do
-  version '9.0.2_457849'
-  sha256 '6c72293b2ad3dff55c1f7a7a03c2130e25a4ad1202075246aff27ec475a2708b'
+  version '9.1.3_458534'
+  sha256 'd397c76faee8a4208cc983c93bae0247c196c2b269d5bbb2cb4044f837fb7b9a'
 
   url "https://cdn.yinxiang.com/mac-smd/public/YinxiangBiji_RELEASE_#{version}.dmg"
-  appcast 'https://update.yinxiang.com/public/ENMacSMD/EvernoteMacUpdate.xml'
+  appcast 'https://update.yinxiang.com/public/ENMacSMD/EvernoteMacUpdate.xml',
+          configuration: version.sub('_', ' ')
   name 'Evernote'
   name '印象笔记'
   homepage 'https://www.yinxiang.com/'

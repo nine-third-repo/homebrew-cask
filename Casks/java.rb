@@ -1,10 +1,10 @@
 cask 'java' do
-  version '12.0.1,69cfe15208a647278a19ef0990eea691'
-  sha256 'cba6f42f82496f62c51fb544e243d440984d442bdc906550a30428d8be6189e5'
+  version '13,33:5b8a42f3905b406298b72d750b6919f6'
+  sha256 '1a9c096630a0e4f27ce61ac9e477378b8581c537568186d4afd0b416a7e9dd68'
 
-  url "https://download.java.net/java/GA/jdk#{version.before_comma}/#{version.after_comma}/#{version.major}/GPL/openjdk-#{version.before_comma}_osx-x64_bin.tar.gz"
+  url "https://download.java.net/java/GA/jdk#{version.before_comma}/#{version.after_colon}/#{version.after_comma.before_colon}/GPL/openjdk-#{version.before_comma}_osx-x64_bin.tar.gz"
   name 'OpenJDK Java Development Kit'
-  homepage 'https://jdk.java.net/'
+  homepage 'https://openjdk.java.net/'
 
   artifact "jdk-#{version.before_comma}.jdk", target: "/Library/Java/JavaVirtualMachines/openjdk-#{version.before_comma}.jdk"
 

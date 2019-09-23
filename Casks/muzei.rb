@@ -7,10 +7,11 @@ cask 'muzei' do
   name 'Muzei'
   homepage 'https://github.com/naman14/Muzei-macOS'
 
+  depends_on macos: '>= :sierra'
+
   app 'Muzei.app'
 
-  uninstall login_item: 'Muzei',
-            quit:       'com.naman14.muzeimacos'
+  uninstall quit: 'com.naman14.muzeimacos'
 
   zap trash: [
                '~/Library/Application Scripts/com.naman14.muzeimacos',

@@ -1,6 +1,6 @@
 cask 'motrix' do
-  version '1.2.2'
-  sha256 'b4e6b1145ff3abb936d7284ae7f65bc7d1d0fa7ac72206122b4bd09e2d58dc64'
+  version '1.4.1'
+  sha256 'e2250db04b7dcb93fb5fde90ea82fee2cfd6c621c6253cd7535a2630b9a5632c'
 
   # github.com was verified as official when first introduced to the cask
   url "https://github.com/agalwood/Motrix/releases/download/v#{version}/Motrix-#{version}.dmg"

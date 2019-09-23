@@ -1,8 +1,10 @@
 cask 'media-center' do
-  version '25.00.18'
-  sha256 '8e638a8f3ad7ccb8ada4546e41bfa7a1054ec2ded266c3b7cfe4286a23baa1d9'
+  version '25.00.95'
+  sha256 'bf577a98319bfe95b214c3acd44f118f9b63550b30881d6b95e575ee2b2a73e6'
 
   url "https://files.jriver.com/mediacenter/channels/v#{version.major}/stable/MediaCenter#{version.no_dots}.dmg"
+  appcast 'https://www.jriver.com/download.html',
+          configuration: version.no_dots
   name 'JRiver Media Center'
   homepage 'https://www.jriver.com/'
 

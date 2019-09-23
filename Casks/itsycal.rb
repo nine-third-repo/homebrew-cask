@@ -3,29 +3,29 @@ cask 'itsycal' do
     version '0.8.15'
     sha256 '6470719a1f702c807f98a992880def5f499858231bf35924eaf3e0d5df48b436'
 
-    # s3.amazonaws.com/itsycal was verified as official when first introduced to the cask
-    url "https://s3.amazonaws.com/itsycal/Itsycal-#{version}.zip"
+    # itsycal.s3.amazonaws.com was verified as official when first introduced to the cask
+    url "https://itsycal.s3.amazonaws.com/Itsycal-#{version}.zip"
   elsif MacOS.version <= :el_capitan
     version '0.10.16'
     sha256 'dbf1b104c7a3a2ca3ead9879145cb0557955c29d53f35a92b42f48e68122957c'
 
-    # s3.amazonaws.com/itsycal was verified as official when first introduced to the cask
-    url "https://s3.amazonaws.com/itsycal/Itsycal-#{version}.zip"
+    # itsycal.s3.amazonaws.com was verified as official when first introduced to the cask
+    url "https://itsycal.s3.amazonaws.com/Itsycal-#{version}.zip"
   else
-    version '0.11.14'
-    sha256 'a10e372196bbcf433e982a54fdc874bc6bbebb8f6a3f9c1bd1c91efef35923b6'
+    version '0.11.17'
+    sha256 'fda1ba5611deaf4d5b834118b3af37ea9c5d08d1f8c813d04e7dd0552a270e11'
 
-    # s3.amazonaws.com/itsycal was verified as official when first introduced to the cask
-    url "https://s3.amazonaws.com/itsycal/Itsycal-#{version}.zip"
-    appcast 'https://s3.amazonaws.com/itsycal/itsycal.xml'
+    # itsycal.s3.amazonaws.com was verified as official when first introduced to the cask
+    url "https://itsycal.s3.amazonaws.com/Itsycal-#{version}.zip"
+    appcast 'https://itsycal.s3.amazonaws.com/itsycal.xml'
   end
 
   name 'Itsycal'
   homepage 'https://www.mowglii.com/itsycal/'
 
-  app 'Itsycal.app'
+  auto_updates true
 
-  uninstall login_item: 'Itsycal'
+  app 'Itsycal.app'
 
   zap trash: '~/Library/Preferences/com.mowglii.ItsycalApp.plist'
 end

@@ -1,6 +1,6 @@
 cask 'omniplan' do
-  version '3.12.1'
-  sha256 'c1db2eea2de07c59c17047dce46951043ee5c2acdf10b4a459993a58ddb26803'
+  version '3.13'
+  sha256 '82e0d7db2626d751f93f97d80dc032e4bc01bba1e05ea52c553e4771c8cfeec5'
 
   url "https://downloads.omnigroup.com/software/MacOSX/10.13/OmniPlan-#{version}.dmg"
   appcast "https://update.omnigroup.com/appcast/com.omnigroup.OmniPlan#{version.major}"

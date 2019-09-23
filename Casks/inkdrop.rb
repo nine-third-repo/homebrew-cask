@@ -1,10 +1,10 @@
 cask 'inkdrop' do
-  version '3.25.4'
-  sha256 '82fd6ba4aea97630b44bd2cb8dbba152aaacaa656c169328332a9741391283b2'
+  version '4.3.4'
+  sha256 'f64d982e942dabc14d78421d76106a24e8493ca988d3abd56b65446d9efbc81d'
 
   # d3ip0rje8grhnl.cloudfront.net was verified as official when first introduced to the cask
   url "https://d3ip0rje8grhnl.cloudfront.net/v#{version}/Inkdrop-#{version}-Mac.zip"
-  appcast 'https://doc.inkdrop.info/releases'
+  appcast 'https://api.inkdrop.app/update/links'
   name 'Inkdrop'
   homepage 'https://www.inkdrop.info/'
 

@@ -1,6 +1,6 @@
 cask 'liclipse' do
-  version '5.2.2,nfynbnaeb3q9wv4'
-  sha256 '508e50ca245b6dc21ada3406f2306aad3fe8d67cf7a6e1cfafe5696beac13d2c'
+  version '5.3.0,c0dcsho551y0brr'
+  sha256 '6c1c342018cf8f76c84bcce82536ccfc4100fe9d05aeb4a67f5dcadf810ec08b'
 
   # mediafire.com/file was verified as official when first introduced to the cask
   url "https://www.mediafire.com/file/#{version.after_comma}/liclipse_#{version.before_comma}_macosx.cocoa.x86_64.dmg"

@@ -1,6 +1,6 @@
 cask 'retroarch' do
-  version '1.7.6'
-  sha256 '851da439731d77d276d8deab70081a481fb7c04e7c09233c8887db60ed86e5fb'
+  version '1.7.8'
+  sha256 'e02a7c7386d81e1869be55af1e3466dccaa6d3a461680e2c030c224b8e287d4a'
 
   url "https://buildbot.libretro.com/stable/#{version}/apple/osx/x86_64/RetroArch.dmg"
   appcast 'https://buildbot.libretro.com/stable/'

@@ -1,6 +1,6 @@
 cask 'psychopy' do
-  version '3.0.7'
-  sha256 'e1adf0cfb86f5183dc49f828780b8a1efa140408438eed7f27cdda9301bf0f43'
+  version '3.2.3'
+  sha256 '01a251bfc39a9a4fcc0dfcebbd784c9634f40f7041b57f213a3f7ad5bd56b409'
 
   url "https://github.com/psychopy/psychopy/releases/download/#{version}/StandalonePsychoPy3-#{version}-MacOS.dmg"
   appcast 'https://github.com/psychopy/psychopy/releases.atom'

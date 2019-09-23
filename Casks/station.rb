@@ -1,6 +1,6 @@
 cask 'station' do
-  version '1.40.1'
-  sha256 '19c631085e13d21e84e30573d59d51cb9e550ad88dfd584894f23e7b9f798311'
+  version '1.50.1'
+  sha256 '77c54ac44db3bd48c8e8b9b625a1d10b2e76e5000876c771519f796674c56e1a'
 
   # github.com/getstation/desktop-app-releases was verified as official when first introduced to the cask
   url "https://github.com/getstation/desktop-app-releases/releases/download/#{version}/Station-#{version}.dmg"

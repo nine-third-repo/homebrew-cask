@@ -1,9 +1,11 @@
 cask 'roblox' do
-  version '1.2.0.265265,14d81515193c4606'
-  sha256 '3f5c1e1613e7348938f02df94c48a12cc6ce6c15722cf0f630869b4954995238'
+  version '0.401.0.338533,adb7353371d94e03'
+  sha256 '01380304e6e740d1cec18d4eb5a2dd5ee4f4e5529bc765bd9b16a27f03b45b2d'
 
   # setup.rbxcdn.com was verified as official when first introduced to the cask
   url "https://setup.rbxcdn.com/mac/version-#{version.after_comma}-Roblox.dmg"
+  appcast 'https://clientsettingscdn.roblox.com/v1/client-version/MacPlayer',
+          configuration: version.after_comma
   name 'Roblox'
   homepage 'https://www.roblox.com/download'
 

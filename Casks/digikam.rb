@@ -1,6 +1,6 @@
 cask 'digikam' do
-  version '6.1.0'
-  sha256 '097cb08e6843c4c44d14dad4740cb157dbf2cbe15f4a828a34f7c278ba59d7bd'
+  version '6.3.0'
+  sha256 '595ddea73d5af9b6658123776920b2a570367d856055859ac11687681f53f6a2'
 
   # kde.org/stable/digikam was verified as official when first introduced to the cask
   url "https://download.kde.org/stable/digikam/#{version}/digiKam-#{version}-MacOS-x86-64.pkg"
@@ -8,7 +8,7 @@ cask 'digikam' do
   name 'digiKam'
   homepage 'https://www.digikam.org/'
 
-  pkg "digikam-#{version}-MacOS-x86-64.pkg"
+  pkg "digiKam-#{version}-MacOS-x86-64.pkg"
 
   uninstall pkgutil: 'org.freedesktop.digikam',
             delete:  '/Applications/digiKam'

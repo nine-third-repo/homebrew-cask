@@ -1,6 +1,6 @@
 cask 'odrive' do
-  version '6510'
-  sha256 '72c21459a6990c5e1ab048845a92cf95cca1750a80e4ae9937b3699d1d4be7ba'
+  version '6529'
+  sha256 'a7154bb7818cd4a4c2d848b0d611616632635587917194761d06d9430df94c14'
 
   # downloads can be found at https://www.odrive.com/downloaddesktop
   # d3huse1s6vwzq6.cloudfront.net was verified as official when first introduced to the cask

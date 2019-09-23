@@ -1,6 +1,6 @@
 cask 'virtualbox-extension-pack' do
-  version '6.0.6'
-  sha256 '794f023a186bd217c29c3d30bd1434b6e9de3b242c7bf740d06d10f2d3d981c6'
+  version '6.0.12'
+  sha256 '27a0956940654b0accf4d79692078bd496d9f062e4ed3da69e5421cba8d1e444'
 
   url "https://download.virtualbox.org/virtualbox/#{version}/Oracle_VM_VirtualBox_Extension_Pack-#{version}.vbox-extpack"
   appcast 'https://download.virtualbox.org/virtualbox/LATEST.TXT'

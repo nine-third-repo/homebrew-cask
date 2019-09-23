@@ -1,13 +1,13 @@
 cask 'curio' do
-  version '12022.5'
-  sha256 'b79ca4b7e0c9aaffafc78e8b2768ae679af741da428a449ae499470fb44b9037'
+  version '13011.4'
+  sha256 '86215b58e47644e80ec95aeb71fc066a27d7dd517ff40827c771740d9f31791f'
 
   url "https://www.zengobi.com/downloads/Curio#{version.no_dots}.zip"
-  appcast 'https://www.zengobi.com/appcasts/Curio12MarkdownAppcast.xml'
+  appcast 'https://www.zengobi.com/appcasts/Curio13HLwLK2C84LaKptcz.xml'
   name 'Curio'
   homepage 'https://zengobi.com/curio/'
 
-  depends_on macos: '>= :sierra'
+  depends_on macos: '>= :high_sierra'
 
   app 'Curio.app'
 end
