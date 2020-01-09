@@ -1,9 +1,10 @@
 cask 'intel-power-gadget' do
-  version '3.5.5,828382'
-  sha256 'efd306800c28abda0d5543fbc5bf78eb142a43a96feb56fcf211e3bbc83a78d3'
+  version '3.6.2,842795'
+  sha256 '217274c97501d57dd17e6fb0c73a5fcdefc2a375cbbdb76d7645b537b74d386f'
 
   url "https://software.intel.com/file/#{version.after_comma}/download"
-  appcast 'https://software.intel.com/en-us/articles/intel-power-gadget'
+  appcast 'https://software.intel.com/en-us/articles/intel-power-gadget',
+          configuration: version.after_comma
   name 'Intel Power Gadget'
   homepage 'https://software.intel.com/en-us/articles/intel-power-gadget'
 

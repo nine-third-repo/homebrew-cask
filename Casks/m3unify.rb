@@ -1,6 +1,6 @@
 cask 'm3unify' do
-  version '2.0.0'
-  sha256 'd27935e3b68fd075ca1aeac262077771ef894a095f7911a527e4ccfab8a9cd1a'
+  version '2.1.0'
+  sha256 'eefb09a4586b296868ecf6e5e57bb57330993a88c4341d3bb455d406b73912c6'
 
   url "https://dougscripts.com/itunes/scrx/m3unifyv#{version.no_dots}.zip"
   appcast 'https://dougscripts.com/itunes/itinfo/m3unify_appcast.xml'

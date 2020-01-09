@@ -1,8 +1,9 @@
 cask 'rectangle' do
-  version '0.6'
-  sha256 'c09060506b9c6543adafe938da8ca98d4556d7648b7ed8dff6e0aeab33b867e9'
+  version '0.15'
+  sha256 '6cfb7d95c37a3b43c1d348bd95ef4a77a9892df7d0b3161690ccbc894479af45'
 
-  url "https://rectangleapp.com/downloads/Rectangle#{version}.dmg"
+  # github.com/rxhanson/Rectangle/releases/download/v was verified as official when first introduced to the cask
+  url "https://github.com/rxhanson/Rectangle/releases/download/v#{version}/Rectangle#{version}.dmg"
   appcast 'https://www.rectangleapp.com/downloads/updates.xml'
   name 'Rectangle'
   homepage 'https://rectangleapp.com/'

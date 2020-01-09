@@ -2,9 +2,12 @@ cask 'openemu' do
   if MacOS.version <= :yosemite
     version '1.0.4'
     sha256 'c9c3abc2acea4ed4c1e2b62fd6868feae1719251428a79803d9aa8a0de4474ef'
-  else
+  elsif MacOS.version <= :high_sierra
     version '2.0.9.1'
     sha256 'c6036374104e8cefee1be12fe941418e893a7f60a1b2ddaae37e477b94873790'
+  else
+    version '2.2'
+    sha256 'cd3763782e0f52ebafce5672562e1893a22ca0b63325bcd072fb31b3296d2689'
   end
 
   # github.com/OpenEmu/OpenEmu was verified as official when first introduced to the cask

@@ -1,10 +1,9 @@
 cask 'one-switch' do
-  version '1.7.1'
-  sha256 'c2127c94c26d606dfdee632fe1cc833be9586d58a4be78ab61f36892abfcd205'
+  version '1.9.1,216'
+  sha256 '7165f18c7e201ace33c8aa43eed7a78051c2cb050fe782da862243f96813c96c'
 
-  # dl.devmate.com/studio.fireball.OneSwitch was verified as official when first introduced to the cask
-  url 'https://dl.devmate.com/studio.fireball.OneSwitch/OneSwitch.zip'
-  appcast 'https://updates.devmate.com/studio.fireball.OneSwitch.xml'
+  url "https://fireball.studio/api/release_manager/downloads/studio.fireball.OneSwitch/#{version.after_comma}.zip"
+  appcast 'https://fireball.studio/api/release_manager/studio.fireball.OneSwitch.xml'
   name 'One Switch'
   homepage 'https://fireball.studio/oneswitch'
 

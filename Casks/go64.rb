@@ -1,12 +1,14 @@
 cask 'go64' do
   # note: "64" is not a version number, but an intrinsic part of the product name
-  version '1.0.4'
-  sha256 '3a7936c30d55c3a0d45b8df940c3a5075bfec0e9f9829ed1b849aec51e55a99e'
+  version '1.1'
+  sha256 '54c7c7b111cabedad4d5f6ae2611b5dd81b0fda05e8819e4ae050025295729a1'
 
   url "https://www.stclairsoft.com/download/Go64-#{version}.zip"
   appcast 'https://www.stclairsoft.com/cgi-bin/sparkle.cgi?GO'
   name 'Go64'
   homepage 'https://www.stclairsoft.com/Go64/'
+
+  auto_updates true
 
   app 'Go64.app'
 

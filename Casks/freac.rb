@@ -1,6 +1,6 @@
 cask 'freac' do
-  version '1.1-alpha-20190423'
-  sha256 'ce10882ca82198ec84397ab3a2d1fb3292dd9272ab59db2e22226cf09cab2739'
+  version '1.1-beta1'
+  sha256 'fdf264a5e163ed5056011e06fe7610e9bffb6baf39c728ee004195cbe22d1ba2'
 
   # github.com/enzo1982/freac was verified as official when first introduced to the cask
   url "https://github.com/enzo1982/freac/releases/download/v#{version}/freac-#{version}-macosx.dmg"

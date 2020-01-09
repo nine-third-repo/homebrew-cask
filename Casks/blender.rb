@@ -1,8 +1,8 @@
 cask 'blender' do
-  version '2.80'
-  sha256 '1f4ee2e3c35f837ede836be4dd75a7ba2f573ac447cb871e073202ab39ed179d'
+  version '2.81a'
+  sha256 '435b8bde06a14db0f21144f6277e1c70dafc6ea844c434854460c7456b44c251'
 
-  url "https://download.blender.org/release/Blender#{version.major_minor}/blender-#{version}-macOS.dmg"
+  url "https://download.blender.org/release/Blender#{version.major_minor.delete('a-z')}/blender-#{version}-macOS.dmg"
   appcast 'https://download.blender.org/release/',
           configuration: version.delete('a-z')
   name 'Blender'

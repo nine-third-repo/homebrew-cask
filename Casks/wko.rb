@@ -1,12 +1,12 @@
 cask 'wko' do
-  version '381'
-  sha256 '74107f34bda30acd2cd0d0a148558e42ae5539b83b6bd6fd0b25bd292d578657'
+  version '553'
+  sha256 '8e462b88c8ed3bb9fee567b9ec42cc8171690265d6e17b51f67df97f34717842'
 
   # wko4.com was verified as official when first introduced to the cask
-  url "https://updates.wko4.com/wko4release/WKO4_OSX_#{version}.dmg"
-  appcast 'https://updates.wko4.com/wko4release/wko4_osx_appcast.xml'
+  url "https://updates.wko4.com/TeQ2y43sOpz2/WKO5_OSX_#{version}.dmg"
+  appcast 'https://updates.wko4.com/TeQ2y43sOpz2/wko5_osx_appcast.xml'
   name 'WKO'
-  homepage 'https://www.trainingpeaks.com/wko4/'
+  homepage 'https://www.trainingpeaks.com/wko5/'
 
-  app 'WKO4.app'
+  app 'WKO5.app'
 end

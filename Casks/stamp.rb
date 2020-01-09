@@ -1,6 +1,6 @@
 cask 'stamp' do
-  version '4.15.0'
-  sha256 'a1d700d6a298dfa31c11cd530e7e703faae390cd3028f1d3a851df46810e3ff2'
+  version '4.15.3'
+  sha256 'e6243c13e3a35fa50eeecca7066990c4eddd609e0709011d75862e76c9dce3e3'
 
   # dzqeytqqx888.cloudfront.net was verified as official when first introduced to the cask
   url "https://dzqeytqqx888.cloudfront.net/STAMP#{version.no_dots}.dmg"

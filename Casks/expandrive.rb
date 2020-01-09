@@ -1,6 +1,6 @@
 cask 'expandrive' do
-  version '7.2.6'
-  sha256 'd1c6f174788a4790c2c4ca1ff4bae2c894bb49006246df136d5baa638189a6de'
+  version '7.4.6'
+  sha256 'abbb69b57394035cbd62f568e658e1b8f4695956a219925d884f79e812f16272'
 
   url "https://updates.expandrive.com/apps/expandrive#{version.major}/v/#{version.dots_to_hyphens}/update_download"
   appcast "https://updates.expandrive.com/appcast/expandrive#{version.major}.json?version=#{version.major}.0.0"

@@ -1,10 +1,11 @@
 cask 'visual-studio' do
-  version '8.2.6.26'
-  sha256 '166952a3cb145ac146c7e2fc780a82cc699185d5e6986242166b145096c687b3'
+  version '8.3.11.1'
+  sha256 '6b72ef2eb0065a23e27bd94a18103370fbe4f49870a22347de99aefc2bc85038'
 
   # dl.xamarin.com/VsMac was verified as official when first introduced to the cask
   url "https://dl.xamarin.com/VsMac/VisualStudioForMac-#{version}.dmg"
-  appcast 'https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2019-mac-relnotes'
+  appcast 'https://docs.microsoft.com/en-us/visualstudio/releasenotes/vs2019-mac-relnotes',
+          configuration: version.major_minor_patch
   name 'Visual Studio for Mac'
   homepage 'https://www.visualstudio.com/vs/visual-studio-mac/'
 

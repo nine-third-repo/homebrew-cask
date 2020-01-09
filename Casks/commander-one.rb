@@ -1,9 +1,10 @@
 cask 'commander-one' do
-  version '2.2'
-  sha256 'd0d5fdf26336359cb23e2bb20097f5f1226d0c4868212a1692faf26e433d3ba6'
+  version '2.4'
+  sha256 'dbb9c82ef5c471577ca1ae80cc175b2df43ce01a85c0d68fc2b9af80f9959a42'
 
-  url 'https://cdn.eltima.com/download/commander.dmg'
-  appcast 'https://cdn.eltima.com/download/commander-update/settings.xml'
+  # cdn.electronic.us was verified as official when first introduced to the cask
+  url 'https://cdn.electronic.us/products/commander/mac/download/commander.dmg'
+  appcast 'https://cdn.electronic.us/products/commander/mac/update/settings.xml'
   name 'Commander One'
   homepage 'https://mac.eltima.com/file-manager.html'
 

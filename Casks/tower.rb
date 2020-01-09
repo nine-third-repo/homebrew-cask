@@ -1,9 +1,9 @@
 cask 'tower' do
-  version '3.5.0-192,cb3edfff'
-  sha256 '6f054be142460fb27769cb247e56c861ff69a268643559d8eea296d88000867d'
+  version '3.6.0,205:1262a183'
+  sha256 '704998cdd473860d2e90eaaa774c4c9011a54712f844b8d658670e8cd12dd8cd'
 
   # fournova-app-updates.s3.amazonaws.com was verified as official when first introduced to the cask
-  url "https://fournova-app-updates.s3.amazonaws.com/apps/tower#{version.major}-mac/#{version.split('-').last.tr(',', '-')}/Tower-#{version.before_comma}.zip"
+  url "https://fournova-app-updates.s3.amazonaws.com/apps/tower#{version.major}-mac/#{version.after_comma.before_colon}-#{version.after_colon}/Tower-#{version.before_comma}-#{version.after_comma.before_colon}.zip"
   appcast "https://updates.fournova.com/updates/tower#{version.major}-mac/stable"
   name 'Tower'
   homepage 'https://www.git-tower.com/'
@@ -14,8 +14,9 @@ cask 'tower' do
   binary "#{appdir}/Tower.app/Contents/MacOS/gittower"
 
   zap trash: [
-               "~/Library/Application Support/com.fournova.Tower#{version.major}",
-               "~/Library/Caches/com.fournova.Tower#{version.major}",
-               "~/Library/Preferences/com.fournova.Tower#{version.major}.plist",
+               '~/Library/Application Support/com.fournova.Tower*',
+               '~/Library/Caches/com.fournova.Tower*',
+               '~/Library/Preferences/com.fournova.Tower*.plist',
+               '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.fournova.tower*.sfl2',
              ]
 end

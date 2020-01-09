@@ -1,13 +1,11 @@
 cask 'aws-vault' do
-  version '4.6.4'
-  sha256 '3c44825948dd15b0f55837343b404787f87081056cda2b5233348e0786eb4f81'
+  version '5.1.0'
+  sha256 '6ef3227c9c5ea248d82cd23f72c23d4d8d5adebca83011cf2a772b5578cb370b'
 
-  url "https://github.com/99designs/aws-vault/releases/download/v#{version}/aws-vault-darwin-amd64"
+  url "https://github.com/99designs/aws-vault/releases/download/v#{version}/aws-vault-darwin-amd64.dmg"
   appcast 'https://github.com/99designs/aws-vault/releases.atom'
   name 'aws-vault'
   homepage 'https://github.com/99designs/aws-vault'
 
-  container type: :naked
-
-  binary 'aws-vault-darwin-amd64', target: 'aws-vault'
+  binary 'aws-vault'
 end

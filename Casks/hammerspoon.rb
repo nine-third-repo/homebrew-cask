@@ -3,8 +3,8 @@ cask 'hammerspoon' do
     version '0.9.46'
     sha256 '20f7e81624b6f007d6fdd8944cab3d9ba48c36fd0b4f1405a590526b5d4859bc'
   else
-    version '0.9.75'
-    sha256 '7372a490ed82f5735b5c77abfb1fc0cb87f7ea362f23c9b343feb16e764dd078'
+    version '0.9.77'
+    sha256 '24b2f02ff81aebbb148584696eeb5e146a5dec18556e8107aabfda19ca8d54de'
   end
 
   # github.com/Hammerspoon/hammerspoon was verified as official when first introduced to the cask

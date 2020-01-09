@@ -1,9 +1,9 @@
 cask 'veracrypt' do
-  version '1.23'
-  sha256 '8c5ba5e8a19de5a33461f3cd84617140736d7cb38e306d0ac4b1c058940227f3'
+  version '1.24-Update2'
+  sha256 'a19fb3897a74e5eac557f3e4442c6e450879b34ac3ab631976a306c4bfdc3258'
 
   # launchpad.net/veracrypt/trunk was verified as official when first introduced to the cask
-  url "https://launchpad.net/veracrypt/trunk/#{version}/+download/VeraCrypt_#{version}.dmg"
+  url "https://launchpad.net/veracrypt/trunk/#{version.downcase}/+download/VeraCrypt_#{version}.dmg"
   appcast 'https://github.com/veracrypt/VeraCrypt/releases.atom'
   name 'VeraCrypt'
   homepage 'https://www.veracrypt.fr/'

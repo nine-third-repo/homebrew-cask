@@ -1,6 +1,6 @@
 cask 'musescore' do
-  version '3.2.3'
-  sha256 '22222dcbaf784f04f3dff5c8fd84597d56d54f4f846f77ea4b74be3b5924ce5a'
+  version '3.3.4'
+  sha256 '3c7f096313f81bf1f076fc97a88b1ad477ea914e4e4a9dbb9ad4c8e273e0b3e5'
 
   # github.com/musescore/MuseScore was verified as official when first introduced to the cask
   url "https://github.com/musescore/MuseScore/releases/download/v#{version}/MuseScore-#{version}.dmg"
@@ -8,7 +8,7 @@ cask 'musescore' do
   name 'MuseScore'
   homepage 'https://musescore.org/'
 
-  depends_on macos: '>= :sierra'
+  depends_on macos: '>= :yosemite'
 
   app "MuseScore #{version.major}.app"
   # shim script (https://github.com/caskroom/homebrew-cask/issues/18809)

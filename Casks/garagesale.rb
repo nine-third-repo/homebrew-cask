@@ -1,11 +1,13 @@
 cask 'garagesale' do
-  version '7.0.20'
-  sha256 '90caedc5d7d040a98c4f14f9d31af0850d1cd9c9e8ab587476b3ae6dca34b809'
+  version '8.0.9'
+  sha256 'da7d91f3604b096157ab74b126e54d4ad1d59957c88bb3552ea436028de64e9a'
 
   url "https://downloads.iwascoding.com/downloads/GarageSale_#{version}.dmg"
-  appcast "https://www.iwascoding.com/cgi-bin/version_check.cgi?APPLICATION=GarageSale&APP_BUNDLE_VERSION=#{version.major}00"
+  appcast 'https://www.iwascoding.com/GarageSale/Downloads.html#VersionHistory'
   name 'GarageSale'
   homepage 'https://www.iwascoding.com/GarageSale/'
+
+  depends_on macos: '>= :sierra'
 
   app 'GarageSale.app'
 end

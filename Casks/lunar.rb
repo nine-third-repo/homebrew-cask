@@ -1,12 +1,12 @@
 cask 'lunar' do
-  version '2.8.3'
-  sha256 '9113fcb009ce93f959fcb30f337cd442fc0b2a2065905703e1d5766a2492158b'
+  version '2.9.10'
+  sha256 'e13de7975f4a901a689853731af9a0f9c6487cbbebd740ff76587036f75b59e1'
 
   # github.com/alin23/Lunar was verified as official when first introduced to the cask
   url "https://github.com/alin23/Lunar/releases/download/v#{version}/Lunar-#{version}.dmg"
   appcast 'https://github.com/alin23/Lunar/releases.atom'
   name 'Lunar'
-  homepage 'https://lunarapp.site/'
+  homepage 'https://lunar.fyi/'
 
   auto_updates true
   depends_on macos: '>= :yosemite'

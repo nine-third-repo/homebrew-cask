@@ -1,6 +1,6 @@
 cask 'corretto' do
-  version '11.0.4.11.1'
-  sha256 'cba291ec0177a4a047e06c6c3a44ce7c5e9505c233d629c3c82fb3e6376e734b'
+  version '11.0.5.10.2'
+  sha256 '125fb23c1ebcd437bb7f6ffaa609baa9546aaab7af9a788dcf9b4bd7ccd4ba9e'
 
   # d3pxv6yz143wms.cloudfront.net was verified as official when first introduced to the cask
   url "https://d3pxv6yz143wms.cloudfront.net/#{version}/amazon-corretto-#{version}-macosx-x64.pkg"

@@ -1,6 +1,6 @@
 cask 'debookee' do
-  version '7.2.1'
-  sha256 'd8ea4f726894cae77fe59d38d2f05a5263adaf21cd5edeb27880778a5c915fbc'
+  version '7.3.2'
+  sha256 '75d4da3098f8ff5ce008bfcf397deb60f39f310f032e6d1e9c590b644efa3554'
 
   # iwaxx.com/debookee was verified as official when first introduced to the cask
   url 'https://www.iwaxx.com/debookee/debookee.zip'
@@ -8,6 +8,7 @@ cask 'debookee' do
   name 'Debookee'
   homepage 'https://debookee.com/'
 
+  auto_updates true
   depends_on macos: '>= :sierra'
 
   app 'Debookee.app'

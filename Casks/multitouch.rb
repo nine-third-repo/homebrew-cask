@@ -1,6 +1,6 @@
 cask 'multitouch' do
-  version '1.16'
-  sha256 '3f8502f09e79215958f7523f40e9c9f6e13eade1f0090501de07cda62151e620'
+  version '1.16.11'
+  sha256 '5b644c5ac774e20d1a2fdede340e26ca0af6c7bf45377f8f447f3845edd11d74'
 
   url "https://multitouch.app/downloads/multitouch#{version}.dmg"
   appcast 'https://www.multitouch.app/downloads/updates.xml'
