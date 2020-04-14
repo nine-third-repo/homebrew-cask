@@ -1,18 +1,19 @@
 cask 'iglance' do
-  version '1.4.2'
-  sha256 '02dc4b63c80bcf1e1ac622c977ac7be5ac506ede9fee2f9e1a33fd50aa8afdc4'
+  version '2.0.4'
+  sha256 '8c0aa0c67dff70923dc1cab1e43cf8c7bdff51643ad19d1fee57bbcdb1514ad8'
 
-  url "https://github.com/iglance/iglance/releases/download/v#{version}/iGlance.dmg"
+  url "https://github.com/iglance/iglance/releases/download/v#{version}/iGlance_v#{version}.zip"
   appcast 'https://github.com/iglance/iglance/releases.atom'
   name 'iGlance'
   homepage 'https://github.com/iglance/iGlance'
 
-  depends_on macos: '>= :high_sierra'
+  auto_updates true
+  depends_on macos: '>= :sierra'
 
   app 'iGlance.app'
 
   zap trash: [
-               '~/Library/Caches/io.iglance.iGlance',
-               '~/Library/Preferences/io.iglance.iGlance.plist',
+               '~/Library/Caches/io.github.iglance.iGlance',
+               '~/Library/Preferences/io.github.iglance.iGlance.plist',
              ]
 end

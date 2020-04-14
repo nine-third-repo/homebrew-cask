@@ -1,6 +1,6 @@
 cask 'minecraftpe' do
-  version '1.12.5'
-  sha256 '27e60759e560b18674a2c4e758e30cb3b6f98a46e0e9a9620bd8f859aac94f7a'
+  version '1.12.62'
+  sha256 '07dbbe77b9f213fab5513941a2a06d29487196c6c1b730666c522c60736846a2'
 
   # meedownloads.azureedge.net was verified as official when first introduced to the cask
   url 'https://meedownloads.azureedge.net/retailbuilds/MacOS/Minecraft_Education_Edition.dmg'

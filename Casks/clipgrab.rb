@@ -1,6 +1,6 @@
 cask 'clipgrab' do
-  version '3.8.9'
-  sha256 '5d92f7dea6f46a1baa231250a0cedc5ac370421da9a3a30f5c57cb41492856be'
+  version '3.8.11'
+  sha256 'a06e8e3897ec1366349a613245f6e8f48d73bbb2f222c2cb27ac704e3bd5c3d3'
 
   url "https://download.clipgrab.org/ClipGrab-#{version}.dmg"
   appcast 'https://clipgrab.org/'

@@ -1,15 +1,16 @@
 cask 'zoomus' do
-  version '4.6.14768.0101'
-  sha256 'cbb338f863d2b02eb7429e9abfb1d2f811efa288601b89c0b60b4f380a745ba5'
+  version '4.6.20561.0413'
+  sha256 '6c88d261f7784f1278f9aa7edcaa438cd919e7525cd66a17f019a2bcfae30eea'
 
-  url "https://www.zoom.us/client/#{version}/zoomusInstaller.pkg"
+  # d11yldzmag5yn.cloudfront.net was verified as official when first introduced to the cask
+  url "https://d11yldzmag5yn.cloudfront.net/prod/#{version}/Zoom.pkg"
   appcast 'https://macupdater.net/cgi-bin/check_urls/check_url_redirect.cgi?url=https://zoom.us/client/latest/Zoom.pkg'
   name 'Zoom.us'
   homepage 'https://www.zoom.us/'
 
   auto_updates true
 
-  pkg 'zoomusInstaller.pkg'
+  pkg 'Zoom.pkg'
 
   postflight do
     set_ownership '~/Library/Application Support/zoom.us'
@@ -19,6 +20,7 @@ cask 'zoomus' do
             signal:     [
                           ['KILL', 'us.zoom.xos'],
                         ],
+            pkgutil:    'us.zoom.pkg.videmeeting',
             login_item: 'ZoomOpener',
             delete:     [
                           '/Applications/zoom.us.app',
@@ -29,13 +31,16 @@ cask 'zoomus' do
   zap trash: [
                '~/.zoomus',
                '~/Desktop/Zoom',
+               '~/Documents/Zoom',
                '~/Library/Application Support/zoom.us',
                '~/Library/Caches/us.zoom.xos',
-               '~/Library/Internet Plug-Ins/ZoomUsPlugIn.plugin',
+               '~/Library/Cookies/us.zoom.xos.binarycookies',
                '~/Library/Logs/zoom.us',
                '~/Library/Logs/zoominstall.log',
                '~/Library/Preferences/ZoomChat.plist',
                '~/Library/Preferences/us.zoom.xos.plist',
+               '~/Library/Safari/PerSiteZoomPreferences.plist',
+               '~/Library/SafariTechnologyPreview/PerSiteZoomPreferences.plist',
                '~/Library/Saved Application State/us.zoom.xos.savedState',
              ]
 end

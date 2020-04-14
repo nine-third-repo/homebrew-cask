@@ -1,6 +1,6 @@
 cask 'navicat-for-mysql' do
-  version '15.0.7'
-  sha256 'cb84b8cea1f2c2507a33af6551cee88192a1e009c85e95931d823eacafac671a'
+  version '15.0.12'
+  sha256 'fba931fe5e0843cdaa4873e165797e1eb2230b6c644c8c8a3fa8300d78a5e742'
 
   url "http://download.navicat.com/download/navicat#{version.major_minor.no_dots}_mysql_en.dmg"
   appcast 'https://updater.navicat.com/mac/navicat_updates.php?appName=Navicat%20for%20MySQL&appLang=en'

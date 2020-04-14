@@ -1,6 +1,6 @@
 cask 'soulver' do
-  version '3.1.3.2-59'
-  sha256 '768c046ebf86451b3106e36de36b29f34e87ae9650c185a6078656238a81f9bf'
+  version '3.3.1-93'
+  sha256 'fadb149ab514f7d3ff1586140fcf17b4722b40102ccdaccfb1a5d49c135380ec'
 
   url "https://soulver.app/mac/sparkle/soulver-#{version}.zip"
   appcast 'https://soulver.app/mac/sparkle/appcast.xml'

@@ -1,6 +1,6 @@
 cask 'xamarin-android' do
-  version '10.0.6.2'
-  sha256 'f92cb88ae9f862e155a319e3842364dbb4d529e2014007bac313724c6c36ea00'
+  version '10.2.0.100'
+  sha256 'bb34bf2d2949be8a5d180bfaaddf3f33518c2a6da33614524c0bcd4cf85f5052'
 
   url "https://dl.xamarin.com/MonoforAndroid/Mac/xamarin.android-#{version}.pkg"
   appcast 'https://docs.microsoft.com/en-us/xamarin/android/release-notes/',

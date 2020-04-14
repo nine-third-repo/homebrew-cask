@@ -1,6 +1,6 @@
 cask '1password' do
-  version '7.4.1'
-  sha256 'ba2044c3a57c5f94066b6427ab922764166996a2fddcaf8654164e2d0a27ee6c'
+  version '7.4.3'
+  sha256 '8a0db05c08c827cd2f636eb2bf5d97926c3f26eb5731a016add704e0535b1b06'
 
   url "https://c.1password.com/dist/1P/mac#{version.major}/1Password-#{version}.zip"
   appcast "https://app-updates.agilebits.com/product_history/OPM#{version.major}"
@@ -8,7 +8,8 @@ cask '1password' do
   homepage 'https://1password.com/'
 
   auto_updates true
-  depends_on macos: '>= :sierra'
+  conflicts_with cask: '1password-beta'
+  depends_on macos: '>= :high_sierra'
 
   app "1Password #{version.major}.app"
 

@@ -1,6 +1,6 @@
 cask 'cutter' do
-  version '1.10.0'
-  sha256 '3d0bd39f332e52e5a9a1bd141db0b24cd7e86eb351bd1e6099039bc577b8acb3'
+  version '1.10.2'
+  sha256 'c999722f7ba4442c3cd9aa619baec2389459526a243c0af48697e18de5893eba'
 
   # github.com/radareorg/cutter was verified as official when first introduced to the cask
   url "https://github.com/radareorg/cutter/releases/download/v#{version}/Cutter-v#{version}-x64.macOS.dmg"
@@ -13,9 +13,9 @@ cask 'cutter' do
   app 'Cutter.app'
 
   zap trash: [
-               '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/test.cutter.sfl*',
-               '~/Library/Preferences/com.cutter.cutter.plist*',
-               '~/Library/Preferences/test.cutter.plist',
-               '~/Library/Saved Application State/test.cutter.savedState',
+               '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/org.radare.cutter.sfl*',
+               '~/Library/Application Support/RadareOrg/Cutter',
+               '~/Library/Preferences/org.radare.cutter.plist',
+               '~/Library/Saved Application State/org.radare.cutter.savedState',
              ]
 end

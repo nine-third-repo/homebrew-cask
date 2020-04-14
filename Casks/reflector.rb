@@ -4,8 +4,14 @@ cask 'reflector' do
 
   url "https://download.airsquirrels.com/Reflector#{version.major}/Mac/Reflector-#{version}.dmg"
   appcast "https://updates.airsquirrels.com/Reflector#{version.major}/Mac/Reflector#{version.major}.xml"
-  name "Reflector #{version.major}"
+  name 'Reflector'
   homepage 'https://www.airsquirrels.com/reflector/'
 
   app "Reflector #{version.major}.app"
+
+  zap trash: [
+               '~/Library/Application Support/Logs/Reflector3.log*',
+               '~/Library/Caches/com.squirrels.Reflector-3',
+               '~/Library/Preferences/com.squirrels.Reflector-3.plist',
+             ]
 end

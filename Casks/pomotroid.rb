@@ -1,8 +1,8 @@
 cask 'pomotroid' do
-  version '0.6.2'
-  sha256 '31fe5e68a8bfd830b4a3f252ed201bf38e0b0cd292e346074577a775c070698c'
+  version '0.7.1'
+  sha256 '4cb6e9092299b726133971601cff969ba0958e198372ecc4a13c85b40f32edcb'
 
-  url "https://github.com/Splode/pomotroid/releases/download/v#{version}/Pomotroid-#{version}.dmg"
+  url "https://github.com/Splode/pomotroid/releases/download/v#{version}/pomotroid-#{version}-macos.dmg"
   appcast 'https://github.com/Splode/pomotroid/releases.atom'
   name 'Pomotroid'
   homepage 'https://github.com/Splode/pomotroid'

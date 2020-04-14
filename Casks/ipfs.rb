@@ -1,6 +1,6 @@
 cask 'ipfs' do
-  version '0.10.2'
-  sha256 '72d896a4e81ff353946214ee7ed2853f2aa515f86f4de95e6ca6e448ee9d21a7'
+  version '0.10.4'
+  sha256 'aaa391eecd62a9f13f2f4ac35869602bbc8b6d98af867e4ff4b6084b52173dc3'
 
   url "https://github.com/ipfs-shipyard/ipfs-desktop/releases/download/v#{version}/ipfs-desktop-#{version}.dmg"
   appcast 'https://github.com/ipfs-shipyard/ipfs-desktop/releases.atom'

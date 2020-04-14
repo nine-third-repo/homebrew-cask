@@ -1,6 +1,6 @@
 cask 'teamviewer' do
-  version '15.1.3937'
-  sha256 'c889507215ea9a12fdf4fbf38c3e34951b922c3acbb253a5ad0a2b9636e430b0'
+  version '15.4.4445'
+  sha256 'd564ef42311701052a3351567e1c672521adc8ac0919f058f92ad34b1de02502'
 
   url 'https://download.teamviewer.com/download/TeamViewer.dmg'
   appcast 'https://download.teamviewer.com/download/update/macupdates.xml?id=0&lang=en&version=14.7.1965&os=macos&osversion=10.15.1&type=1&channel=1'
@@ -38,4 +38,11 @@ cask 'teamviewer' do
                '~/Library/Preferences/com.teamviewer.teamviewer.preferences.plist',
                '~/Library/Saved Application State/com.teamviewer.TeamViewer.savedState',
              ]
+
+  caveats <<~EOS
+    WARNING: #{token} has a bug in Catalina where it doesn't deal well with being uninstalled by other utilities.
+    The recommended way to remove it is by running their uninstaller under:
+
+       Preferences → Advanced
+  EOS
 end

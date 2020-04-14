@@ -8,8 +8,6 @@ cask 'osxfuse' do
   name 'OSXFUSE'
   homepage 'https://osxfuse.github.io/'
 
-  auto_updates true
-
   pkg "Extras/FUSE for macOS #{version}.pkg"
 
   postflight do
@@ -22,6 +20,8 @@ cask 'osxfuse' do
                        'com.github.osxfuse.pkg.PrefPane',
                      ],
             kext:    'com.github.osxfuse.filesystems.osxfusefs'
+
+  zap trash: '~/Library/Caches/com.github.osxfuse.OSXFUSEPrefPane'
 
   caveats do
     reboot

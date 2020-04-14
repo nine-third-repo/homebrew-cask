@@ -1,6 +1,6 @@
 cask 'vuescan' do
-  version '9.7.18'
-  sha256 '22010d1fec4eee4fa5b5987f58253a69a98545598eb5e210c9e1071404d9fad0'
+  version '9.7.27'
+  sha256 :no_check # required as upstream package is updated in-place
 
   url "https://www.hamrick.com/files/vuex64#{version.major_minor.no_dots}.dmg"
   appcast 'https://www.hamrick.com/alternate-versions.html'

@@ -1,6 +1,6 @@
 cask 'wireshark' do
-  version '3.2.0'
-  sha256 'a1f5b86d3ae8a2be38db218d07ad1d123315433292adae71a9756bbc881438ee'
+  version '3.2.3'
+  sha256 '066a05b20dce30f55a9ae8543cdf62771250352ab74c93186b8fb8a37a3aaf18'
 
   url "https://1.na.dl.wireshark.org/osx/all-versions/Wireshark%20#{version}%20Intel%2064.dmg"
   appcast 'https://www.wireshark.org/update/0/Wireshark/0.0.0/macOS/x86-64/en-US/stable.xml'
@@ -17,7 +17,12 @@ cask 'wireshark' do
 
   uninstall_preflight do
     set_ownership '/Library/Application Support/Wireshark'
-    system_command '/usr/sbin/dseditgroup', args: ['-o', 'delete', 'access_bpf'], sudo: true
+
+    if File.read('/etc/group').match?(%r{^access_bpf})
+      system_command '/usr/sbin/dseditgroup',
+                     args: ['-o', 'delete', 'access_bpf'],
+                     sudo: true
+    end
   end
 
   uninstall pkgutil:   'org.wireshark.*',

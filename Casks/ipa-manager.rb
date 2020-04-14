@@ -1,6 +1,6 @@
 cask 'ipa-manager' do
-  version '2.3'
-  sha256 '3cd5ae05ee59c613a0193ea3283fa878fcf10a5bde4939490acf98433d55dd75'
+  version '2.3.2'
+  sha256 'd48a1dcfbe3b3c1c17fc35353f84ff381791da0839f1ece1b991499276c5ef5f'
 
   url "https://www.blugs.com/Downloads/IPAPalette_#{version}.dmg"
   appcast 'https://www.blugs.com/Appcasts/IPAPalette.xml'

@@ -1,6 +1,6 @@
 cask 'mkvtoolnix' do
-  version '42.0.0'
-  sha256 '0dbc4178f7c49309974bb60180c02e4e0bf394298fde9d51734ab5865fd313f1'
+  version '45.0.0'
+  sha256 'd8fad9a4f6e6a9f999b6a9afa619d27ec0557952f45f0f84bfa3ce099a6fc885'
 
   url "https://mkvtoolnix.download/macos/MKVToolNix-#{version}.dmg"
   appcast 'https://www.bunkus.org/blog/feed/'

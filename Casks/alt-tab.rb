@@ -1,13 +1,22 @@
 cask 'alt-tab' do
-  version '2.3.2'
-  sha256 'ee09ad4d77cfa9dc3d8b795f3674d9e2d3227807610f6ea654199eb37191fc1c'
+  version '3.7.3'
+  sha256 'bf78fe88bd559a1691934243823c397208abcb975a4393563ad61499a330e8c8'
 
   url "https://github.com/lwouis/alt-tab-macos/releases/download/v#{version}/AltTab-#{version}.zip"
   appcast 'https://github.com/lwouis/alt-tab-macos/releases.atom'
   name 'alt-tab'
   homepage 'https://github.com/lwouis/alt-tab-macos'
 
-  depends_on macos: '>= :mojave'
+  auto_updates true
+  depends_on macos: '>= :sierra'
 
   app 'AltTab.app'
+
+  uninstall quit: 'com.lwouis.alt-tab-macos'
+
+  zap trash: [
+               '~/Library/Caches/com.lwouis.alt-tab-macos',
+               '~/Library/Cookies/com.lwouis.alt-tab-macos.binarycookies',
+               '~/Library/Preferences/com.lwouis.alt-tab-macos.plist',
+             ]
 end

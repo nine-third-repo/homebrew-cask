@@ -1,9 +1,9 @@
 cask 'kite' do
-  version '0.20200107.0'
-  sha256 'b596a0f0cd5d15889140b6cb1d2c786bca24553855fc9d580f0788a2b68f0ad5'
+  version '0.20200403.0'
+  sha256 'a15a50eba675276c105898dda8ca984135157ef2806285457966b2d7d9a0479a'
 
-  # kite-downloads.s3.amazonaws.com was verified as official when first introduced to the cask
-  url "https://kite-downloads.s3.amazonaws.com/Kite-#{version}.dmg"
+  # draqv87tt43s0.cloudfront.net was verified as official when first introduced to the cask
+  url "https://draqv87tt43s0.cloudfront.net/mac/#{version}/Kite.dmg"
   appcast 'https://release.kite.com/appcast.xml'
   name 'Kite'
   homepage 'https://kite.com/'
