@@ -1,12 +1,12 @@
-cask 'hbuilderx' do
-  version '2.6.11.20200409'
-  sha256 '6084ac251c01f4a75ae553b95b2d1a7af2033741b70d79006a596133b04366cb'
+cask "hbuilderx" do
+  version "2.9.8.20201119"
+  sha256 "ba82f994fc33d36cd37fee0adcfadc6016938c27ec9aa41c2f894d0dfe240d28"
 
-  # download.dcloud.net.cn was verified as official when first introduced to the cask
-  url "https://download.dcloud.net.cn/HBuilderX.#{version}.dmg"
-  appcast 'https://dcloud.io/docs/HBuilder.json'
-  name 'HBuilderX'
-  homepage 'https://www.dcloud.io/hbuilderx.html'
+  url "https://download1.dcloud.net.cn/download/HBuilderX.#{version}.dmg",
+      verified: "download1.dcloud.net.cn/"
+  appcast "https://update.dcloud.net.cn/hbuilderx/changelog/#{version}.html"
+  name "HBuilderX"
+  homepage "https://www.dcloud.io/hbuilderx.html"
 
-  app 'HBuilderX.app'
+  app "HBuilderX.app"
 end

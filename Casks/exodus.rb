@@ -1,20 +1,21 @@
-cask 'exodus' do
-  version '20.4.9'
-  sha256 '335d6e71259f7d57b3747b9d6aed8b0b87d840fe51c857b02e0085a752c6f471'
+cask "exodus" do
+  version "21.3.12"
+  sha256 "ff4fddf464d03b7baa7cb477fd42fa1cb6803595268ea69db06695117031b8c2"
 
-  url "https://downloads.exodus.io/releases/exodus-macos-#{version}.dmg"
-  appcast 'https://www.exodus.io/releases/'
-  name 'Exodus'
-  homepage 'https://www.exodus.io/'
+  url "https://downloads.exodus.com/releases/exodus-macos-#{version}.dmg"
+  appcast "https://www.exodus.com/releases/"
+  name "Exodus"
+  desc "Desktop wallet for cryptocurrency assets"
+  homepage "https://www.exodus.com/"
 
   auto_updates true
 
-  app 'Exodus.app'
+  app "Exodus.app"
 
   zap trash: [
-               '~/Library/Application Support/Exodus',
-               '~/Library/Preferences/com.electron.exodus.helper.plist',
-               '~/Library/Preferences/com.electron.exodus.plist',
-               '~/Library/Saved Application State/com.electron.exodus.savedState',
-             ]
+    "~/Library/Application Support/Exodus",
+    "~/Library/Preferences/com.electron.exodus.helper.plist",
+    "~/Library/Preferences/com.electron.exodus.plist",
+    "~/Library/Saved Application State/com.electron.exodus.savedState",
+  ]
 end

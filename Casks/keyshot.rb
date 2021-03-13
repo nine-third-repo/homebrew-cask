@@ -1,12 +1,12 @@
-cask 'keyshot' do
-  version '9.2.86'
-  sha256 '2e1c3f0bfa0b330e3f67cbdd17689e23f1426fdba3a923079368bfc79522e71e'
+cask "keyshot" do
+  version "10.0.198"
+  sha256 "a909471657083bdeba227200845e5a61644c35f43ccc2aef2cb4b9f37fdff8b0"
 
   url "https://download.keyshot.com/keyshot#{version.major}/keyshot_mac64_#{version}.pkg"
-  name 'KeyShot'
-  homepage 'https://www.keyshot.com/'
+  name "KeyShot"
+  homepage "https://www.keyshot.com/"
 
-  depends_on macos: '>= :sierra'
+  depends_on macos: ">= :sierra"
 
   pkg "keyshot_mac64_#{version}.pkg"
 

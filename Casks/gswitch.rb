@@ -1,14 +1,20 @@
-cask 'gswitch' do
-  version '1.9.6'
-  sha256 '431660ba4f7971f00d5d4648a96b4ac2326dbde366486f6fbbb4727f3d575e48'
+cask "gswitch" do
+  version "1.9.7"
+  sha256 "5d212c1bd39f6bfae588797fa09b959051dc4eefd26ec05fbd26b798125b976a"
 
-  # github.com/CodySchrank/gSwitch was verified as official when first introduced to the cask
-  url "https://github.com/CodySchrank/gSwitch/releases/download/#{version}/gSwitch.zip"
-  appcast 'https://github.com/CodySchrank/gSwitch/releases.atom'
-  name 'gSwitch'
-  homepage 'https://codyschrank.github.io/gSwitch/'
+  url "https://github.com/CodySchrank/gSwitch/releases/download/#{version}/gSwitch.zip",
+      verified: "github.com/CodySchrank/gSwitch/"
+  appcast "https://github.com/CodySchrank/gSwitch/releases.atom"
+  name "gSwitch"
+  desc "Set which graphics card to use"
+  homepage "https://codyschrank.github.io/gSwitch/"
 
-  depends_on macos: '>= :sierra'
+  depends_on macos: ">= :sierra"
 
-  app 'gSwitch.app'
+  app "gSwitch.app"
+
+  zap trash: [
+    "~/Library/Caches/gSwitch",
+    "~/Library/Preferences/com.CodySchrank.gSwitch.plist",
+  ]
 end

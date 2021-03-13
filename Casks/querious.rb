@@ -1,13 +1,13 @@
-cask 'querious' do
-  version '3.0.3'
-  sha256 'f65a2ca31954c6dfb83e78be65450c830b32ae638ad02c18c3f71bc8a694dc1c'
+cask "querious" do
+  version "3.0.9"
+  sha256 "e22b4618207812162499d8cdcce5d9912c9d61ecaca328df1117a06acab83aea"
 
   url "https://www.araelium.com/querious/downloads/versions/Querious#{version}.zip"
-  appcast 'https://arweb-assets.s3.amazonaws.com/downloads/querious/updates.json'
+  appcast "https://arweb-assets.s3.amazonaws.com/downloads/querious/updates.json"
   name "Querious #{version.major}"
-  homepage 'https://www.araelium.com/querious/'
+  homepage "https://www.araelium.com/querious/"
 
   auto_updates true
 
-  app 'Querious.app'
+  app "Querious.app"
 end

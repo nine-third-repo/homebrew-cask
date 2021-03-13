@@ -1,27 +1,27 @@
-cask 'powershell' do
-  version '7.0.0'
-  sha256 '80f75903e9f33b407a7f15c087a2c2b12a93dc153469e091d18048d01080085e'
+cask "powershell" do
+  version "7.1.2"
+  sha256 "A3B664487FB2906ABF52442B5E620DF3CF1FCE8AFF82C81679923C66097272C2"
 
   url "https://github.com/PowerShell/PowerShell/releases/download/v#{version}/powershell-#{version}-osx-x64.pkg"
-  appcast 'https://github.com/PowerShell/PowerShell/releases.atom'
-  name 'PowerShell'
-  homepage 'https://github.com/PowerShell/PowerShell'
+  name "PowerShell"
+  desc "Command-line shell and scripting language"
+  homepage "https://github.com/PowerShell/PowerShell"
 
-  depends_on macos: '>= :high_sierra'
+  livecheck do
+    url :homepage
+    strategy :git
+    regex(/^v?(\d+(?:\.\d+)*)$/)
+  end
+
+  depends_on macos: ">= :high_sierra"
 
   pkg "powershell-#{version}-osx-x64.pkg"
 
-  uninstall pkgutil: 'com.microsoft.powershell'
+  uninstall pkgutil: "com.microsoft.powershell"
 
   zap trash: [
-               '~/.cache/powershell',
-               '~/.config/PowerShell',
-               '~/.local/share/powershell',
-             ],
-      rmdir: [
-               '~/.cache',
-               '~/.config',
-               '~/.local/share',
-               '~/.local',
-             ]
+    "~/.cache/powershell",
+    "~/.config/PowerShell",
+    "~/.local/share/powershell",
+  ]
 end

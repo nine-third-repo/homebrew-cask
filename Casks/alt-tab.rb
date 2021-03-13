@@ -1,22 +1,28 @@
-cask 'alt-tab' do
-  version '3.7.3'
-  sha256 'bf78fe88bd559a1691934243823c397208abcb975a4393563ad61499a330e8c8'
+cask "alt-tab" do
+  version "6.17.0"
+  sha256 "b02e2993bba23f9d291109370fb216705324c1b61a78f90ac1beaf6b879ff4a7"
 
   url "https://github.com/lwouis/alt-tab-macos/releases/download/v#{version}/AltTab-#{version}.zip"
-  appcast 'https://github.com/lwouis/alt-tab-macos/releases.atom'
-  name 'alt-tab'
-  homepage 'https://github.com/lwouis/alt-tab-macos'
+  name "alt-tab"
+  desc "Utility to set up alt-tab to switch between windows"
+  homepage "https://github.com/lwouis/alt-tab-macos"
+
+  livecheck do
+    url :url
+    strategy :github_latest
+  end
 
   auto_updates true
-  depends_on macos: '>= :sierra'
+  depends_on macos: ">= :sierra"
 
-  app 'AltTab.app'
+  app "AltTab.app"
 
-  uninstall quit: 'com.lwouis.alt-tab-macos'
+  uninstall quit: "com.lwouis.alt-tab-macos"
 
   zap trash: [
-               '~/Library/Caches/com.lwouis.alt-tab-macos',
-               '~/Library/Cookies/com.lwouis.alt-tab-macos.binarycookies',
-               '~/Library/Preferences/com.lwouis.alt-tab-macos.plist',
-             ]
+    "~/Library/Application Support/com.lwouis.alt-tab-macos",
+    "~/Library/Caches/com.lwouis.alt-tab-macos",
+    "~/Library/Cookies/com.lwouis.alt-tab-macos.binarycookies",
+    "~/Library/Preferences/com.lwouis.alt-tab-macos.plist",
+  ]
 end

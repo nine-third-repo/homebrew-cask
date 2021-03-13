@@ -1,26 +1,31 @@
-cask 'marked' do
-  version '2.5.39985'
-  sha256 'c173a0a33ce5b16d4647e5511453cd248a2b11bdde5fc43451548d60d570731f'
+cask "marked" do
+  version "2.6.2,1010"
+  sha256 "ad1e0e443208001fe6624ba7221a4e06f49d3da11b5776db6cd624180fafaa3c"
 
-  url "https://updates.marked2app.com/Marked#{version}.zip"
-  appcast 'https://updates.marked2app.com/marked.xml'
-  name 'Marked'
-  homepage 'https://marked2app.com/'
+  url "https://updates.marked2app.com/Marked#{version.before_comma}#{version.after_comma}.zip"
+  name "Marked"
+  desc "Previewer for Markdown, MultiMarkdown and other text markup languages"
+  homepage "https://marked2app.com/"
+
+  livecheck do
+    url "https://updates.marked2app.com/marked.xml"
+    strategy :sparkle
+  end
 
   auto_updates true
-  depends_on macos: '>= :yosemite'
+  depends_on macos: ">= :yosemite"
 
   app "Marked #{version.major}.app"
 
   uninstall quit: "com.brettterpstra.marked#{version.major}"
 
   zap trash: [
-               "~/Library/Application Support/Marked #{version.major}",
-               "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.brettterpstra.marked#{version.major}.sfl*",
-               "~/Library/Caches/Marked #{version.major}",
-               "~/Library/Caches/com.brettterpstra.marked#{version.major}",
-               "~/Library/Logs/Marked #{version.major}",
-               "~/Library/Preferences/com.brettterpstra.marked#{version.major}.plist",
-               "~/Library/Saved Application State/com.brettterpstra.marked#{version.major}.savedState",
-             ]
+    "~/Library/Application Support/Marked #{version.major}",
+    "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.brettterpstra.marked#{version.major}.sfl*",
+    "~/Library/Caches/Marked #{version.major}",
+    "~/Library/Caches/com.brettterpstra.marked#{version.major}",
+    "~/Library/Logs/Marked #{version.major}",
+    "~/Library/Preferences/com.brettterpstra.marked#{version.major}.plist",
+    "~/Library/Saved Application State/com.brettterpstra.marked#{version.major}.savedState",
+  ]
 end

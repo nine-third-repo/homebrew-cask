@@ -1,28 +1,32 @@
-cask 'postgres' do
-  version '2.3.3e'
-  sha256 '14b0700ea4091e89c8913ce41cbd92d1d21b86b292990aa08e3e554dea7e345a'
+cask "postgres" do
+  version "2.4.2"
+  sha256 "4ea80659448cb98edd16a53e664672a558a1b64d5c960393dd72456da6772231"
 
-  # github.com/PostgresApp/PostgresApp was verified as official when first introduced to the cask
-  url "https://github.com/PostgresApp/PostgresApp/releases/download/v#{version}/Postgres-#{version}-10-11-12.dmg"
-  appcast 'https://github.com/PostgresApp/PostgresApp/releases.atom'
-  name 'Postgres'
-  homepage 'https://postgresapp.com/'
+  url "https://github.com/PostgresApp/PostgresApp/releases/download/v#{version}/Postgres-#{version}-9.5-9.6-10-11-12-13.dmg",
+      verified: "github.com/PostgresApp/PostgresApp/"
+  name "Postgres"
+  homepage "https://postgresapp.com/"
+
+  livecheck do
+    url :url
+    strategy :github_latest
+  end
 
   auto_updates true
-  depends_on macos: '>= :sierra'
+  depends_on macos: ">= :sierra"
 
-  app 'Postgres.app'
+  app "Postgres.app"
 
   uninstall launchctl: "com.postgresapp.Postgres#{version.major}LoginHelper",
             quit:      [
-                         "com.postgresapp.Postgres#{version.major}",
-                         "com.postgresapp.Postgres#{version.major}MenuHelper",
-                       ]
+              "com.postgresapp.Postgres#{version.major}",
+              "com.postgresapp.Postgres#{version.major}MenuHelper",
+            ]
 
   zap trash: [
-               '~/Library/Application Support/Postgres',
-               "~/Library/Caches/com.postgresapp.Postgres#{version.major}",
-               "~/Library/Cookies/com.postgresapp.Postgres#{version.major}.binarycookies",
-               "~/Library/Preferences/com.postgresapp.Postgres#{version.major}.plist",
-             ]
+    "~/Library/Application Support/Postgres",
+    "~/Library/Caches/com.postgresapp.Postgres#{version.major}",
+    "~/Library/Cookies/com.postgresapp.Postgres#{version.major}.binarycookies",
+    "~/Library/Preferences/com.postgresapp.Postgres#{version.major}.plist",
+  ]
 end

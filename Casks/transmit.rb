@@ -1,19 +1,21 @@
-cask 'transmit' do
-  version '5.6.3'
-  sha256 '7c579c03dbd61ea8dc2eb55021a943dd0145397db5a5976b01c968994fd52892'
+cask "transmit" do
+  version "5.7.2"
+  sha256 "57a4d14984a16d38eb0a4ab10aa16c8fb1cbd974dfa802ea7d077e9fc4c771b8"
 
   url "https://www.panic.com/transmit/d/Transmit%20#{version}.zip"
-  appcast "https://library.panic.com/releasenotes/transmit#{version.major}/"
-  name 'Transmit'
-  homepage 'https://panic.com/transmit/'
+  appcast "https://library.panic.com/releasenotes/transmit#{version.major}/",
+          must_contain: version.chomp(".0")
+  name "Transmit"
+  desc "File transfer application"
+  homepage "https://panic.com/transmit/"
 
   auto_updates true
-  depends_on macos: '>= :high_sierra'
+  depends_on macos: ">= :high_sierra"
 
-  app 'Transmit.app'
+  app "Transmit.app"
 
   zap trash: [
-               '~/Library/Preferences/com.panic.Transmit.plist',
-               '~/Library/Application Support/Transmit',
-             ]
+    "~/Library/Preferences/com.panic.Transmit.plist",
+    "~/Library/Application Support/Transmit",
+  ]
 end

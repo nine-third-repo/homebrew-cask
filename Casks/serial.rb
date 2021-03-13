@@ -1,11 +1,14 @@
-cask 'serial' do
-  version '2.0'
-  sha256 '05f3a92f60e8eec7c412557d71785ae67c1ea315d2279cf0163d0f5ceaa5a291'
+cask "serial" do
+  version "2.0.7"
+  sha256 "8288c8a5b7ca84de74d21f33a1304827075d1886baffb6fc2b9f45cac27ec601"
 
   url "https://download.decisivetactics.com/downloads/serial/Serial_#{version}.zip"
-  appcast 'https://api.decisivetactics.com/api/v1/public/appcast?app=serial'
-  name 'Serial'
-  homepage 'https://www.decisivetactics.com/products/serial/'
+  appcast "https://api.decisivetactics.com/api/v1/public/appcast?app=serial"
+  name "Serial"
+  desc "Connect to almost anything with a serial port"
+  homepage "https://www.decisivetactics.com/products/serial/"
 
-  app 'Serial.app'
+  auto_updates true
+
+  app "Serial.app"
 end

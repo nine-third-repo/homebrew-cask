@@ -1,14 +1,14 @@
-cask 'timelane' do
-  version '1.0.0'
-  sha256 'cee79be7ffd8f1e6d06cc937fe1addc895fa531a99c439cbe7fbd30589c6fed8'
+cask "timelane" do
+  version "2.0"
+  sha256 "3334fbb6945d1f0cb8f535c399297356037f4fdd5c570fd7a7325f5b4bd8b57a"
 
-  # github.com/icanzilb/Timelane was verified as official when first introduced to the cask
-  url "https://github.com/icanzilb/Timelane/releases/download/#{version}/Timelane.app-#{version}.zip"
-  appcast 'https://github.com/icanzilb/Timelane/releases.atom'
-  name 'Timelane'
-  homepage 'http://timelane.tools/'
+  url "https://github.com/icanzilb/Timelane/releases/download/#{version}/Timelane.app-#{version}.zip",
+      verified: "github.com/icanzilb/Timelane/"
+  appcast "https://github.com/icanzilb/Timelane/releases.atom"
+  name "Timelane"
+  homepage "http://timelane.tools/"
 
-  depends_on macos: '>= :mojave'
+  depends_on macos: ">= :mojave"
 
-  app 'Timelane.app'
+  app "Timelane.app"
 end

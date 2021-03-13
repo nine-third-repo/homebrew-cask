@@ -1,18 +1,18 @@
-cask 'empoche' do
-  version '0.2.1'
-  sha256 '0d2a4183c909db3c8e7ab8d051179d0ac135fc8d62b7cf85a11b73d1b14f172f'
+cask "empoche" do
+  version "0.4.5"
+  sha256 "8a4c57928da42a3ed60b1e0648b24614f84ecc582f3b9c9ee04cd5323e58ea4f"
 
-  # empoche-desktop.s3.eu-central-1.amazonaws.com was verified as official when first introduced to the cask
-  url "https://empoche-desktop.s3.eu-central-1.amazonaws.com/Empoche-#{version}-mac.zip"
-  appcast 'https://empoche-desktop.s3.eu-central-1.amazonaws.com/latest-mac.yml'
-  name 'Empoche'
-  homepage 'https://empoche.com/'
+  url "https://empoche-desktop.s3.amazonaws.com/Empoche-#{version}-mac.zip",
+      verified: "empoche-desktop.s3.amazonaws.com/"
+  appcast "https://empoche-desktop.s3.amazonaws.com/latest-mac.yml"
+  name "Empoche"
+  homepage "https://empoche.com/"
 
-  app 'Empoche.app'
+  app "Empoche.app"
 
   zap trash: [
-               '~/Library/Application Support/empoche',
-               '~/Library/Saved Application State/com.empoche.app.savedState',
-               '~/Library/Preferences/com.empoche.app.plist',
-             ]
+    "~/Library/Application Support/empoche",
+    "~/Library/Saved Application State/com.empoche.app.savedState",
+    "~/Library/Preferences/com.empoche.app.plist",
+  ]
 end

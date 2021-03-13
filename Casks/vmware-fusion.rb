@@ -1,16 +1,17 @@
-cask 'vmware-fusion' do
-  version '11.5.3-15870345'
-  sha256 'd87c97b72847e82e7986cd3a0aacfa8287df7f96433d209e546472e44ca61990'
+cask "vmware-fusion" do
+  version "12.1.0-17195230"
+  sha256 "75a54777ddc759babe84d276156dafa8822bdc5ece7b751de8ac1948b13af136"
 
   url "https://download3.vmware.com/software/fusion/file/VMware-Fusion-#{version}.dmg"
-  appcast 'https://softwareupdate.vmware.com/cds/vmw-desktop/fusion.xml'
-  name 'VMware Fusion'
-  homepage 'https://www.vmware.com/products/fusion.html'
+  appcast "https://softwareupdate.vmware.com/cds/vmw-desktop/fusion.xml"
+  name "VMware Fusion"
+  desc "App to run other operating systems without rebooting"
+  homepage "https://www.vmware.com/products/fusion.html"
 
   auto_updates true
-  depends_on macos: '>= :sierra'
+  depends_on macos: ">= :catalina"
 
-  app 'VMware Fusion.app'
+  app "VMware Fusion.app"
   binary "#{appdir}/VMware Fusion.app/Contents/Library/vmnet-bridge"
   binary "#{appdir}/VMware Fusion.app/Contents/Library/vmnet-cfgcli"
   binary "#{appdir}/VMware Fusion.app/Contents/Library/vmnet-cli"
@@ -36,10 +37,11 @@ cask 'vmware-fusion' do
   binary "#{appdir}/VMware Fusion.app/Contents/Library/vmware-vmx-debug"
   binary "#{appdir}/VMware Fusion.app/Contents/Library/vmware-vmx-stats"
   binary "#{appdir}/VMware Fusion.app/Contents/Library/VMware OVF Tool/ovftool"
+  binary "#{appdir}/VMware Fusion.app/Contents/Library/vkd/bin/vctl"
 
   postflight do
     system_command "#{appdir}/VMware Fusion.app/Contents/Library/Initialize VMware Fusion.tool",
-                   args: ['set'],
+                   args: ["set"],
                    sudo: true
   end
 
@@ -47,32 +49,32 @@ cask 'vmware-fusion' do
     set_ownership "#{appdir}/VMware Fusion.app"
   end
 
-  uninstall delete: '/etc/paths.d/com.vmware.fusion.public'
+  uninstall delete: "/etc/paths.d/com.vmware.fusion.public"
 
   zap trash: [
-               '/Library/Application Support/VMware',
-               '/Library/Logs/VMware Fusion Services.log',
-               '/Library/Logs/VMware USB Arbitrator Service.log',
-               '/Library/Logs/VMware',
-               '/Library/Preferences/VMware Fusion',
-               '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.vmware.fusion.sfl*',
-               '~/Library/Application Support/VMware Fusion',
-               '~/Library/Caches/com.vmware.fusion',
-               '~/Library/Logs/VMware Fusion',
-               '~/Library/Logs/VMware Graphics Service.log',
-               '~/Library/Logs/VMware',
-               '~/Library/Preferences/VMware Fusion',
-               '~/Library/Preferences/com.vmware.fusion.plist',
-               '~/Library/Preferences/com.vmware.fusion.plist.lockfile',
-               '~/Library/Preferences/com.vmware.fusionDaemon.plist',
-               '~/Library/Preferences/com.vmware.fusionDaemon.plist.lockfile',
-               '~/Library/Preferences/com.vmware.fusionStartMenu.plist',
-               '~/Library/Preferences/com.vmware.fusionStartMenu.plist.lockfile',
-               '~/Library/Preferences/com.vmware.fusion.LSSharedFileList.plist',
-               '~/Library/Preferences/com.vmware.fusion.LSSharedFileList.plist.lockfile',
-               '~/Library/Saved Application State/com.vmware.fusion.savedState',
-               '~/Library/WebKit/com.vmware.fusion',
-             ]
+    "/Library/Application Support/VMware",
+    "/Library/Logs/VMware Fusion Services.log",
+    "/Library/Logs/VMware USB Arbitrator Service.log",
+    "/Library/Logs/VMware",
+    "/Library/Preferences/VMware Fusion",
+    "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.vmware.fusion.sfl*",
+    "~/Library/Application Support/VMware Fusion",
+    "~/Library/Caches/com.vmware.fusion",
+    "~/Library/Logs/VMware Fusion",
+    "~/Library/Logs/VMware Graphics Service.log",
+    "~/Library/Logs/VMware",
+    "~/Library/Preferences/VMware Fusion",
+    "~/Library/Preferences/com.vmware.fusion.plist",
+    "~/Library/Preferences/com.vmware.fusion.plist.lockfile",
+    "~/Library/Preferences/com.vmware.fusionDaemon.plist",
+    "~/Library/Preferences/com.vmware.fusionDaemon.plist.lockfile",
+    "~/Library/Preferences/com.vmware.fusionStartMenu.plist",
+    "~/Library/Preferences/com.vmware.fusionStartMenu.plist.lockfile",
+    "~/Library/Preferences/com.vmware.fusion.LSSharedFileList.plist",
+    "~/Library/Preferences/com.vmware.fusion.LSSharedFileList.plist.lockfile",
+    "~/Library/Saved Application State/com.vmware.fusion.savedState",
+    "~/Library/WebKit/com.vmware.fusion",
+  ]
 
   caveats do
     kext

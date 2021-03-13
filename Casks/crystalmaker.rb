@@ -1,11 +1,18 @@
-cask 'crystalmaker' do
-  version '10.5.1'
-  sha256 'a0d0a2b1363514c24f03b7ffc85441a774275e00b48eeb25138f9929698e0b80'
+cask "crystalmaker" do
+  version "10.6.1"
+  sha256 :no_check
 
-  url 'http://crystalmaker.com/downloads/crystalmaker_mac.zip'
-  appcast "http://crystalmaker.com/crystalmaker/release-notes/mac/#{version.major}/index.html"
-  name 'CrystalMaker'
-  homepage 'http://crystalmaker.com/index.html'
+  url "http://crystalmaker.com/downloads/crystalmaker_mac.zip"
+  name "CrystalMaker"
+  desc "Visualize crystal and molecular structures"
+  homepage "http://crystalmaker.com/index.html"
 
-  app 'CrystalMaker.app'
+  livecheck do
+    url "http://crystalmaker.com/support/updates/VersionData-CMM.xml"
+    regex(/<version[^>]+?number=["']?v?(\d+(?:\.\d+)+)["']?[^>]*?>/i)
+  end
+
+  depends_on macos: ">= :sierra"
+
+  app "CrystalMaker.app"
 end

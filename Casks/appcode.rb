@@ -1,24 +1,36 @@
-cask 'appcode' do
-  version '2019.3.7,193.6911.31'
-  sha256 '4279c8440b2f994688e291500c9ddc85d98fe3ea12083b81fe6b2bc1d5bee7dd'
+cask "appcode" do
+  version "2020.3.3,203.7148.89"
 
-  url "https://download.jetbrains.com/objc/AppCode-#{version.before_comma}.dmg"
-  appcast 'https://data.services.jetbrains.com/products/releases?code=AC&latest=true&type=release'
-  name 'AppCode'
-  homepage 'https://www.jetbrains.com/objc/'
+  if Hardware::CPU.intel?
+    sha256 "e2dfbbaafb52dfa5dd8b7dfcdc2eb4cc49c560c5fdfa285f8116c737bac34df7"
+    url "https://download.jetbrains.com/objc/AppCode-#{version.before_comma}.dmg"
+  else
+    sha256 "050406b4a2e7e6cfebb8353aad3dc1711138620dffccced0c311bafbe6705cb7"
+    url "https://download.jetbrains.com/objc/AppCode-#{version.before_comma}-aarch64.dmg"
+  end
+
+  appcast "https://data.services.jetbrains.com/products/releases?code=AC&latest=true&type=release"
+  name "AppCode"
+  desc "IDE for Swift, Objective-C, C, and C++ development"
+  homepage "https://www.jetbrains.com/objc/"
 
   auto_updates true
 
-  app 'AppCode.app'
+  app "AppCode.app"
 
   uninstall_postflight do
-    ENV['PATH'].split(File::PATH_SEPARATOR).map { |path| File.join(path, 'appcode') }.each { |path| File.delete(path) if File.exist?(path) && File.readlines(path).grep(%r{# see com.intellij.idea.SocketLock for the server side of this interface}).any? }
+    ENV["PATH"].split(File::PATH_SEPARATOR).map { |path| File.join(path, "appcode") }.each do |path|
+      if File.exist?(path) &&
+         File.readlines(path).grep(/# see com.intellij.idea.SocketLock for the server side of this interface/).any?
+        File.delete(path)
+      end
+    end
   end
 
   zap trash: [
-               "~/Library/Application Support/AppCode#{version.major_minor}",
-               "~/Library/Caches/AppCode#{version.major_minor}",
-               "~/Library/Logs/AppCode#{version.major_minor}",
-               "~/Library/Preferences/AppCode#{version.major_minor}",
-             ]
+    "~/Library/Application Support/AppCode#{version.major_minor}",
+    "~/Library/Caches/AppCode#{version.major_minor}",
+    "~/Library/Logs/AppCode#{version.major_minor}",
+    "~/Library/Preferences/AppCode#{version.major_minor}",
+  ]
 end

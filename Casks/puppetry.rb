@@ -1,18 +1,19 @@
-cask 'puppetry' do
-  version '3.2.1'
-  sha256 'b03561bdcb8ac7bfeb85609514f5d7baf8e6526c58b35fdb8d219835bc780c30'
+cask "puppetry" do
+  version "3.2.4"
+  sha256 "edf48948a10dee9acf4560be9fa537f8722b63feb724464d782527f5a27cee3c"
 
-  # github.com/dsheiko/puppetry was verified as official when first introduced to the cask
-  url "https://github.com/dsheiko/puppetry/releases/download/v#{version}/puppetry-mac-v#{version}.zip"
-  appcast 'https://github.com/dsheiko/puppetry/releases.atom'
-  name 'Puppetry'
-  homepage 'https://puppetry.app/'
+  url "https://github.com/dsheiko/puppetry/releases/download/v#{version}/puppetry-mac-v#{version}.zip",
+      verified: "github.com/dsheiko/puppetry/"
+  appcast "https://github.com/dsheiko/puppetry/releases.atom"
+  name "Puppetry"
+  desc "Web testing solution for non-developers on top of Puppeteer and Jest"
+  homepage "https://puppetry.app/"
 
-  app 'puppetry.app'
+  app "puppetry.app"
 
   zap trash: [
-               '~/Library/Application Support/puppetry',
-               '~/Library/Preferences/com.dsheiko.puppetry.plist',
-               '~/Library/Saved Application State/com.dsheiko.puppetry.savedState',
-             ]
+    "~/Library/Application Support/puppetry",
+    "~/Library/Preferences/com.dsheiko.puppetry.plist",
+    "~/Library/Saved Application State/com.dsheiko.puppetry.savedState",
+  ]
 end

@@ -1,101 +1,88 @@
-cask 'thunderbird' do
-  version '68.7.0'
+cask "thunderbird" do
+  version "78.8.1"
 
-  language 'cs' do
-    sha256 '18d72ceab8c463b68ba34e1c2c153ff4cec2eb47aca4942726c558451253ba99'
-    'cs'
+  language "cs" do
+    sha256 "ac782d4c8099ba30cb6196fb8f98a810627835fdfd2705c7ef8cf5b3c2b066a1"
+    "cs"
+  end
+  language "de" do
+    sha256 "3f8960a40076f3fd944001337874abe7c3e6fffafecdcf96633011762896d569"
+    "de"
+  end
+  language "en-GB" do
+    sha256 "563e6286511137693a78115599e866b1c02bf69d1bfa4685c774ecccd4eb83af"
+    "en-GB"
+  end
+  language "en", default: true do
+    sha256 "40c117f99f0965b2a5b36776f9d15fce201bf1ae03bb58c402b1beba832b94f8"
+    "en-US"
+  end
+  language "fr" do
+    sha256 "e84b8e1adc5ca0f9f5914b43db5859c1c54b6e4eaa5520fde9d2e8e0763e7c93"
+    "fr"
+  end
+  language "gl" do
+    sha256 "4a979173a1a71eb74ab8a845a06c13ecefa6dbbe118c38b3db3d14b15f440fcd"
+    "gl"
+  end
+  language "it" do
+    sha256 "761608e27fbb98a0028937d71e0d8347890ec1a07925a54993b90988355f31cb"
+    "it"
+  end
+  language "ja" do
+    sha256 "4094a49163a22f4db2652fa422f5ed8d3d87952fac761e6dba26e78928cd07a5"
+    "ja-JP-mac"
+  end
+  language "nl" do
+    sha256 "2ce79ce7533d9f10d27451832cc156db12ff6b6ba4d6eb72b0ed65249849f9d0"
+    "nl"
+  end
+  language "pl" do
+    sha256 "e96729f4e3d569ac6213c0bc6fadebf7d0496b34a7aa2c6d97374dfac7c15dd4"
+    "pl"
+  end
+  language "pt" do
+    sha256 "5b259c44c281caa510984ab5b28f820dffdf682d3542280e29213850a14b135a"
+    "pt-PT"
+  end
+  language "pt-BR" do
+    sha256 "850ba9a95dc53a344a436d39e484221363d2d726aaf3c29eb315f515c21a9f7f"
+    "pt-BR"
+  end
+  language "ru" do
+    sha256 "6b861d5977e06d15ea697d96476a76ff0ace540374893682ccc885aae94994e4"
+    "ru"
+  end
+  language "uk" do
+    sha256 "d16a5b69c44bd33870923e5244aae4b7256f8d3956172871e1e785e185c7ae35"
+    "uk"
+  end
+  language "zh-TW" do
+    sha256 "c31f71516eba0887e632754dfded21f53e4d6c094cb6af7919ca0a7c2311d81a"
+    "zh-TW"
+  end
+  language "zh" do
+    sha256 "81896b1cbfe00395516623bb49a430d15e1f8df6d70ac7636d50e2450154503c"
+    "zh-CN"
   end
 
-  language 'de' do
-    sha256 '94254f3ac8de74fd6f9bd8a208e4c40535ca58e284fb1be5a6c8586632bfd45a'
-    'de'
-  end
-
-  language 'en-GB' do
-    sha256 'f1c8fb76308ec51be50f98969cc72993623f2a8c3d14e661158bb05039f70499'
-    'en-GB'
-  end
-
-  language 'en', default: true do
-    sha256 '8aa7f10be04378d7bfd1810f3439ea2ec2a339b466e33ce480994697a61667db'
-    'en-US'
-  end
-
-  language 'fr' do
-    sha256 '6bd4e15bd3e29b69c75637d316bd0e82e6840879907d662e5f99f5499a159636'
-    'fr'
-  end
-
-  language 'gl' do
-    sha256 '2153104f4b05f494f5159dbc87b84e88ba56eaea325e2a5d513262e784c7957b'
-    'gl'
-  end
-
-  language 'it' do
-    sha256 'b6dae53ed6dce09f332c2c29f60160c3ee4eda480b81f53c7e9b7a6278311d50'
-    'it'
-  end
-
-  language 'ja' do
-    sha256 'c1d11963fde677a688676164fa28e0cad3c75650516df589f729dffa2e5e83ba'
-    'ja-JP-mac'
-  end
-
-  language 'nl' do
-    sha256 '45850cc2079ac604467582d96ed30ae66a3b2036c84e1b1fb3cbbdb6625d55ba'
-    'nl'
-  end
-
-  language 'pl' do
-    sha256 'b8674bd9dc19e9026e006febed2e90fd2aa664bfb65ace193b220a50564ef36d'
-    'pl'
-  end
-
-  language 'pt' do
-    sha256 '8f9d0dbd1ff9e8fda514c826a6e1f5951d4dc33418f22b3008ed66922b7dff21'
-    'pt-PT'
-  end
-
-  language 'pt-BR' do
-    sha256 '3da5482e66c95aead9b27f2b6a6835cd8077b2350feee77d087ce4661152abc3'
-    'pt-BR'
-  end
-
-  language 'ru' do
-    sha256 'cbc0793e5d73d714f9e126a9b7f0a903b3557a9e22f78d4d5fb977526be12070'
-    'ru'
-  end
-
-  language 'uk' do
-    sha256 '924dddbab0336e22f70b76318eb4157e0a7d91d9c81bec0ac1b9b133bfb664e6'
-    'uk'
-  end
-
-  language 'zh-TW' do
-    sha256 '800c85a11cb591ebd13bdd3dab21bbafb34fc5613508bc6ae92ff5b993eb8668'
-    'zh-TW'
-  end
-
-  language 'zh' do
-    sha256 '7bb2219f5abd8d6565ae33b3807cb4faee2957f5d9c2d632d6324381e6536745'
-    'zh-CN'
-  end
-
-  url "https://ftp.mozilla.org/pub/thunderbird/releases/#{version}/mac/#{language}/Thunderbird%20#{version}.dmg"
-  appcast 'https://www.thunderbird.net/en-US/thunderbird/releases/'
-  name 'Mozilla Thunderbird'
-  homepage 'https://www.mozilla.org/thunderbird/'
+  url "https://ftp.mozilla.org/pub/thunderbird/releases/#{version}/mac/#{language}/Thunderbird%20#{version}.dmg",
+      verified: "ftp.mozilla.org/"
+  appcast "https://www.thunderbird.net/en-US/thunderbird/releases/"
+  name "Mozilla Thunderbird"
+  desc "Customizable email client"
+  homepage "https://www.thunderbird.net/"
 
   auto_updates true
-  conflicts_with cask: 'thunderbird-beta'
+  conflicts_with cask: "homebrew/cask-versions/thunderbird-beta"
 
-  app 'Thunderbird.app'
+  app "Thunderbird.app"
 
   zap trash: [
-               '~/Library/Thunderbird',
-               '~/Library/Caches/Thunderbird',
-               '~/Library/Saved Application State/org.mozilla.thunderbird.savedState',
-               '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/org.mozilla.thunderbird.sfl*',
-               '~/Library/Preferences/org.mozilla.thunderbird.plist',
-             ]
+    "~/Library/Thunderbird",
+    "~/Library/Caches/Thunderbird",
+    "~/Library/Saved Application State/org.mozilla.thunderbird.savedState",
+    "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/org.mozilla.thunderbird.sfl*",
+    "~/Library/Preferences/org.mozilla.thunderbird.plist",
+  ]
 end

@@ -1,11 +1,11 @@
-cask 'abscissa' do
-  version '4.0.2'
-  sha256 '6b78b8cee2141bd528b11c5d5b7754cde82b1f21f35db0ab86fd363015d535a3'
+cask "abscissa" do
+  version "4.0.5"
+  sha256 "27ba34c800000871f3b4ce24feb92c85c9e11fa0a7799d4b1a76bb9a4fddfdc5"
 
   url "http://rbruehl.macbay.de/Abscissa/Downloads/Abscissa-#{version}.zip"
-  appcast 'http://rbruehl.macbay.de/Abscissa/Downloads/'
-  name 'Abscissa'
-  homepage 'http://rbruehl.macbay.de/Abscissa/'
+  appcast "http://rbruehl.macbay.de/Abscissa/Downloads/"
+  name "Abscissa"
+  homepage "http://rbruehl.macbay.de/Abscissa/"
 
-  app 'Abscissa.app'
+  app "Abscissa.app"
 end

@@ -1,11 +1,12 @@
-cask 'decrediton' do
-  version '1.5.1'
-  sha256 '62c02815bb8af8f4d6638bb832d084012bf93f3375090b4fd74cf128ca75a772'
+cask "decrediton" do
+  version "1.6.1"
+  sha256 "fe1485949dcb066332a50ddb164d468a9cfbe10056cc483eb37841f52e77172b"
 
   url "https://github.com/decred/decred-binaries/releases/download/v#{version}/decrediton-v#{version}.dmg"
-  appcast 'https://github.com/decred/decred-binaries/releases.atom'
-  name 'Decrediton'
-  homepage 'https://github.com/decred/decrediton'
+  appcast "https://github.com/decred/decred-binaries/releases.atom"
+  name "Decrediton"
+  desc "Wallet GUI for decred autonomous digital currency"
+  homepage "https://github.com/decred/decrediton"
 
-  app 'decrediton.app'
+  app "decrediton.app"
 end

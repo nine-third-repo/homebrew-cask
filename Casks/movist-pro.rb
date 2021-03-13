@@ -1,12 +1,17 @@
-cask 'movist-pro' do
-  version '2.2.15'
-  sha256 '1d53d9cc7e8e7bd500a754f3875593e9609ec59693c8bde083bf3ad98988c1ff'
+cask "movist-pro" do
+  version "2.6.5,172"
+  sha256 "33a991580764d6c6470708373e49cec206a0c0b34bae707e8140df2190f2b1b0"
 
-  # d2uukrxj8lf22z.cloudfront.net was verified as official when first introduced to the cask
-  url 'https://d2uukrxj8lf22z.cloudfront.net/MovistPro.app.zip'
-  appcast 'https://s3.ap-northeast-2.amazonaws.com/update.cocoable.com/appcast.xml'
-  name 'Movist Pro'
-  homepage 'https://movistprime.com/'
+  url "https://s3.ap-northeast-2.amazonaws.com/update.cocoable.com/MovistPro_#{version.before_comma}.dmg",
+      verified: "s3.ap-northeast-2.amazonaws.com/update.cocoable.com/"
+  name "Movist Pro"
+  desc "Media player"
+  homepage "https://movistprime.com/"
 
-  app 'Movist Pro.app'
+  livecheck do
+    url "https://s3.ap-northeast-2.amazonaws.com/update.cocoable.com/appcast.xml"
+    strategy :sparkle
+  end
+
+  app "Movist Pro.app"
 end

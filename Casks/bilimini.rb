@@ -1,13 +1,13 @@
-cask 'bilimini' do
-  version '1.4.2'
-  sha256 '43cdb421868ad1a6f7c0ec555e914dd531267c6ffaa8853bdd022b66ac2400b7'
+cask "bilimini" do
+  version "1.5.2"
+  sha256 "e788c43dd9717f7d822cf3be0fc76778b043a9ef1399923a8dba85f30ef680bc"
 
   url "https://github.com/chitosai/bilimini/releases/download/v#{version}/bilimini-#{version}-mac.zip"
-  appcast 'https://github.com/chitosai/bilimini/releases.atom'
-  name 'bilimini'
-  homepage 'https://github.com/chitosai/bilimini'
+  appcast "https://github.com/chitosai/bilimini/releases.atom"
+  name "bilimini"
+  homepage "https://github.com/chitosai/bilimini"
 
   auto_updates true
 
-  app 'bilimini.app'
+  app "bilimini.app"
 end

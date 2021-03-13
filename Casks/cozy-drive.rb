@@ -1,12 +1,16 @@
-cask 'cozy-drive' do
-  version '3.20.0'
-  sha256 '81fa6226774a6836ed3673bf0de6843f7c43ed3bdf0cc7e19f12f5ad44f70ad6'
+cask "cozy-drive" do
+  version "3.25.0"
+  sha256 "a48bf3739201577d553e3545cf1a007fe79f67cd1f660726e9376869a7763c66"
 
-  # nuts.cozycloud.cc was verified as official when first introduced to the cask
-  url "https://nuts.cozycloud.cc/download/channel/stable/CozyDrive-#{version}.dmg"
-  appcast 'https://macupdater.net/cgi-bin/check_urls/check_url_filename.cgi?url=https://nuts.cozycloud.cc/download/channel/stable/osx'
-  name 'Cozy Drive'
-  homepage 'https://cozy.io/'
+  url "https://nuts.cozycloud.cc/download/channel/stable/CozyDrive-#{version}.dmg",
+      verified: "nuts.cozycloud.cc/"
+  name "Cozy Drive"
+  homepage "https://cozy.io/"
 
-  app 'Cozy Drive.app'
+  livecheck do
+    url "https://nuts.cozycloud.cc/download/channel/stable/osx"
+    strategy :header_match
+  end
+
+  app "Cozy Drive.app"
 end

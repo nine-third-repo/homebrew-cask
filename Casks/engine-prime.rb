@@ -1,15 +1,16 @@
-cask 'engine-prime' do
-  version '1.3.4'
-  sha256 '6d2a9f9387951b242a03b842ec00aa7069f263e04b0466885b9c6d4759d0a35a'
+cask "engine-prime" do
+  version "1.6.0"
+  sha256 "49927e5500f7ebef12087d8cf38f4848925eeb1d949203307b8b9833a4a53c1f"
 
-  # inmusicbrands.com was verified as official when first introduced to the cask
-  url "https://cdn.inmusicbrands.com/denondj/EnginePrime/Engine_Prime_#{version}_Setup.dmg"
-  name 'Engine Prime'
-  homepage 'https://www.denondj.com/engineprime'
+  url "https://cdn.inmusicbrands.com/denondj/EnginePrime/Engine_Prime_#{version}_Setup.dmg",
+      verified: "inmusicbrands.com/"
+  name "Engine Prime"
+  desc "Music Management Software for Denon's Engine OS Hardware"
+  homepage "https://www.denondj.com/engineprime"
 
   pkg "Engine Prime_#{version}_Setup.pkg"
 
-  uninstall pkgutil: 'com.airmusictechnology.engineprime.application'
+  uninstall pkgutil: "com.airmusictechnology.engineprime.application"
 
-  zap trash: '~/Music/Engine Library'
+  zap trash: "~/Music/Engine Library"
 end

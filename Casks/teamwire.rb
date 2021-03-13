@@ -1,12 +1,12 @@
-cask 'teamwire' do
-  version '2.1.0'
-  sha256 'd099950489fd7f97d5c9648d774e8a6b9585da7e19ad99cfb24d3be539a37878'
+cask "teamwire" do
+  version "2.2.1"
+  sha256 "8471cee1b211c71e5764ec361a4eed4e9742a1de591091ab2022c317d11a8767"
 
   url "https://desktop.teamwire.eu/dist/#{version}/Teamwire-macos64_#{version}.dmg"
-  name 'Teamwire'
-  homepage 'https://www.teamwire.eu/'
+  name "Teamwire"
+  homepage "https://www.teamwire.eu/"
 
-  app 'Teamwire.app'
+  app "Teamwire.app"
 
-  zap trash: '~/Library/Application Support/Teamwire/'
+  zap trash: "~/Library/Application Support/Teamwire/"
 end

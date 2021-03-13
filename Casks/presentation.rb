@@ -1,12 +1,18 @@
-cask 'presentation' do
-  version '2.0'
-  sha256 '871bbd6ed4eb0d3dfed4c060b11197d86bbdde2ac1dc2d8fb35cff72ff3bfce9'
+cask "presentation" do
+  version "2.3.1"
+  sha256 "1b25a24a898f7d51436846f3d59cb8095a8c28f30a1b4d924c3de085e0005f08"
 
-  url "http://iihm.imag.fr/blanch/software/osx-presentation/releases/osx-presentation-#{version}.dmg"
-  appcast 'http://iihm.imag.fr/blanch/software/osx-presentation/'
-  name 'Présentation'
-  homepage 'http://iihm.imag.fr/blanch/software/osx-presentation/'
+  url "http://iihm.imag.fr/blanch/software/osx-presentation/releases/osx-presentation-#{version}.pkg"
+  name "Présentation"
+  homepage "http://iihm.imag.fr/blanch/software/osx-presentation/"
 
-  app 'Présentation.app'
-  binary "#{appdir}/Présentation.app/Contents/MacOS/presentation.py", target: 'presentation'
+  livecheck do
+    url :homepage
+    strategy :page_match
+    regex(%r{href=.*?/osx-presentation-(\d+(?:\.\d+)*)\.pkg}i)
+  end
+
+  pkg "osx-presentation-#{version}.pkg"
+
+  uninstall pkgutil: "fr.imag.iihm.blanch.osx-presentation"
 end

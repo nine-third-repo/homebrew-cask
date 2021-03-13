@@ -1,12 +1,13 @@
-cask 'tribler' do
-  version '7.4.4'
-  sha256 '79fec1f261135239f01fd0554892eb29862f69009c260fca99b2fbcfe5b58909'
+cask "tribler" do
+  version "7.8.0"
+  sha256 "621103e765fb87d9b0be9f301bfa190c3d7bff9a3a152281e89ea328ca8ea69b"
 
-  # github.com/Tribler/tribler was verified as official when first introduced to the cask
-  url "https://github.com/Tribler/tribler/releases/download/v#{version}/Tribler-#{version}.dmg"
-  appcast 'https://github.com/Tribler/tribler/releases.atom'
-  name 'Tribler'
-  homepage 'https://www.tribler.org/'
+  url "https://github.com/Tribler/tribler/releases/download/v#{version}/Tribler-#{version}.dmg",
+      verified: "github.com/Tribler/tribler/"
+  appcast "https://github.com/Tribler/tribler/releases.atom"
+  name "Tribler"
+  desc "Privacy enhanced BitTorrent client with P2P content discovery"
+  homepage "https://www.tribler.org/"
 
-  app 'Tribler.app'
+  app "Tribler.app"
 end

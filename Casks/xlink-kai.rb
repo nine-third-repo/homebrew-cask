@@ -1,15 +1,21 @@
-cask 'xlink-kai' do
-  version '7.4.35'
-  sha256 'ebc988dd6491439b897f8f6e51f870a919f0d416a7d6096a62441c8e7bf05d05'
+cask "xlink-kai" do
+  version "7.4.39,539601671"
+  sha256 "b5b6d3fec363c1c522b07cbf009fa097aa2719689ebe90309a95b7a7ff3a6a3f"
 
-  # github.com/Team-XLink/releases was verified as official when first introduced to the cask
-  url "https://github.com/Team-XLink/releases/releases/download/v#{version}/XLink.Kai.app.zip"
-  appcast 'https://github.com/Team-XLink/releases/releases.atom'
-  name 'XLink Kai'
-  homepage 'https://www.teamxlink.co.uk/'
+  url "https://github.com/Team-XLink/releases/releases/download/v#{version.before_comma}/XLinkKai-#{version.before_comma}-#{version.after_comma}-macOS.dmg",
+      verified: "github.com/Team-XLink/releases/"
+  name "XLink Kai"
+  homepage "https://www.teamxlink.co.uk/"
 
-  depends_on macos: '>= :mavericks'
-  depends_on cask: 'wireshark-chmodbpf'
+  livecheck do
+    url "https://github.com/Team-XLink/releases/releases/latest"
+    strategy :page_match do |page|
+      match = page.match(%r{href=.*?/XLinkKai-(\d+(?:\.\d+)*)-(\d+)-macOS\.dmg}i)
+      "#{match[1]},#{match[2]}"
+    end
+  end
 
-  app 'XLink Kai.app'
+  depends_on cask: "wireshark-chmodbpf"
+
+  app "XLink Kai.app"
 end

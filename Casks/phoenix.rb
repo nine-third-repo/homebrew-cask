@@ -1,18 +1,18 @@
-cask 'phoenix' do
-  version '2.6.3'
-  sha256 'e2e6a1577d376d4a313f6133a6c026e2b136b7d1168615f12de58750b3a631db'
+cask "phoenix" do
+  version "2.6.6"
+  sha256 "d860328b044518a609b8b29cd38b505d63840eed79f67f68b7453b5dda12999f"
 
   url "https://github.com/kasper/phoenix/releases/download/#{version}/phoenix-#{version}.tar.gz"
-  appcast 'https://github.com/kasper/phoenix/releases.atom'
-  name 'Phoenix'
-  homepage 'https://github.com/kasper/phoenix/'
+  appcast "https://github.com/kasper/phoenix/releases.atom"
+  name "Phoenix"
+  homepage "https://github.com/kasper/phoenix/"
 
-  depends_on macos: '>= :yosemite'
+  depends_on macos: ">= :yosemite"
 
-  app 'Phoenix.app'
+  app "Phoenix.app"
 
   zap trash: [
-               '~/.phoenix.js',
-               '~/Library/Application Support/Phoenix/storage.json',
-             ]
+    "~/.phoenix.js",
+    "~/Library/Application Support/Phoenix/storage.json",
+  ]
 end

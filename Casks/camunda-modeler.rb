@@ -1,11 +1,16 @@
-cask 'camunda-modeler' do
-  version '3.7.2'
-  sha256 '450a48d916f08def2409aaa708ce677a86085d3ab7b89350f16e1a68342ddb1d'
+cask "camunda-modeler" do
+  version "4.6.0"
+  sha256 "2d3b709a86bbc7c030594307d977a851950d4495e1802924e393bcbaf24860de"
 
   url "https://camunda.org/release/camunda-modeler/#{version}/camunda-modeler-#{version}-mac.zip"
-  appcast 'https://camunda.com/download/modeler/'
-  name 'Camunda Modeler'
-  homepage 'https://camunda.org/'
+  name "Camunda Modeler"
+  homepage "https://camunda.org/"
 
-  app 'Camunda Modeler.app'
+  livecheck do
+    url "https://camunda.com/download/modeler/"
+    strategy :page_match
+    regex(%r{href=.*?/camunda-modeler-(\d+(?:\.\d+)*)-mac\.zip}i)
+  end
+
+  app "Camunda Modeler.app"
 end

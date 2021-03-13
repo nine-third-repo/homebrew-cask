@@ -1,26 +1,43 @@
-cask 'pritunl' do
-  version '1.0.2404.6'
-  sha256 '90e83ac8762694204aa9092ccf0ad951800314c98b2e07c1d092c6805e02ba5d'
+cask "pritunl" do
+  if Hardware::CPU.intel?
+    if MacOS.version <= :catalina
+      version "1.2.2615.73"
+      sha256 "275f8498fb736a0a1ddebcbfcb6f03e82b8eb4fedf9b7eb61b0e306cb6de4a71"
+    else
+      version "1.2.2709.72"
+      sha256 "014acca51584f24c74f581e7e44acd2f3f34cdeb0388e39f1f30097301a0ac78"
+    end
 
-  # github.com/pritunl/pritunl-client-electron was verified as official when first introduced to the cask
-  url "https://github.com/pritunl/pritunl-client-electron/releases/download/#{version}/Pritunl.pkg.zip"
-  appcast 'https://github.com/pritunl/pritunl-client-electron/releases.atom'
-  name 'Pritunl OpenVPN Client'
-  homepage 'https://client.pritunl.com/'
+    url "https://github.com/pritunl/pritunl-client-electron/releases/download/#{version}/Pritunl.pkg.zip",
+        verified: "github.com/pritunl/pritunl-client-electron/"
 
-  pkg 'Pritunl.pkg'
+    pkg "Pritunl.pkg"
+  else
+    version "1.2.2709.72"
+    sha256 "2ca2f3b31d78177a591c9166990017521ac3f283b032933c1983ffdbde21475b"
 
-  uninstall pkgutil:   'com.pritunl.pkg.Pritunl',
+    url "https://github.com/pritunl/pritunl-client-electron/releases/download/#{version}/Pritunl.arm64.pkg.zip",
+        verified: "github.com/pritunl/pritunl-client-electron/"
+
+    pkg "Pritunl.arm64.pkg"
+  end
+
+  appcast "https://github.com/pritunl/pritunl-client-electron/releases.atom"
+  name "Pritunl"
+  desc "OpenVPN client"
+  homepage "https://client.pritunl.com/"
+
+  uninstall pkgutil:   "com.pritunl.pkg.Pritunl",
             launchctl: [
-                         'com.pritunl.client',
-                         'com.pritunl.service',
-                       ],
-            signal:    ['TERM', 'com.electron.pritunl'],
-            delete:    '/Applications/Pritunl.app'
+              "com.pritunl.client",
+              "com.pritunl.service",
+            ],
+            signal:    ["TERM", "com.electron.pritunl"],
+            delete:    "/Applications/Pritunl.app"
 
   zap trash: [
-               '~/Library/Application Support/pritunl',
-               '~/Library/Caches/pritunl',
-               '~/Library/Preferences/com.electron.pritunl*',
-             ]
+    "~/Library/Application Support/pritunl",
+    "~/Library/Caches/pritunl",
+    "~/Library/Preferences/com.electron.pritunl*",
+  ]
 end

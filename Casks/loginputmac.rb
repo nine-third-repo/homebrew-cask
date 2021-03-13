@@ -1,12 +1,16 @@
-cask 'loginputmac' do
-  version '2.3.3'
-  sha256 '70ad6061bd453292cecd8d90fa3b10a22ae17eeb41a2462323b5e15b3a0c3f36'
+cask "loginputmac" do
+  version "2.4.3,23414"
+  sha256 "17b2f5b28de13ab213b533a749fa75f66663bae6b30d71d50a3958ce2b5c6dcc"
 
-  # loginput-mac2.content-delivery.top was verified as official when first introduced to the cask
-  url "https://loginput-mac2.content-delivery.top/loginputmac#{version.major}_latest.pkg"
-  appcast "https://im.logcg.com/appcast#{version.major}.xml"
-  name 'LoginputMac'
+  url "https://loginput-mac2.content-delivery.top/loginputmac#{version.major}_latest.pkg",
+      verified: "loginput-mac2.content-delivery.top/"
+  name "LoginputMac"
   homepage "https://im.logcg.com/loginputmac#{version.major}"
+
+  livecheck do
+    url "https://im.logcg.com/appcast#{version.major}.xml"
+    strategy :sparkle
+  end
 
   auto_updates true
 

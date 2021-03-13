@@ -1,13 +1,17 @@
-cask 'freedom' do
-  version '2.3.1'
-  sha256 '2c5ec899f0cb40aa27f4da48a5f19c1f0d9a8937056e4486d416ccb539d30523'
+cask "freedom" do
+  version "2.4.3,1716.1"
+  sha256 "374450cc820d948a04a0e07c1ca199cfbc6c5f521d99f27eceb8697d636d3fdc"
 
-  url "https://cdn.freedom.to/installers/updates/mac/#{version}/Freedom.zip"
-  appcast 'https://cdn.freedom.to/installers/updates/mac/Appcast.xml'
-  name 'Freedom'
-  homepage 'https://freedom.to/'
+  url "https://cdn.freedom.to/installers/updates/mac/#{version.before_comma}/Freedom.zip"
+  name "Freedom"
+  homepage "https://freedom.to/"
+
+  livecheck do
+    url "https://cdn.freedom.to/installers/updates/mac/Appcast.xml"
+    strategy :sparkle
+  end
 
   auto_updates true
 
-  app 'Freedom.app'
+  app "Freedom.app"
 end

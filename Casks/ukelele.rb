@@ -1,18 +1,22 @@
-cask 'ukelele' do
-  version '3.4.2'
-  sha256 '764ee84e645b789524cc7b2c5e4c4440b1e810fccca54c64e9dceb2e40264f6a'
+cask "ukelele" do
+  version "3.5.1,340"
+  sha256 "f512159bfbe7c13c4007e45b4149c7825916e4999ab6d632b2a8541580f92b85"
 
-  url "https://software.sil.org/downloads/r/ukelele/Ukelele_#{version}.dmg"
-  appcast 'https://software.sil.org/downloads/r/ukelele/Ukelele_appcast.xml'
-  name 'Ukelele'
-  homepage 'https://software.sil.org/ukelele/'
+  url "https://software.sil.org/downloads/r/ukelele/Ukelele_#{version.before_comma}.dmg"
+  name "Ukelele"
+  homepage "https://software.sil.org/ukelele/"
 
-  app 'Ukelele.app'
+  livecheck do
+    url "https://software.sil.org/downloads/r/ukelele/Ukelele_appcast.xml"
+    strategy :sparkle
+  end
+
+  app "Ukelele.app"
 
   zap trash: [
-               '~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/org.sil.ukelele.sfl*',
-               '~/Library/Preferences/org.sil.ukelele.plist',
-               '~/Library/Preferences/Ukelele',
-               '~/Library/Caches/org.sil.Ukelele',
-             ]
+    "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/org.sil.ukelele.sfl*",
+    "~/Library/Preferences/org.sil.ukelele.plist",
+    "~/Library/Preferences/Ukelele",
+    "~/Library/Caches/org.sil.Ukelele",
+  ]
 end

@@ -1,15 +1,19 @@
-cask 'scenebuilder' do
-  version '11.0.0'
-  sha256 '0602d1cd7156fa0ff49cc4055e6aec020227df813449b2bc3782a3fddffb43bb'
+cask "scenebuilder" do
+  version "15.0.1"
+  sha256 "41cad631faf489d70c29368c5113312b9a4eb5d646a3b295aac266e7af863fb1"
 
-  url "https://download2.gluonhq.com/scenebuilder/#{version}/install/mac/SceneBuilder-#{version}.pkg"
-  appcast 'https://gluonhq.com/products/scene-builder/#download'
-  name 'Scene Builder'
-  homepage 'https://gluonhq.com/products/scene-builder/'
+  url "https://download2.gluonhq.com/scenebuilder/#{version}/install/mac/SceneBuilder-#{version}.dmg"
+  name "Scene Builder"
+  desc "Drag & drop GUI designer for JavaFX"
+  homepage "https://gluonhq.com/products/scene-builder/"
 
-  depends_on macos: '>= :high_sierra'
+  livecheck do
+    url :homepage
+    strategy :page_match
+    regex(%r{href=.*?/SceneBuilder-(\d+(?:\.\d+)*)\.dmg}i)
+  end
 
-  pkg "SceneBuilder-#{version}.pkg"
+  depends_on macos: ">= :high_sierra"
 
-  uninstall pkgutil: 'com.gluonhq.scenebuilder'
+  app "SceneBuilder.app"
 end

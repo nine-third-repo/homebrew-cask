@@ -1,15 +1,15 @@
-cask 'rotato' do
-  version '98.1586761954'
-  sha256 '7f03318c8593e31393c272a2f581c39815362ac8b55176955c23501e31f1b6ce'
+cask "rotato" do
+  version "112.1604697138"
+  sha256 "4d68cbb8832e23d306f34123a65de3788c70e3f6eb49c055136febc8f864405c"
 
-  # dl.devmate.com/com.mortenjust.Rendermock was verified as official when first introduced to the cask
-  url "https://dl.devmate.com/com.mortenjust.Rendermock/#{version.major}/#{version.minor}/DesignCamera-#{version.major}.zip"
-  appcast 'https://updates.devmate.com/com.mortenjust.Rendermock.xml',
-          configuration: "#{version.major}/#{version.minor}"
-  name 'Rotato'
-  homepage 'https://rotato.xyz/'
+  url "https://dl.devmate.com/com.mortenjust.Rendermock/#{version.major}/#{version.minor}/DesignCamera-#{version.major}.zip",
+      verified: "dl.devmate.com/com.mortenjust.Rendermock/"
+  appcast "https://updates.devmate.com/com.mortenjust.Rendermock.xml",
+          must_contain: "#{version.major}/#{version.minor}"
+  name "Rotato"
+  homepage "https://rotato.xyz/"
 
-  depends_on macos: '>= :high_sierra'
+  depends_on macos: ">= :high_sierra"
 
-  app 'Rotato.app'
+  app "Rotato.app"
 end

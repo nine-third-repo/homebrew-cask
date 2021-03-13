@@ -1,12 +1,12 @@
-cask 'freeyourmusic' do
-  version '5.1.4'
-  sha256 '330056bcf2be7cd69a6f077d0466d081e5e3b86a6006ddba1a7a96f6f3133ffa'
+cask "freeyourmusic" do
+  version "5.7.2"
+  sha256 "5eb0c3afbfd09791dc226293786237fd716be21c12e5021e3741de1f79415b94"
 
-  # dzqeytqqx888.cloudfront.net was verified as official when first introduced to the cask
-  url "https://dzqeytqqx888.cloudfront.net/FreeYourMusic-#{version}.dmg"
-  appcast 'https://freeyourmusic.com/'
-  name 'FreeYourMusic⁩'
-  homepage 'https://freeyourmusic.com/'
+  url "https://dzqeytqqx888.cloudfront.net/FreeYourMusic-#{version}.dmg",
+      verified: "dzqeytqqx888.cloudfront.net/"
+  appcast "https://stamp-live.s3.amazonaws.com/latest-mac.yml"
+  name "FreeYourMusic⁩"
+  homepage "https://freeyourmusic.com/"
 
-  app 'FreeYourMusic.app'
+  app "FreeYourMusic.app"
 end

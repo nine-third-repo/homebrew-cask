@@ -1,22 +1,23 @@
-cask 'webcatalog' do
-  version '20.2.1'
-  sha256 '8fb0f1ce8d892a35157bd0e5e4b519e5b2e0cf566437acb9e91bea3b703d6a3b'
+cask "webcatalog" do
+  version "30.0.0"
+  sha256 "0e3a6e9d67671dcb735297d292dc6bb4f93a47e3fccfa10bfb7e61ca499f4a9e"
 
-  # github.com/quanglam2807/webcatalog was verified as official when first introduced to the cask
-  url "https://github.com/quanglam2807/webcatalog/releases/download/v#{version}/WebCatalog-#{version}-mac.zip"
-  appcast 'https://github.com/quanglam2807/webcatalog/releases.atom'
-  name 'WebCatalog'
-  homepage 'https://getwebcatalog.com/'
+  url "https://github.com/webcatalog/webcatalog-app/releases/download/v#{version}/WebCatalog-#{version}.dmg",
+      verified: "github.com/webcatalog/webcatalog-app/"
+  appcast "https://github.com/webcatalog/webcatalog-app/releases.atom"
+  name "WebCatalog"
+  desc "Tool to run web apps like desktop apps"
+  homepage "https://webcatalog.app/"
 
   auto_updates true
 
-  app 'WebCatalog.app'
+  app "WebCatalog.app"
 
   zap trash: [
-               '~/Library/Application Support/WebCatalog',
-               '~/Library/Caches/com.webcatalog.jordan',
-               '~/Library/Caches/com.webcatalog.jordan.ShipIt',
-               '~/Library/Preferences/com.webcatalog.jordan.plist',
-               '~/Library/Saved Application State/com.webcatalog.jordan.savedState',
-             ]
+    "~/Library/Application Support/WebCatalog",
+    "~/Library/Caches/com.webcatalog.jordan",
+    "~/Library/Caches/com.webcatalog.jordan.ShipIt",
+    "~/Library/Preferences/com.webcatalog.jordan.plist",
+    "~/Library/Saved Application State/com.webcatalog.jordan.savedState",
+  ]
 end

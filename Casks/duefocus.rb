@@ -1,17 +1,17 @@
-cask 'duefocus' do
-  version '2.4.0'
-  sha256 'acbb9fbf699af0ef673f5f8cd13d2be6d88cfdee20a6bc6c65c54d3398f7a572'
+cask "duefocus" do
+  version "2.5.0"
+  sha256 "41cb010236fce73f91ad0e55a14d29c7fe1451984aba6be3b6a5de3f1f789271"
 
   url "https://web.duefocus.com/distribution/darwin/v3/DueFocus-#{version}-mac.zip"
-  appcast 'https://web.duefocus.com/distribution/darwin/v3/appcast.html'
-  name 'DueFocus'
-  homepage 'https://duefocus.com/'
+  appcast "https://web.duefocus.com/distribution/darwin/v3/appcast.html"
+  name "DueFocus"
+  homepage "https://duefocus.com/"
 
-  app 'DueFocus.app'
+  app "DueFocus.app"
 
   zap trash: [
-               '~/Library/Application Support/DueFocus',
-               '~/Library/Preferences/com.qarea.duefocus.plist',
-               '~/Library/Logs/DueFocus',
-             ]
+    "~/Library/Application Support/DueFocus",
+    "~/Library/Preferences/com.qarea.duefocus.plist",
+    "~/Library/Logs/DueFocus",
+  ]
 end

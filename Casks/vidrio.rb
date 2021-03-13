@@ -1,16 +1,22 @@
-cask 'vidrio' do
-  version '1.14'
-  sha256 '3d9b0a5b0fb5e7505b9f69b100cfbb811fa7a5a30b65dea5549d8b44a586214a'
+cask "vidrio" do
+  if MacOS.version <= :mojave
+    version "1.19.1"
+    sha256 "abd03be4d007d414e0ace47ea6fffb4c2b049b30e2fef0fc65601f1c976cc4be"
+  else
+    version "1.22"
+    sha256 "2022f2728cde1d02dc130511b907e78fed137fda3663925aba14666d2f29277a"
+  end
 
-  url "https://vidr.io/releases/Vidrio-#{version}.dmg"
-  appcast 'https://vidr.io/latest-version'
-  name 'Vidrio'
-  homepage 'https://vidr.io/'
+  url "https://vidr.io/releases/macos/Vidrio-#{version}.dmg"
+  appcast "https://vidr.io/latest-version"
+  name "Vidrio"
+  desc "Presentation design tool"
+  homepage "https://vidr.io/"
 
-  app 'Vidrio.app'
+  app "Vidrio.app"
 
   zap trash: [
-               '~/Library/Application Scripts/io.vidr.Vidrio',
-               '~/Library/Containers/io.vidr.Vidrio',
-             ]
+    "~/Library/Application Scripts/io.vidr.Vidrio",
+    "~/Library/Containers/io.vidr.Vidrio",
+  ]
 end

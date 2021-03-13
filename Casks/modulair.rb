@@ -1,19 +1,20 @@
-cask 'modulair' do
-  version '1.1.0'
-  sha256 '341e1af831d9709d0f141ba7e0be73577d86a2bdaeabc9ece20f95dff3442925'
+cask "modulair" do
+  version "1.2.1"
+  sha256 "fe1818a43f1756e61054c9fcb054a285c0622a1342e1016f5996837b382d8460"
 
   url "https://www.fullbucket.de/music/dl/modulair_#{version.dots_to_underscores}_mac.pkg"
-  appcast 'https://www.fullbucket.de/music/modulair.html'
-  name 'ModulAir'
-  homepage 'https://www.fullbucket.de/music/modulair.html'
+  appcast "https://www.fullbucket.de/music/modulair.html"
+  name "ModulAir"
+  desc "Polyphonic modular synthesizer"
+  homepage "https://www.fullbucket.de/music/modulair.html"
 
   pkg "modulair_#{version.dots_to_underscores}_mac.pkg"
 
   uninstall pkgutil: [
-                       'com.fullbucket.audiounit.pkg.ModulAir',
-                       'com.fullbucket.vst.pkg.ModulAir',
-                       'com.fullbucket.vst.pkg.ModulAirFX',
-                     ]
+    "com.fullbucket.audiounit.pkg.ModulAir",
+    "com.fullbucket.vst.pkg.ModulAir",
+    "com.fullbucket.vst.pkg.ModulAirFX",
+  ]
 
   caveats do
     reboot

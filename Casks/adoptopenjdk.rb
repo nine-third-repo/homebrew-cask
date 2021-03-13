@@ -1,18 +1,29 @@
-cask 'adoptopenjdk' do
-  version '14,36'
-  sha256 'aabc3aebb0abf1ba64d9bd5796d0c7eb7239983f6e4c0f015b5b88be5616e4bd'
+cask "adoptopenjdk" do
+  version "15.0.2,7"
+  sha256 "f3b867c04a12eec2526492f91a228fade480b1c592ea336eeb9fd66bef86e4c4"
 
-  # github.com/AdoptOpenJDK was verified as official when first introduced to the cask
-  url "https://github.com/AdoptOpenJDK/openjdk#{version.major}-binaries/releases/download/jdk-#{version.before_comma}%2B#{version.after_comma}/OpenJDK#{version.major}U-jdk_x64_mac_hotspot_#{version.before_comma}_#{version.after_comma}.tar.gz"
-  appcast "https://github.com/AdoptOpenJDK/openjdk#{version.major}-binaries/releases/latest"
-  name 'AdoptOpenJDK Java Development Kit'
-  homepage 'https://adoptopenjdk.net/'
+  url "https://github.com/AdoptOpenJDK/openjdk#{version.major}-binaries/releases/download/jdk-#{version.before_comma}%2B#{version.after_comma}/OpenJDK#{version.major}U-jdk_x64_mac_hotspot_#{version.before_comma}_#{version.after_comma.major}.pkg",
+      verified: "github.com/AdoptOpenJDK/"
+  name "AdoptOpenJDK Java Development Kit"
+  homepage "https://adoptopenjdk.net/"
 
-  artifact "jdk-#{version.before_comma}+#{version.after_comma}", target: "/Library/Java/JavaVirtualMachines/adoptopenjdk-#{version.before_comma}.jdk"
+  livecheck do
+    url :url
+    strategy :git do |tags|
+      tags.map do |tag|
+        match = tag.match(/^jdk-(\d+(?:\.\d+)*)\+(\d+(?:\.\d+)*)$/i)
+        "#{match[1]},#{match[2]}" if match
+      end.compact
+    end
+  end
+
+  pkg "OpenJDK#{version.major}U-jdk_x64_mac_hotspot_#{version.before_comma}_#{version.after_comma.major}.pkg"
+
+  uninstall pkgutil: "net.adoptopenjdk.#{version.major}.jdk"
 
   caveats <<~EOS
     More versions are available in the AdoptOpenJDK tap:
-      #{Formatter.url('https://github.com/AdoptOpenJDK/homebrew-openjdk')}
+      #{Formatter.url("https://github.com/AdoptOpenJDK/homebrew-openjdk")}
 
       brew tap adoptopenjdk/openjdk
   EOS

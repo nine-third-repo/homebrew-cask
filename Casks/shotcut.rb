@@ -1,12 +1,17 @@
-cask 'shotcut' do
-  version '20.04.12'
-  sha256 '8a11c1bb20fed5afcb134d77321a2b7dc2693146440b6228c1e3354c9e89413c'
+cask "shotcut" do
+  version "21.02.27"
+  sha256 "4de40821778f8755c863d632c19e5588a53a8a41379fb0f6551cf9d7331048c4"
 
-  # github.com/mltframework/shotcut was verified as official when first introduced to the cask
-  url "https://github.com/mltframework/shotcut/releases/download/v#{version}/shotcut-macos-signed-#{version.no_dots}.dmg"
-  appcast 'https://github.com/mltframework/shotcut/releases.atom'
-  name 'Shotcut'
-  homepage 'https://www.shotcut.org/'
+  url "https://github.com/mltframework/shotcut/releases/download/v#{version}/shotcut-macos-signed-#{version.no_dots}.dmg",
+      verified: "github.com/mltframework/shotcut/"
+  name "Shotcut"
+  desc "Video editor"
+  homepage "https://www.shotcut.org/"
 
-  app 'Shotcut.app'
+  livecheck do
+    url :url
+    strategy :github_latest
+  end
+
+  app "Shotcut.app"
 end
