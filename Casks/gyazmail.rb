@@ -1,11 +1,16 @@
 cask "gyazmail" do
-  version "1.6.3"
-  sha256 "2a2cfb1b74cc8d6647a5f6fec9759491b3981d524bafe9846ed9ad25744987e1"
+  version "1.6.5"
+  sha256 "bc2376ac6a82c46301d59e0d3746ea9f70c1701bcb92ed81da7b151c81a62fde"
 
-  url "http://gyazsquare.com/gyazmail/GyazMail-#{version.no_dots}.dmg"
-  appcast "http://gyazsquare.com/gyazmail/"
+  url "http://gyazsquare.com/download/GyazMail-#{version.no_dots}.dmg"
   name "GyazMail"
+  desc "Email client"
   homepage "http://gyazsquare.com/gyazmail/"
+
+  livecheck do
+    url "https://gyazsquare.com/gyazmail/download/"
+    regex(/Download\s*GyazMail\s*v?(\d+(?:\.\d+)+)/i)
+  end
 
   app "GyazMail.app"
 end

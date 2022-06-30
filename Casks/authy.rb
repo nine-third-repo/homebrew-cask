@@ -1,6 +1,6 @@
 cask "authy" do
-  version "1.8.3"
-  sha256 "7c276cabcacfdcde4c695f93b2065c4499c25849831e8316aaedb75750ccd559"
+  version "2.2.0"
+  sha256 "80492691069b092dbaaec229249a3dfb1d9dcd27fe47b83913782be4dfc35a8c"
 
   url "https://authy-electron-repository-production.s3.amazonaws.com/authy/stable/#{version}/darwin/x64/Authy%20Desktop-#{version}.dmg",
       verified: "authy-electron-repository-production.s3.amazonaws.com/"

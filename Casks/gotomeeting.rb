@@ -1,6 +1,6 @@
 cask "gotomeeting" do
-  version "19228"
-  sha256 "aced1b755ef29d15909e3eb10fb5ed72f705b77920c831a1ab7112948a05df38"
+  version "19950"
+  sha256 "64c3b31b35f27027a93a092f3a1c36cf23d551b4bccd384fa45bdca4a672c91c"
 
   url "https://builds.cdn.getgo.com/builds/g2m/#{version}/GoToMeeting.dmg",
       verified: "builds.cdn.getgo.com/builds/g2m/"

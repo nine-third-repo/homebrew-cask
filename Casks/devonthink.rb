@@ -1,14 +1,19 @@
 cask "devonthink" do
-  version "3.6.2"
-  sha256 "9ede0c4b276d490cec4e15d77edb816f7723f2bc799f121b92957db1c61224ca"
+  version "3.8.4"
+  sha256 "6c0ac48e105afe8c94aa43ec4cbcc82f491cddf19f4f4afa8c36d2ec1a34ceb7"
 
   url "https://download.devontechnologies.com/download/devonthink/#{version}/DEVONthink_#{version.major}.app.zip"
-  appcast "https://api.devontechnologies.com/1/apps/sparkle/sparkle.php?id=300900000"
   name "DEVONthink"
   desc "Collect, organize, edit and annotate documents"
   homepage "https://www.devontechnologies.com/apps/devonthink/"
 
+  livecheck do
+    url "https://api.devontechnologies.com/1/apps/sparkle/sparkle.php?id=300900000"
+    strategy :sparkle
+  end
+
   auto_updates true
+  depends_on macos: ">= :el_capitan"
 
   app "DEVONthink #{version.major}.app"
 

@@ -1,31 +1,38 @@
 cask "baidunetdisk" do
-  version "3.6.5"
-  sha256 "f3661dc6714fde3e74f0e8cf3f263069f8263615173a313bb2c740b2a9be30c2"
+  version "4.10.1"
+  sha256 "f6608a58a42890c5d74175a3594330d70644484efaffad59f989199610eaf01f"
 
-  url "https://wppkg.baidupcs.com/issue/netdisk/MACguanjia/BaiduNetdisk_mac_#{version}.dmg",
-      verified: "baidupcs.com/issue/netdisk/MACguanjia/"
-  appcast "https://pan.baidu.com/disk/cmsdata?do=client"
+  url "https://issuepcdn.baidupcs.com/issue/netdisk/MACguanjia/BaiduNetdisk_mac_#{version}.dmg",
+      verified: "issuepcdn.baidupcs.com/issue/netdisk/MACguanjia/"
   name "Baidu NetDisk"
   name "百度网盘"
   desc "Cloud storage service"
   homepage "https://pan.baidu.com/download"
 
-  depends_on macos: ">= :yosemite"
+  livecheck do
+    url "https://pan.baidu.com/disk/cmsdata?do=client"
+    regex(/BaiduNetdisk[._-]mac[._-]v?(\d+(?:\.\d+)+)\.dmg/i)
+  end
+
+  auto_updates true
 
   app "BaiduNetdisk_mac.app"
 
   zap trash: [
+    "~/Library/Application Scripts/com.baidu.BaiduNetdisk-mac.FinderSync",
+    "~/Library/Application Support/baidunetdisk",
     "~/Library/Application Support/com.baidu.BaiduNetdisk-mac",
     "~/Library/Caches/com.baidu.BaiduNetdisk-mac",
     "~/Library/Caches/com.plausiblelabs.crashreporter.data/com.baidu.BaiduNetdisk-mac",
+    "~/Library/Containers/com.baidu.BaiduNetdisk-mac.FinderSync",
     "~/Library/Cookies/com.baidu.BaiduNetdisk-mac.binarycookies",
+    "~/Library/HTTPStorages/com.baidu.BaiduNetdisk-mac",
     "~/Library/Preferences/com.baidu.BaiduNetdisk-mac.plist",
     "~/Library/sapi/wappass.baidu.com",
     "~/Library/Saved Application State/com.baidu.BaiduNetdisk-mac.savedState",
   ],
-      rmdir:
-             [
-               "~/Library/Caches/com.plausiblelabs.crashreporter.data",
-               "~/Library/sapi",
-             ]
+      rmdir: [
+        "~/Library/Caches/com.plausiblelabs.crashreporter.data",
+        "~/Library/sapi",
+      ]
 end

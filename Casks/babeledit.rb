@@ -1,12 +1,16 @@
 cask "babeledit" do
-  version "2.8.0"
-  sha256 "4bbd8612c10aa70eab9451b4b9c266b0f313d5e54b7b8768a8d778623e510e82"
+  version "3.0.1"
+  sha256 "f0dfe05bead574b454e483328198e0ce89fea44466e4110e2a385cc092b98d26"
 
   url "https://www.codeandweb.com/download/babeledit/#{version}/BabelEdit-#{version}.dmg"
-  appcast "https://www.codeandweb.com/babeledit/download",
-          must_contain: version
   name "BabelEdit"
+  desc "Translation editor"
   homepage "https://www.codeandweb.com/babeledit"
+
+  livecheck do
+    url "https://www.codeandweb.com/babeledit/download"
+    regex(%r{babeledit/download/v?(\d+(?:\.\d+)+)/mac-64}i)
+  end
 
   app "BabelEdit.app"
 

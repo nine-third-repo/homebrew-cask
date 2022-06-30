@@ -1,6 +1,6 @@
 cask "soqlxplorer" do
-  version "3.4"
-  sha256 "ebecf0fa59156522c9fb26c1f7f7c56a7e8669e146cd05ee95387f4a80712e69"
+  version "4.4"
+  sha256 "f8017f28ffbceafce6c17fefbae24217547eb347d6b6a0596fab0bf6c1c71ed1"
 
   url "https://www.pocketsoap.com/osx/soqlx/SoqlXplorer_v#{version}.zip"
   name "SoqlXplorer"
@@ -12,7 +12,7 @@ cask "soqlxplorer" do
     strategy :sparkle
   end
 
-  depends_on macos: ">= :high_sierra"
+  depends_on macos: ">= :mojave"
 
   app "SoqlXplorer.app"
 

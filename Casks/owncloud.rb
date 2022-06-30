@@ -1,6 +1,6 @@
 cask "owncloud" do
-  version "2.7.6.3261"
-  sha256 "6c2366e13d5989259f3b70f81657c85dadecdaa17b16d5faaee5d136d8020087"
+  version "2.10.1.7187"
+  sha256 "f467e67f7994a7836e5ba370f588e1161c34b103e70f5b9911d3a534531460ca"
 
   url "https://download.owncloud.com/desktop/ownCloud/stable/#{version}/mac/ownCloud-#{version}.pkg"
   name "ownCloud"
@@ -9,10 +9,10 @@ cask "owncloud" do
 
   livecheck do
     url "https://owncloud.com/desktop-app/"
-    strategy :page_match
-    regex(%r{href=.*?/owncloud-(\d+(?:\.\d+)*)\.pkg}i)
+    regex(%r{href=.*?/owncloud[._-]v?(\d+(?:\.\d+)+)\.pkg}i)
   end
 
+  auto_updates true
   depends_on macos: ">= :sierra"
 
   pkg "ownCloud-#{version}.pkg"
@@ -23,12 +23,12 @@ cask "owncloud" do
   ]
 
   zap trash: [
-    "~/Library/Group Containers/9B5WD74GWJ.com.owncloud.desktopclient",
-    "~/Library/Caches/com.owncloud.desktopclient",
     "~/Library/Application Scripts/com.owncloud.desktopclient.FinderSyncExt",
-    "~/Library/Containers/com.owncloud.desktopclient.FinderSyncExt",
-    "~/Library/Preferences/com.owncloud.desktopclient.plist",
     "~/Library/Application Support/ownCloud",
+    "~/Library/Caches/com.owncloud.desktopclient",
+    "~/Library/Containers/com.owncloud.desktopclient.FinderSyncExt",
+    "~/Library/Group Containers/9B5WD74GWJ.com.owncloud.desktopclient",
+    "~/Library/Preferences/com.owncloud.desktopclient.plist",
     "~/Library/Preferences/ownCloud",
   ]
 end

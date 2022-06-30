@@ -1,13 +1,19 @@
 cask "whalebird" do
-  version "4.3.4"
-  sha256 "ad6a313270cb09a4743376d4ad1fcdfa1490f2c2ace6e952906493e0eac4ad13"
+  version "4.6.1"
+  sha256 "ee5281dfa6d198a0735a25d97ed0fcbca4ce86bb6354eae6f3aac2bbe3edce54"
 
-  url "https://github.com/h3poteto/whalebird-desktop/releases/download/#{version}/Whalebird-#{version}-darwin-x64.dmg",
+  url "https://github.com/h3poteto/whalebird-desktop/releases/download/#{version}/Whalebird-#{version}-darwin-universal.dmg",
       verified: "github.com/h3poteto/whalebird-desktop/"
-  appcast "https://github.com/h3poteto/whalebird-desktop/releases.atom"
   name "Whalebird"
-  desc "Electron-based Mastodon and Pleroma client"
+  desc "Mastodon, Pleroma and Misskey client"
   homepage "https://whalebird.social/"
 
   app "Whalebird.app"
+
+  zap trash: [
+    "~/Library/Application Support/Whalebird",
+    "~/Library/Logs/Whalebird",
+    "~/Library/Preferences/org.whalebird.desktop.plist",
+    "~/Library/Saved Application State/org.whalebird.desktop.savedState",
+  ]
 end

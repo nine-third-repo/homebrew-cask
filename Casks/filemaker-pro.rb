@@ -1,12 +1,16 @@
 cask "filemaker-pro" do
-  version "19.2.1.14"
-  sha256 "7e57f30e4f1a72063824240eff78b795de148a5233bfbfc6aaf10c101a269496"
+  version "19.5.1.36"
+  sha256 "6072055517c5ab83e336c04f43cbabd04b9850f941c8035015a6fd2d4c6d4a02"
 
   url "https://downloads.claris.com/esd/fmp_#{version}.dmg"
-  appcast "https://www.filemaker.com/redirects/ss.txt"
   name "FileMaker Pro"
   desc "Relational database and rapid application development platform"
   homepage "https://www.claris.com/filemaker/"
+
+  livecheck do
+    url "https://www.filemaker.com/redirects/ss.txt"
+    regex(%r{/fmp[._-]v?(\d+(?:\.\d+)+)\.dmg}i)
+  end
 
   auto_updates true
   depends_on macos: ">= :mojave"

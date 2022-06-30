@@ -1,8 +1,5 @@
 cask "monolingual" do
-  if MacOS.version <= :yosemite
-    version "1.6.7"
-    sha256 "c96175ef35aae6409f760e6c1f70e7cc47d45ab2b769c3238b4a4d979d13756b"
-  elsif MacOS.version <= :el_capitan
+  if MacOS.version <= :el_capitan
     version "1.7.3"
     sha256 "24fa5ff0a5903c0eb07cd58a15292e3adab97ea0823f304241dc4187f9252ffc"
   elsif MacOS.version <= :sierra
@@ -15,10 +12,14 @@ cask "monolingual" do
 
   url "https://github.com/IngmarStein/Monolingual/releases/download/v#{version}/Monolingual-#{version}.dmg",
       verified: "github.com/IngmarStein/Monolingual/"
-  appcast "https://github.com/IngmarStein/Monolingual/releases.atom"
   name "Monolingual"
   desc "Utility to remove unnecessary language resources from the system"
   homepage "https://ingmarstein.github.io/Monolingual/"
 
   app "Monolingual.app"
+
+  zap trash: [
+    "~/Library/Application Scripts/com.github.IngmarStein.Monolingual",
+    "~/Library/Containers/com.github.IngmarStein.Monolingual",
+  ]
 end

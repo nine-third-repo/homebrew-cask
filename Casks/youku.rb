@@ -1,13 +1,17 @@
 cask "youku" do
-  version "1.8.9.12225"
-  sha256 "5175f910dcdcf6fdd4e25667e5a834ac740afd8d71c17e9bb3c3bc6970f49a19"
+  version "1.9.7.05209"
+  sha256 "df6313cb24ffe620b9927a5948c98cf28d6842a10aca05c4928e8fbdad3fbe6d"
 
   url "https://pcclient.download.youku.com/ikumac/youkumac_#{version}.dmg"
-  appcast "https://pd.youku.com/pc"
   name "Youku"
   name "优酷"
   desc "Chinese video streaming and sharing platform"
-  homepage "https://pd.youku.com/pc"
+  homepage "https://youku.com/product/index"
+
+  livecheck do
+    url :homepage
+    regex(/ikumac.*?youkumac[._-]v?(\d+(?:\.\d+)+)\.dmg/i)
+  end
 
   app "优酷.app"
 

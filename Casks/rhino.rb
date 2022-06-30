@@ -1,10 +1,11 @@
 cask "rhino" do
-  version "7.3.21053.23032"
-  sha256 "b37fb6e9765fcb9e8d215eaad019b6bfb572aef7a6301d5dc876adc84e90e335"
+  version "7.19.22165.13002"
+  sha256 "2e822f2b93bab01c8b3de62e349dfdd92e586d77a2b6fc1a7d038c88cc8f26e3"
 
   url "https://files.mcneel.com/rhino/#{version.major}/mac/releases/rhino_#{version}.dmg",
       verified: "mcneel.com/"
   name "Rhinoceros"
+  desc "3D model creator"
   homepage "https://www.rhino3d.com/"
 
   livecheck do
@@ -13,12 +14,13 @@ cask "rhino" do
   end
 
   auto_updates true
+  depends_on macos: ">= :mojave"
 
   app "Rhino #{version.major}.app"
 
   zap trash: [
-    "~/Library/Preferences/com.mcneel.rhinoceros.plist",
-    "~/Library/Caches/com.mcneel.rhinoceros",
     "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/com.mcneel.rhinoceros.sfl*",
+    "~/Library/Caches/com.mcneel.rhinoceros",
+    "~/Library/Preferences/com.mcneel.rhinoceros.plist",
   ]
 end

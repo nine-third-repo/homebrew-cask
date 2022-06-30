@@ -1,10 +1,11 @@
 cask "openboard" do
-  version "1.5.4"
-  sha256 "dd5ce62ae2aaacb3279a17ec31e7708433d0b50c1cd6c21f68b71ef51dac4bbe"
+  version "1.6.3"
+  sha256 "f412ffd1ee956906a389fc9eec19f2046234d785cef24e50882e6b9ced266291"
 
-  url "https://github.com/OpenBoard-org/OpenBoard/releases/download/v#{version}/OpenBoard-#{version}-signed.dmg",
+  url "https://github.com/OpenBoard-org/OpenBoard/releases/download/v#{version}/OpenBoard-#{version}.dmg",
       verified: "github.com/OpenBoard-org/OpenBoard/"
   name "OpenBoard"
+  desc "Interactive whiteboard application"
   homepage "https://openboard.ch/index.en.html"
 
   livecheck do
@@ -15,9 +16,9 @@ cask "openboard" do
   app "OpenBoard.app"
 
   zap trash: [
-    "~/Music/OpenBoard",
-    "~/Movies/OpenBoard",
-    "~/Pictures/OpenBoard",
     "~/Library/Application Support/OpenBoard",
+    "~/Movies/OpenBoard",
+    "~/Music/OpenBoard",
+    "~/Pictures/OpenBoard",
   ]
 end

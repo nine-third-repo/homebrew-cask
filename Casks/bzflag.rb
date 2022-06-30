@@ -1,8 +1,14 @@
 cask "bzflag" do
-  version "2.4.20"
-  sha256 "c20c5ed67a68017e8e65bef1f1581fe7019ecfc203ec370f9484beabe5e14f45"
+  arch = Hardware::CPU.intel? ? "x86_64" : "arm64"
+  version "2.4.24"
 
-  url "https://download.bzflag.org/bzflag/macos/#{version}/BZFlag-#{version}-macOS.zip"
+  if Hardware::CPU.intel?
+    sha256 "736a80cb19e6b86d0632afe831c344b16dd3bbe69d235f5335a77c9a50dee3f5"
+  else
+    sha256 "2ee497a006dff98ca7cab6bb01dd10a279c7cea22490bf0baa3cf7d87e50e4a0"
+  end
+
+  url "https://download.bzflag.org/bzflag/macos/#{version}/BZFlag-#{version}-macOS-#{arch}.zip"
   name "BZFlag"
   desc "3D multi-player tank battle game"
   homepage "https://www.bzflag.org/"

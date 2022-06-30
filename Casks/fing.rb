@@ -1,11 +1,16 @@
 cask "fing" do
-  version "2.4.1"
-  sha256 :no_check
+  version "2.10.0"
+  sha256 "3e1ecfd57dd92edf7f47e996e5328afb5425167550d58191dd83f95f3e2f39f1"
 
-  url "https://get.fing.com/fing-desktop-releases/mac/Fing.dmg"
-  appcast "https://get.fing.com/fing-desktop-releases/mac/latest-mac.yml"
+  url "https://get.fing.com/fing-desktop-releases/mac/Fing-#{version}.dmg"
   name "Fing Desktop"
+  desc "Network scanner"
   homepage "https://www.fing.com/products/fing-desktop"
+
+  livecheck do
+    url "https://get.fing.com/fing-desktop-releases/mac/latest-mac.yml"
+    strategy :electron_builder
+  end
 
   app "Fing.app"
 

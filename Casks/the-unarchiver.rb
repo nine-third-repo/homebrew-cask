@@ -1,8 +1,8 @@
 cask "the-unarchiver" do
-  version "4.2.4,131:1605625663"
-  sha256 "75524096a35fb4dcc8e9f16b162d52ee6c4e8101878c18b5a02c3e37790e532c"
+  version "4.3.5,139,1652457131"
+  sha256 "4602bf08296747614fdcabfa68f420836dec9c8ebe9286a93b4c509a1e567c62"
 
-  url "https://dl.devmate.com/com.macpaw.site.theunarchiver/#{version.after_comma.before_colon}/#{version.after_colon}/TheUnarchiver-#{version.after_comma.before_colon}.zip",
+  url "https://dl.devmate.com/com.macpaw.site.theunarchiver/#{version.csv.second}/#{version.csv.third}/TheUnarchiver-#{version.csv.second}.zip",
       verified: "devmate.com/com.macpaw.site.theunarchiver/"
   name "The Unarchiver"
   desc "Unpacks archive files"
@@ -10,8 +10,12 @@ cask "the-unarchiver" do
 
   livecheck do
     url "https://updates.devmate.com/com.macpaw.site.theunarchiver.xml"
-    strategy :sparkle do |item|
-      "#{item.short_version},#{item.version}:#{item.url[%r{/(\d+)/TheUnarchiver-\d+\.zip}i, 1]}"
+    regex(%r{/(\d+)/TheUnarchiver\d*?[_-]v?(\d+(?:\.\d+)*)\.(?:dmg|zip)}i)
+    strategy :sparkle do |item, regex|
+      match = item.url.match(regex)
+      next if match.blank?
+
+      "#{item.short_version},#{match[2]},#{match[1]}"
     end
   end
 

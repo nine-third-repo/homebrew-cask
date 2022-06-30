@@ -1,10 +1,9 @@
 cask "mmex" do
-  version "1.3.5"
-  sha256 "ed27e39373c0e74ea856e2cb91b3b6f99fb745b8ec8b83424f7e406e8428fa7d"
+  version "1.5.16"
+  sha256 "664be47534cafaacb75819279941e0839b28cf294b688e01e305c8199086d125"
 
-  url "https://downloads.sourceforge.net/moneymanagerex/v#{version}/mmex-#{version}-macos10.9-wx3.1.3.dmg",
-      verified: "downloads.sourceforge.net/moneymanagerex/"
-  appcast "https://github.com/moneymanagerex/moneymanagerex/releases.atom"
+  url "https://github.com/moneymanagerex/moneymanagerex/releases/download/v#{version}/mmex-#{version}-Darwin.dmg",
+      verified: "github.com/moneymanagerex/moneymanagerex/"
   name "Money Manager Ex"
   desc "Money management application"
   homepage "https://www.moneymanagerex.org/"

@@ -1,11 +1,16 @@
 cask "lrtimelapse" do
-  version "5.5.6"
-  sha256 "8c7431e9f4b217989dad4869577caf6b031abae027831410a575b3a6747b6b23"
+  version "6.0.6"
+  sha256 "6be54186664fa9a4b06a02f306c297e6bd180127f27e51ca78967a9b285c1cc8"
 
-  url "https://lrtimelapse.com/files/lrtimelapse-#{version.major}-mac/"
-  appcast "https://lrtimelapse.com/download/"
+  url "https://lrtimelapse.com/files/lrtimelapse-#{version.major}-mac/?version=#{version.dots_to_hyphens}"
   name "LRTimelapse"
+  desc "Time lapse editing, keyframing, grading and rendering"
   homepage "https://lrtimelapse.com/"
+
+  livecheck do
+    url "https://lrtimelapse.com/download/"
+    regex(/LRTimelapse[._-]?v?(\d+(?:\.\d+)+)[._-]mac\.dmg/i)
+  end
 
   pkg "LRTimelapse #{version} Installer.pkg"
 

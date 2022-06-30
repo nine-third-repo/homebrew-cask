@@ -1,6 +1,6 @@
 cask "gog-galaxy" do
-  version "2.0.35.19a"
-  sha256 "988eb7ec522a6faae39bc5fb1df373d6dbc96b0a2471095bc7c7f68986e8add5"
+  version "2.0.51.58"
+  sha256 "203de5296e5f86495830dd35023fa558b2557941f38f980c888aa629a7e89d97"
 
   url "https://cdn.gog.com/open/galaxy/client/#{version.chomp("a")}/galaxy_client_#{version}.pkg"
   name "GOG Galaxy"
@@ -8,7 +8,7 @@ cask "gog-galaxy" do
   homepage "https://www.gog.com/galaxy"
 
   livecheck do
-    url "https://gog.com/galaxy"
+    url :homepage
     regex(%r{href=.*?/galaxy_client_(\d+(?:\.\d+)*a?)\.pkg}i)
   end
 
@@ -18,9 +18,9 @@ cask "gog-galaxy" do
 
   uninstall delete:    "/Applications/GOG Galaxy.app",
             launchctl: [
+              "com.gog.galaxy.autoLauncher",
               "com.gog.galaxy.ClientService",
               "com.gog.galaxy.commservice",
-              "com.gog.galaxy.autoLauncher",
             ]
 
   zap trash: [

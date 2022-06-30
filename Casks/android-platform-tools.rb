@@ -1,8 +1,8 @@
 cask "android-platform-tools" do
-  version "31.0.0,f62237c314a6bb80f574f0812e8109e16d52076d"
-  sha256 "572d78cea416c4e563534534bef58acb55113fb277c53cf469d7138d29d41d70"
+  version "33.0.2"
+  sha256 "d347860b1f41187a779f70afde8e1d675ded55a30c304d29e7716e2b32195d09"
 
-  url "https://dl.google.com/android/repository/#{version.after_comma}.platform-tools_r#{version.before_comma}-darwin.zip",
+  url "https://dl.google.com/android/repository/platform-tools_r#{version}-darwin.zip",
       verified: "google.com/android/repository/"
   name "Android SDK Platform-Tools"
   desc "Android SDK component"
@@ -10,10 +10,7 @@ cask "android-platform-tools" do
 
   livecheck do
     url "https://dl.google.com/android/repository/platform-tools-latest-darwin.zip"
-    strategy :header_match do |headers|
-      match = headers["location"].match(%r{/([0-9a-f]{40,}).platform-tools_r([.0-9]+)-darwin})
-      "#{match[2]},#{match[1]}"
-    end
+    strategy :header_match
   end
 
   binary "#{staged_path}/platform-tools/adb"

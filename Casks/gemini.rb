@@ -1,8 +1,8 @@
 cask "gemini" do
-  version "2.8.6,376:1614607724"
-  sha256 "46075fc573c75fbaa9ec110faed9cd6e276794a044d1aca4db0487073665931d"
+  version "2.9.6,393,1649689108"
+  sha256 "874706f6f5c3b5bf55c9047c46fb9442eae2acff61ce9bdae3cf7f418fab0ad0"
 
-  url "https://dl.devmate.com/com.macpaw.site.Gemini#{version.major}/#{version.after_comma.before_colon}/#{version.after_colon}/Gemini#{version.major}-#{version.after_comma.before_colon}.zip",
+  url "https://dl.devmate.com/com.macpaw.site.Gemini#{version.major}/#{version.csv.second}/#{version.csv.third}/Gemini#{version.major}-#{version.csv.second}.zip",
       verified: "dl.devmate.com/com.macpaw.site.Gemini"
   name "Gemini"
   desc "Disk space cleaner that finds and deletes duplicated and similar files"
@@ -10,8 +10,12 @@ cask "gemini" do
 
   livecheck do
     url "https://updates.devmate.com/com.macpaw.site.Gemini#{version.major}.xml"
-    strategy :sparkle do |item|
-      "#{item.short_version},#{item.version}:#{item.url[%r{/(\d+)/Gemini.*?\.zip}i, 1]}"
+    regex(%r{/(\d+)/Gemini\d*?[_-]v?(\d+(?:\.\d+)*)\.(?:dmg|zip)}i)
+    strategy :sparkle do |item, regex|
+      match = item.url.match(regex)
+      next if match.blank?
+
+      "#{item.short_version},#{match[2]},#{match[1]}"
     end
   end
 

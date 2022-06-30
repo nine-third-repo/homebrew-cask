@@ -1,8 +1,8 @@
 cask "coderunner" do
-  version "4.0.3,61716"
-  sha256 "77e79c2094cc27ad564c00e0390596f5c2698f38b5ccd96de83168a9b73b267e"
+  version "4.1.1,63000"
+  sha256 "069dd43834d9236e984fed7d61886741642849f1e55b74b384a5baeedfdc0724"
 
-  url "https://coderunnerapp.com/download/update/CodeRunner-#{version.before_comma}.zip"
+  url "https://coderunnerapp.com/download/update/CodeRunner-#{version.csv.first}.zip"
   name "CodeRunner"
   desc "Multi-language programming editor"
   homepage "https://coderunnerapp.com/"

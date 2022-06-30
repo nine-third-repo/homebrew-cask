@@ -1,8 +1,15 @@
 cask "kotlin-native" do
-  version "1.4.31"
-  sha256 "0e351756b382096204d61456f855480ce6b65ac53897c4bfa78a287895f37e32"
+  arch = Hardware::CPU.intel? ? "x86_64" : "aarch64"
 
-  url "https://github.com/JetBrains/kotlin/releases/download/v#{version}/kotlin-native-macos-#{version}.tar.gz",
+  version "1.7.0"
+
+  if Hardware::CPU.intel?
+    sha256 "b39a85a6e59e91eecb09f51290dc9704e816752275f9cb3a83b994d68b14fc9f"
+  else
+    sha256 "5f1f4c1fb4090c27db3caf5f03953566855bb8ba08272cbb40414c9420fd257c"
+  end
+
+  url "https://github.com/JetBrains/kotlin/releases/download/v#{version}/kotlin-native-macos-#{arch}-#{version}.tar.gz",
       verified: "github.com/JetBrains/kotlin/"
   name "Kotlin Native"
   desc "LLVM backend for Kotlin"
@@ -10,21 +17,20 @@ cask "kotlin-native" do
 
   livecheck do
     url :url
-    strategy :git
-    regex(/^v(\d+(?:\.\d+)*)$/)
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   conflicts_with formula: "kotlin"
 
-  binary "kotlin-native-macos-#{version}/bin/cinterop"
-  binary "kotlin-native-macos-#{version}/bin/generate-platform"
-  binary "kotlin-native-macos-#{version}/bin/jsinterop"
-  binary "kotlin-native-macos-#{version}/bin/klib"
-  binary "kotlin-native-macos-#{version}/bin/konan-lldb"
-  binary "kotlin-native-macos-#{version}/bin/konanc"
-  binary "kotlin-native-macos-#{version}/bin/kotlinc"
-  binary "kotlin-native-macos-#{version}/bin/kotlinc-native"
-  binary "kotlin-native-macos-#{version}/bin/run_konan"
+  binary "kotlin-native-macos-#{arch}-#{version}/bin/cinterop"
+  binary "kotlin-native-macos-#{arch}-#{version}/bin/generate-platform"
+  binary "kotlin-native-macos-#{arch}-#{version}/bin/jsinterop"
+  binary "kotlin-native-macos-#{arch}-#{version}/bin/klib"
+  binary "kotlin-native-macos-#{arch}-#{version}/bin/konan-lldb"
+  binary "kotlin-native-macos-#{arch}-#{version}/bin/konanc"
+  binary "kotlin-native-macos-#{arch}-#{version}/bin/kotlinc"
+  binary "kotlin-native-macos-#{arch}-#{version}/bin/kotlinc-native"
+  binary "kotlin-native-macos-#{arch}-#{version}/bin/run_konan"
 
   caveats do
     depends_on_java "6+"

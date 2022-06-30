@@ -1,18 +1,26 @@
 cask "eclipse-ide" do
-  version "4.18.0,2020-12:R"
-  sha256 "c4e9fa309f869ef398036251b79b6d2457f62d15e9d9931c4a54bbd65880e99f"
+  arch = Hardware::CPU.intel? ? "x86_64" : "aarch64"
 
-  url "https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/#{version.after_comma.before_colon}/#{version.after_colon}/eclipse-committers-#{version.after_comma.before_colon}-#{version.after_colon}-macosx-cocoa-x86_64.dmg&r=1"
+  version "4.24.0,2022-06"
+
+  if Hardware::CPU.intel?
+    sha256 "3488dc593a7e0b5dd80a313fbf84a6679b5927d00cd7ccad292fa202e3892ef5"
+  else
+    sha256 "aafc3b9d70aa5d4c0174a9e169645c9617704991be50f65358975d06e30a9968"
+  end
+
+  url "https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/#{version.csv.second}/R/eclipse-committers-#{version.csv.second}-R-macosx-cocoa-#{arch}.dmg&r=1"
   name "Eclipse IDE for Eclipse Committers"
+  desc "Eclipse integrated development environment"
   homepage "https://eclipse.org/"
 
   livecheck do
-    url "https://projects.eclipse.org/releases/"
+    url "https://www.eclipse.org/downloads/packages/"
     strategy :page_match do |page|
-      page.scan(%r{href=.*projects.eclipse.org/releases/(\d+-\d+)}i).map do |release|
-        version_page = Net::HTTP.get(URI.parse("https://projects.eclipse.org/releases/#{release[0]}"))
+      page.scan(/Eclipse IDE (\d+-\d+) R Packages/i).map do |release|
+        version_page = Homebrew::Livecheck::Strategy.page_content("https://projects.eclipse.org/releases/#{release[0]}")[:content]
         version = version_page.scan(%r{href="/projects/eclipse/releases/(\d+(?:\.\d+)*)"}i)
-        "#{version[0][0]},#{release[0]}:R"
+        "#{version[0][0]},#{release[0]}"
       end
     end
   end

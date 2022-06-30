@@ -5,26 +5,26 @@ cask "visit" do
 
     url "https://github.com/visit-dav/visit/releases/download/v#{version}/visit#{version}.darwin-x86_64-10.13.dmg",
         verified: "github.com/visit-dav/visit/"
-  elsif MacOS.version <= :mojave
-    version "3.1.4"
-    sha256 "e8636d4920dfc155c3c5236f8cab9675214e090bdb00eb6bdcb96cee634c2bc9"
-
-    url "https://github.com/visit-dav/visit/releases/download/v#{version}/visit#{version}.darwin-x86_64-10_14.dmg",
-        verified: "github.com/visit-dav/visit/"
   else
-    version "3.1.4"
-    sha256 "a75da6c27f38dbd5d859562da5777e810c71b85d6b06df47cef585a282330b06"
+    version "3.2.2"
+    sha256 "0fdb598367ec3b0f2009a090d4fbedb99d0c76f4e685c8ff77f7f0e54952670c"
 
-    url "https://github.com/visit-dav/visit/releases/download/v#{version}/visit#{version}.darwin-x86_64-10_15.dmg",
+    url "https://github.com/visit-dav/visit/releases/download/v#{version}/VisIt-#{version}.dmg",
         verified: "github.com/visit-dav/visit/"
   end
 
-  appcast "https://github.com/visit-dav/visit/releases.atom"
   name "VisIt"
   desc "Visualization and data analysis for mesh-based scientific data"
   homepage "https://wci.llnl.gov/simulation/computer-codes/visit"
 
+  livecheck do
+    url :url
+    strategy :github_latest
+  end
+
   depends_on macos: ">= :high_sierra"
 
   app "VisIt.app"
+
+  zap trash: "~/Library/Saved Application State/gov.llnl.visit.gui.savedState"
 end

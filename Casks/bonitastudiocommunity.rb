@@ -1,12 +1,11 @@
 cask "bonitastudiocommunity" do
-  version "2021.1"
-  sha256 "46e42b4c902922c103fdc465f8595115640b4a8a611ed506f9f2e978794a2308"
+  version "2022.1-u0"
+  sha256 "cfb8a83764f01b0ff985e0f211540487291254261d8559383ddc5182d1d14f05"
 
   url "https://github.com/bonitasoft/bonita-platform-releases/releases/download/#{version}/BonitaStudioCommunity-#{version}-x86_64.dmg",
       verified: "github.com/bonitasoft/bonita-platform-releases/"
-  appcast "https://www.bonitasoft.com/downloads",
-          must_contain: version.major_minor
   name "Bonita Studio Community Edition"
+  desc "Business process automation and optimization"
   homepage "https://www.bonitasoft.com/downloads"
 
   installer script: {

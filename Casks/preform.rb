@@ -1,20 +1,28 @@
 cask "preform" do
-  version "3.13.0,811"
-  sha256 "ce9829ebaf02b27dfddefb88d688f957aed07e9698460cd6717665153a623b88"
+  version "3.25.0,137_20268"
+  sha256 "979306afc732233c0705e17928e9fb12617508008823f09fef1e963a0c24fcf6"
 
-  url "https://s3.amazonaws.com/FormlabsReleases/Release/#{version.before_comma}/PreForm_#{version.before_comma}_release__build_#{version.after_comma}.dmg",
-      verified: "s3.amazonaws.com/FormlabsReleases/"
+  url "https://downloads.formlabs.com/PreForm/Release/#{version.csv.first}/PreForm_mac_#{version.csv.first}_release_releaser_#{version.csv.second}.dmg"
   name "PreForm"
   desc "3D printing setup, management, and monitoring"
   homepage "https://formlabs.com/tools/preform/"
 
   livecheck do
     url "https://formlabs.com/download-preform-mac/"
-    strategy :header_match do |headers|
-      match = headers["location"].match(%r{/PreForm_(\d+(?:\.\d+)*)_release__build_(\d+)\.dmg}i)
+    strategy :page_match do |page|
+      match = page.match(%r{/PreForm_mac_(\d+(?:\.\d+)+)_release_releaser_(\d+(?:[._-]\d+)+)\.dmg}i)
+      next if match.blank?
+
       "#{match[1]},#{match[2]}"
     end
   end
 
+  depends_on macos: ">= :high_sierra"
+
   app "PreForm.app"
+
+  zap trash: [
+    "~/Library/Preferences/com.formlabs.PreForm.plist",
+    "~/Library/Saved Application State/com.formlabs.PreForm.savedState",
+  ]
 end

@@ -1,13 +1,24 @@
 cask "dynobase" do
-  version "1.3.4"
-  sha256 "5ee94a9841b2808bf3f55dd4f5a66a1b00c4b6bc6d053c797196ad63c6c934d7"
+  arch = Hardware::CPU.intel? ? "" : "-arm64"
 
-  url "https://github.com/Dynobase/dynobase/releases/download/#{version}/Dynobase-#{version}.dmg",
+  version "1.10.2"
+
+  if Hardware::CPU.intel?
+    sha256 "985e1730d2479025aeacd619ba4d2df205ed276169e56bd42c9658c1da7335b2"
+  else
+    sha256 "5d439a82f12fb27cb3cd930b714667c63eff9233668133b1fc8a99dde35d838c"
+  end
+
+  url "https://github.com/Dynobase/dynobase/releases/download/v#{version}/Dynobase-#{version}#{arch}.dmg",
       verified: "github.com/Dynobase/dynobase/"
-  appcast "https://github.com/Dynobase/dynobase/releases.atom"
   name "Dynobase"
   desc "GUI Client for DynamoDB"
   homepage "https://dynobase.dev/"
+
+  livecheck do
+    url :url
+    strategy :github_latest
+  end
 
   app "Dynobase.app"
 

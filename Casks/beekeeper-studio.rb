@@ -1,8 +1,15 @@
 cask "beekeeper-studio" do
-  version "1.9.4"
-  sha256 "d433340381ecd2fe3c37824ba32f4c759ae071d09b5c0c0f402aaca78119d3f4"
+  version "3.4.3"
 
-  url "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v#{version}/Beekeeper-Studio-#{version}.dmg",
+  arch = Hardware::CPU.intel? ? "" : "-arm64"
+
+  if Hardware::CPU.intel?
+    sha256 "133a9541e98d562b60a6b376a3fd3e0413c4ba774d002225d98da2cc029bb84c"
+  else
+    sha256 "f6b7b37980249e2daa58d1c42992f36ef60eef60c6d2565face835d0110018ee"
+  end
+
+  url "https://github.com/beekeeper-studio/beekeeper-studio/releases/download/v#{version}/Beekeeper-Studio-#{version}#{arch}.dmg",
       verified: "github.com/beekeeper-studio/beekeeper-studio/"
   name "Beekeeper Studio"
   desc "Cross platform SQL editor and database management app"
@@ -18,10 +25,10 @@ cask "beekeeper-studio" do
   app "Beekeeper Studio.app"
 
   zap trash: [
-    "~/Library/Application Support/Caches/beekeeper-studio-updater",
     "~/Library/Application Support/beekeeper-studio",
-    "~/Library/Caches/io.beekeeperstudio.desktop",
+    "~/Library/Application Support/Caches/beekeeper-studio-updater",
     "~/Library/Caches/io.beekeeperstudio.desktop.ShipIt",
+    "~/Library/Caches/io.beekeeperstudio.desktop",
     "~/Library/Preferences/ByHost/io.beekeeperstudio.desktop.ShipIt.*.plist",
     "~/Library/Preferences/io.beekeeperstudio.desktop.plist",
     "~/Library/Saved Application State/io.beekeeperstudio.desktop.savedState",

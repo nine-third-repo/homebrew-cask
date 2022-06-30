@@ -1,10 +1,9 @@
 cask "grandperspective" do
-  version "2.5.4"
-  sha256 "69a27cfb2f9bdf9afec22649b01a98cd2779298229029e3508b84bcc64cc46e7"
+  version "2.6.3"
+  sha256 "d6b76d600c58376a753b45f2906fe33d2917d2dad8f2827bfc400ce6ee194cd1"
 
   url "https://downloads.sourceforge.net/grandperspectiv/grandperspective/#{version}/GrandPerspective-#{version.dots_to_underscores}.dmg",
       verified: "downloads.sourceforge.net/grandperspectiv/"
-  appcast "https://sourceforge.net/projects/grandperspectiv/rss?path=/grandperspective"
   name "GrandPerspective"
   desc "Graphically shows disk usage within a file system"
   homepage "https://grandperspectiv.sourceforge.io/"

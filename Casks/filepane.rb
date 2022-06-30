@@ -2,12 +2,16 @@ cask "filepane" do
   version "1.10.7,1576186002"
   sha256 "8a3ca4424b4a79485b6a4f9daf879b43430326628d18f38b6eccc1eae56ea5bd"
 
-  url "https://dl.devmate.com/com.mymixapps.FilePane/#{version.before_comma}/#{version.after_comma}/FilePane-#{version.before_comma}.dmg",
+  url "https://dl.devmate.com/com.mymixapps.FilePane/#{version.csv.first}/#{version.csv.second}/FilePane-#{version.csv.first}.dmg",
       verified: "dl.devmate.com/com.mymixapps.FilePane/"
-  appcast "https://updates.devmate.com/com.mymixapps.FilePane.xml"
   name "FilePane"
   desc "File management multi-tool"
   homepage "https://mymixapps.com/filepane"
+
+  # Appcast URL: https://updates.devmate.com/com.mymixapps.FilePane.xml
+  livecheck do
+    skip "Appcast only provides the version, no timestamp"
+  end
 
   app "FilePane.app"
 

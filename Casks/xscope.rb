@@ -1,8 +1,8 @@
 cask "xscope" do
-  version "4.5,106"
-  sha256 "53caac78a93f0eb3e1acfff5688515959f587715e6609fade108f8e6e7b67ade"
+  version "4.6,115"
+  sha256 "8d77b01b7959e797aad3e31852e4f39973b5197bec506b14ddb738f0ec0bb861"
 
-  url "https://downloads.iconfactory.com/xscope/xScope-#{version.before_comma}+#{version.after_comma}.zip",
+  url "https://downloads.iconfactory.com/xscope/xScope-#{version.csv.first}+#{version.csv.second}.zip",
       verified: "downloads.iconfactory.com/"
   name "xScope"
   desc "Tools for measuring, inspecting & testing on-screen graphics and layouts"

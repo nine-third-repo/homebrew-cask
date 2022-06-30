@@ -1,6 +1,6 @@
 cask "cernbox" do
-  version "2.7.1.2596"
-  sha256 "a85533f2e40fa6a408d7b97b1f41b42ff2fc3c4a7af404972823ebe54bca6354"
+  version "2.10.1.7479"
+  sha256 "eee944815b4513b4940d80fedaf09a798af7769cc11e1757b278d5f89c2d344a"
 
   url "https://cernbox.cern.ch/cernbox/doc/MacOSX/cernbox-#{version}.pkg"
   name "CERNBox Client"
@@ -9,8 +9,7 @@ cask "cernbox" do
 
   livecheck do
     url "https://cernbox.web.cern.ch/cernbox/downloads/"
-    strategy :page_match
-    regex(%r{href=.*?/cernbox-(\d+(?:\.\d+)*)\.pkg}i)
+    regex(%r{href=.*?/cernbox[._-]v?(\d+(?:\.\d+)+)\.pkg}i)
   end
 
   pkg "cernbox-#{version}.pkg"

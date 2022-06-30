@@ -1,16 +1,17 @@
 cask "bitwarden" do
-  version "1.25.0"
-  sha256 "ae5a1d122a84e7c373cf6773968f485d316a568ca74f765f46d04a4f598a24da"
+  version "2022.5.1"
+  sha256 "cd2adc73ddf91cc0d22484505e680bb44bc4821d3b3d1a2668370ed26ad1818c"
 
-  url "https://github.com/bitwarden/desktop/releases/download/v#{version}/Bitwarden-#{version}-mac.zip",
-      verified: "github.com/bitwarden/desktop/"
+  url "https://github.com/bitwarden/clients/releases/download/desktop-v#{version}/Bitwarden-#{version}-universal.dmg",
+      verified: "github.com/bitwarden/clients/"
   name "Bitwarden"
   desc "Desktop password and login vault"
   homepage "https://bitwarden.com/"
 
   livecheck do
-    url :url
-    strategy :github_latest
+    url "https://github.com/bitwarden/clients/releases"
+    strategy :page_match
+    regex(/href=.*?Bitwarden[._-]v?(\d+(?:\.\d+)+)-universal\.dmg/i)
   end
 
   auto_updates true
@@ -23,13 +24,13 @@ cask "bitwarden" do
   ]
 
   zap trash: [
-    "~/Library/Logs/Bitwarden",
     "~/Library/Application Support/Bitwarden",
     "~/Library/Caches/com.bitwarden.desktop",
     "~/Library/Caches/com.bitwarden.desktop.ShipIt",
+    "~/Library/Logs/Bitwarden",
     "~/Library/Preferences/ByHost/com.bitwarden.desktop.ShipIt.*.plist",
-    "~/Library/Preferences/com.bitwarden.desktop.plist",
     "~/Library/Preferences/com.bitwarden.desktop.helper.plist",
+    "~/Library/Preferences/com.bitwarden.desktop.plist",
     "~/Library/Saved Application State/com.bitwarden.desktop.savedState",
   ]
 end

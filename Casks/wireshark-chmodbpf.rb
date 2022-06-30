@@ -1,9 +1,10 @@
 cask "wireshark-chmodbpf" do
-  version "3.4.3"
-  sha256 "d3574ea99758abed0fddacec8dcaf1e3c6b767e6e3651b93f4315d6d0d41c8f8"
+  version "3.6.6"
+  sha256 "1ddd2b1fc9a8de008c09c02a2179f4280e8f1ac925a7e1d2ec9b4f0fc41f7614"
 
   url "https://www.wireshark.org/download/osx/Wireshark%20#{version}%20Intel%2064.dmg"
   name "Wireshark-ChmodBPF"
+  desc "Network protocol analyzer"
   homepage "https://www.wireshark.org/"
 
   livecheck do

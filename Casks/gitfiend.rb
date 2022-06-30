@@ -1,11 +1,18 @@
 cask "gitfiend" do
-  version "0.25.4"
-  sha256 "3869802d393cb37a237fb163cab999b30a4585696a4b9f7aedd502cf3589f25d"
+  version "0.34.0"
+  sha256 "34ef11ef74fdfdab8ea44e08e8233a2276e682b75dd4bdbdd0c868c743ee3427"
 
   url "https://gitfiend.com/resources/GitFiend-#{version}.dmg"
-  appcast "https://gitfiend.com/app-info"
   name "GitFiend"
+  desc "Git client"
   homepage "https://gitfiend.com/"
+
+  livecheck do
+    url "https://gitfiend.com/app-info"
+    strategy :page_match do |page|
+      JSON.parse(page)["version"]
+    end
+  end
 
   auto_updates true
 
@@ -15,7 +22,7 @@ cask "gitfiend" do
   binary shimscript, target: "gitfiend"
 
   preflight do
-    IO.write shimscript, <<~EOS
+    File.write shimscript, <<~EOS
       #!/bin/sh
       exec '#{appdir}/GitFiend.app/Contents/MacOS/GitFiend' "$@"
     EOS

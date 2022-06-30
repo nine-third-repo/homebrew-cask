@@ -1,18 +1,25 @@
 cask "app-tamer" do
-  version "2.6"
-  sha256 "37271a519fcf9902bd89a12c14355dfcb33e2b75ec21ffc8b0fab614231193b8"
+  version "2.7.2,11413"
+  sha256 "a8b497a498dedd075a8261ae59eefb6b1b50cfcfd04dd6ad66f2538bce50bbc3"
 
-  url "https://www.stclairsoft.com/download/AppTamer-#{version}.dmg"
-  appcast "https://www.stclairsoft.com/cgi-bin/sparkle.cgi?AT"
+  url "https://www.stclairsoft.com/download/AppTamer-#{version.csv.first}.dmg"
   name "AppTamer"
   desc "CPU management applicataion"
   homepage "https://www.stclairsoft.com/AppTamer/"
 
+  livecheck do
+    url "https://www.stclairsoft.com/cgi-bin/sparkle.cgi?AT"
+    strategy :sparkle
+  end
+
   app "App Tamer.app"
 
-  zap trash: [
+  uninstall delete: [
     "/Library/LaunchDaemons/com.stclairsoft.AppTamerAgent.plist",
     "/Library/PrivilegedHelperTools/com.stclairsoft.AppTamerAgent",
+  ]
+
+  zap trash: [
     "~/Library/Caches/com.stclairsoft.AppTamer",
     "~/Library/Preferences/com.stclairsoft.AppTamer.plist",
   ]

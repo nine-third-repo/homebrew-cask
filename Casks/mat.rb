@@ -1,6 +1,6 @@
 cask "mat" do
-  version "1.11.0.20201202"
-  sha256 "01929115ddd07e4d03a01a7b76433a3fd675642ca41c622f9040daec8dbaec79"
+  version "1.13.0.20220615"
+  sha256 "5e866ce672f2d800b902f017edc266406ef1c895e6defde0aac5d895d7966b98"
 
   url "https://download.eclipse.org/mat/#{version.major_minor_patch}/rcp/MemoryAnalyzer-#{version}-macosx.cocoa.x86_64.dmg"
   name "Eclipse Memory Analyzer"

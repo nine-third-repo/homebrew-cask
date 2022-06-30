@@ -1,14 +1,18 @@
 cask "fission" do
-  version "2.7.0"
+  version "2.8.1"
   sha256 :no_check
 
   url "https://rogueamoeba.com/fission/download/Fission.zip"
-  appcast "https://rogueamoeba.com/fission/releasenotes.php"
   name "Fission"
   desc "Audio editor"
   homepage "https://rogueamoeba.com/fission/"
 
-  depends_on macos: ">= :sierra"
+  livecheck do
+    url "https://rogueamoeba.net/ping/versionCheck.cgi?format=sparkle&system=1231&bundleid=com.rogueamoeba.fission&platform=osx&version=#{version.no_dots}8000"
+    strategy :sparkle
+  end
+
+  depends_on macos: ">= :high_sierra"
 
   app "Fission.app"
 end

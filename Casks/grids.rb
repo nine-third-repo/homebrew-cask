@@ -1,12 +1,18 @@
 cask "grids" do
-  version "6.1.6"
-  sha256 "c3bd41b364b2151a06e542d60e341a19458b4641d67f6fefe6813cc78529762e"
+  version "8.0.5"
+  sha256 "fe22a0b3faef171f99685afacaa375dcd3116bea47e008746ddb8678fb6d144f"
 
   url "https://gridsapp.net/bin/Grids_#{version}.zip"
-  appcast "https://gridsapp.net/appcast.json"
   name "Grids"
   desc "Instagram desktop application"
   homepage "https://gridsapp.net/"
+
+  livecheck do
+    url "https://gridsapp.net/appcast.json"
+    strategy :page_match do |page|
+      JSON.parse(page)["version"]["mac"]
+    end
+  end
 
   auto_updates true
   depends_on macos: ">= :sierra"

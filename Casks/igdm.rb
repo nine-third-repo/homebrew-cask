@@ -1,10 +1,9 @@
 cask "igdm" do
-  version "3.0.1"
-  sha256 "b114842282b64daccc3530790aedc4ed09914fa16e14724948c392b6d48236df"
+  version "3.0.4"
+  sha256 "fe032a9657267018efc16697d218dbdcda02564f5d42e4b2e21bf68ea9e715c7"
 
   url "https://github.com/ifedapoolarewaju/igdm/releases/download/v#{version}/IGdm-#{version}.dmg",
       verified: "github.com/ifedapoolarewaju/igdm/"
-  appcast "https://github.com/ifedapoolarewaju/igdm/releases.atom"
   name "IG:dm"
   desc "Desktop application for Instagram DMs"
   homepage "https://igdm.me/"

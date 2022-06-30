@@ -1,10 +1,9 @@
 cask "coin-wallet" do
-  version "3.0.7"
-  sha256 "f5df92c95af3b4eecee1a7f0e27cddee4ca2bf584eb8e8d278d8129b4e914fbd"
+  version "5.6.0"
+  sha256 "987028ae653ab94ec38a4bb9dd0b03aa0be7a8862df3adab51628d096e3b7972"
 
   url "https://github.com/CoinSpace/CoinSpace/releases/download/v#{version}/Coin.Wallet.dmg",
       verified: "github.com/CoinSpace/CoinSpace/"
-  appcast "https://github.com/CoinSpace/CoinSpace/releases.atom"
   name "Coin Wallet"
   desc "Digital currency wallet"
   homepage "https://coin.space/"

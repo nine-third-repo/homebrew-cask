@@ -1,18 +1,12 @@
 cask "workflowy" do
-  version "1.3.5-15670"
-  sha256 "1c44188ef60933ba510b446c9e04a6955bd776e1a8b53b723f1570ff34b19e55"
+  version "1.4.723"
+  sha256 "8d3e019eb7c4e7973d3f3c9821b9a878ab7827a08928a533dad08124cf5f5091"
 
   url "https://github.com/workflowy/desktop/releases/download/v#{version}/WorkFlowy.zip",
       verified: "github.com/workflowy/desktop/"
   name "WorkFlowy"
   desc "Notetaking tool"
   homepage "https://workflowy.com/downloads/mac/"
-
-  livecheck do
-    url :url
-    strategy :git
-    regex(/^v?(\d+(?:\.\d+)*-\d+)$/i)
-  end
 
   auto_updates true
 

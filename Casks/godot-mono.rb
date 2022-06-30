@@ -1,16 +1,16 @@
 cask "godot-mono" do
-  version "3.2.3"
-  sha256 "b9138b546ddf074105d39de070455404a77e6398d7fb5f0d10a8792cf21dd579"
+  version "3.4.4"
+  sha256 "f1958336cf79fd777749ebe1313786ba86ab9c0293cbefe1aecdb54053a425ab"
 
-  url "https://downloads.tuxfamily.org/godotengine/#{version}/mono/Godot_v#{version}-stable_mono_osx.64.zip",
+  url "https://downloads.tuxfamily.org/godotengine/#{version}/mono/Godot_v#{version}-stable_mono_osx.universal.zip",
       verified: "downloads.tuxfamily.org/godotengine/"
   name "Godot Engine"
+  desc "2D and 3D game engine"
   homepage "https://godotengine.org/"
 
   livecheck do
-    url "https://github.com/godotengine/godot/releases"
-    strategy :git
-    regex(/^(\d+(?:\.\d+)*)-stable$/)
+    url "https://github.com/godotengine/godot"
+    regex(/^v?(\d+(?:\.\d+)+)[._-]stable$/i)
   end
 
   depends_on formula: "mono"

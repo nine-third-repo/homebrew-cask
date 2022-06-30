@@ -1,12 +1,23 @@
 cask "staruml" do
-  version "4.0.0"
-  sha256 "59cec6d0ae22e0290b52f2f5bf32640aea07d9195aa6c3851b627f5c98bb83cb"
+  arch = Hardware::CPU.intel? ? "" : "-arm64"
 
-  url "https://staruml.io/download/releases-v#{version.major}/StarUML-#{version}.dmg"
-  appcast "https://staruml.io/"
+  version "5.0.2"
+
+  if Hardware::CPU.intel?
+    sha256 "0df2006e175e8cfccf17bc3ca27d505177fab2cf7dda97b2299f1841b3bd98fe"
+  else
+    sha256 "abf41ab3d32d1b33ba6a3938e21ee8fba73766ceda0ee26a5ccafd3a11984596"
+  end
+
+  url "https://staruml.io/download/releases-v#{version.major}/StarUML-#{version}#{arch}.dmg"
   name "StarUML"
   desc "Software modeler"
   homepage "https://staruml.io/"
+
+  livecheck do
+    url "https://staruml.io/"
+    regex(%r{href=.*?/StarUML-(\d+(?:\.\d+)*)(-arm64)?\.dmg}i)
+  end
 
   app "StarUML.app"
 end

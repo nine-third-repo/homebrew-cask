@@ -1,19 +1,15 @@
 cask "mactex-no-gui" do
-  version "2020.0407"
-  sha256 "a33af89de36c7c84a76050c9704d50d23892e9c2070f04f6a53e1c6d5a332f67"
+  version "2022.0321"
+  sha256 "dc1983c82de2c68f1c434f734d94343959d1338adb6f55132ccce11c787badc1"
 
-  url "http://mirror.ctan.org/systems/mac/mactex/mactex-#{version.no_dots}.pkg",
+  url "https://mirror.ctan.org/systems/mac/mactex/mactex-#{version.no_dots}.pkg",
       verified: "mirror.ctan.org/systems/mac/mactex/"
   name "MacTeX"
   desc "Full TeX Live distribution without GUI applications"
   homepage "https://www.tug.org/mactex/"
 
   livecheck do
-    url "http://mirror.ctan.org/systems/mac/mactex/"
-    strategy :page_match do |page|
-      match = page.match(/href=.*?mactex-(\d{4})(\d{2})(\d{2})\.pkg/)
-      "#{match[1]}.#{match[2]}#{match[3]}"
-    end
+    cask "mactex"
   end
 
   conflicts_with cask: [
@@ -21,19 +17,19 @@ cask "mactex-no-gui" do
     "mactex",
   ]
   depends_on formula: "ghostscript"
-  depends_on macos: ">= :high_sierra"
+  depends_on macos: ">= :mojave"
 
   pkg "mactex-#{version.no_dots}.pkg",
       choices: [
         {
           # Ghostscript
-          "choiceIdentifier" => "org.tug.mactex.ghostscript9.50",
+          "choiceIdentifier" => "org.tug.mactex.ghostscript9.55",
           "choiceAttribute"  => "selected",
           "attributeSetting" => 0,
         },
         {
           # Ghostscript Dynamic Library
-          "choiceIdentifier" => "org.tug.mactex.ghostscript9.50libgs",
+          "choiceIdentifier" => "org.tug.mactex.ghostscript9.55-libgs",
           "choiceAttribute"  => "selected",
           "attributeSetting" => 0,
         },
@@ -59,14 +55,8 @@ cask "mactex-no-gui" do
               "/etc/manpaths.d/TeX",
             ]
 
-  zap trash: [
-    "/usr/local/texlive/texmf-local",
-    "~/Library/texlive/#{version.major}",
-  ],
-      rmdir: [
-        "/usr/local/texlive",
-        "~/Library/texlive",
-      ]
+  zap trash: "/usr/local/texlive/texmf-local",
+      rmdir: "/usr/local/texlive"
 
   caveats <<~EOS
     You must restart your terminal window for the installation of MacTex CLI tools to take effect.

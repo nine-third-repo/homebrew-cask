@@ -1,10 +1,15 @@
 cask "xampp-vm" do
-  version "7.3.5,0"
-  sha256 "2b3d69aced3542d5c39fe9c8348f955edc0b75aac8f8494b67e70e415853f186"
+  version "8.1.6-0"
+  sha256 "11be67f9c8bd955a07bbc93af9cf126fda20ba2b60eef66f8c92bb655776cedb"
 
-  url "https://www.apachefriends.org/xampp-files/#{version.before_comma}/xampp-osx-#{version.before_comma}-#{version.after_comma}-vm.dmg"
+  url "https://www.apachefriends.org/xampp-files/#{version.split("-").first}/xampp-osx-#{version}-vm.dmg"
   name "XAMPP-VM"
+  desc "Virtual machine with apache distribution containing MySQL, PHP, and Perl"
   homepage "https://www.apachefriends.org/index.html"
 
-  app "XAMPP.app"
+  livecheck do
+    cask "xampp"
+  end
+
+  app "xampp-osx-#{version}-vm.app"
 end

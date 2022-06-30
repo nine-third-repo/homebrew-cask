@@ -1,12 +1,16 @@
 cask "launchbar" do
-  version "6.13.1"
-  sha256 "91c0423cdc0cb7a618357e2c9df7c05844ea077f9908640288af0e7eeacf384e"
+  version "6.15"
+  sha256 "a0a7502dbe12a7cb8c86bebeaa9cffbfc6515c319d792a62bbfd4dd153404473"
 
   url "https://www.obdev.at/downloads/launchbar/LaunchBar-#{version}.dmg"
-  appcast "https://sw-update.obdev.at/update-feeds/launchbar-#{version.major}.plist"
   name "LaunchBar"
   desc "Productivity tool"
   homepage "https://www.obdev.at/products/launchbar/index.html"
+
+  livecheck do
+    url "https://www.obdev.at/products/launchbar/download.html"
+    regex(%r{href=.*?/LaunchBar-(\d+(?:\.\d+)+)\.dmg}i)
+  end
 
   auto_updates true
   depends_on macos: ">= :mojave"

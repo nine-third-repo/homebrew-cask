@@ -1,13 +1,24 @@
 cask "canva" do
-  version "1.17.0"
-  sha256 "5e9027de37b9178e4ba63f73eb2a8f0b24723934d5c043a3634ab728b9415663"
+  arch = Hardware::CPU.intel? ? "x64" : "arm64"
 
-  url "https://desktop-release.canva-deploy.com/Canva-#{version}.dmg",
+  version "1.46.0"
+
+  if Hardware::CPU.intel?
+    sha256 "1de1bfe7383eb17c4a3371ef42970e99d299b7546cb98942cff8d0ec2897949e"
+  else
+    sha256 "82e22eec294c8f8c0e0ae93f3d4e502803b94def1a0889dfee4786f8008f3224"
+  end
+
+  url "https://desktop-release.canva-deploy.com/Canva-#{version}-#{arch}.dmg",
       verified: "desktop-release.canva-deploy.com/"
-  appcast "https://desktop-release.canva-deploy.com/latest-mac.yml"
   name "Canva"
   desc "Design tool"
   homepage "https://www.canva.com/"
+
+  livecheck do
+    url "https://desktop-release.canva-deploy.com/latest-mac.yml"
+    strategy :electron_builder
+  end
 
   auto_updates true
 

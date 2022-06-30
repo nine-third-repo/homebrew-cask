@@ -1,10 +1,5 @@
 cask "evernote" do
-  if MacOS.version <= :yosemite
-    version "6.12.3_455520"
-    sha256 "fdda9701f1d8ff56a5e8bcadcf5b04dba66ad7e08511700de4675d20fda2bc71"
-
-    url "https://cdn1.evernote.com/mac-smd/public/Evernote_RELEASE_#{version}.dmg"
-  elsif MacOS.version <= :el_capitan
+  if MacOS.version <= :el_capitan
     version "7.2.3_456885"
     sha256 "eb9a92d57ceb54570c009e37fa7657a0fa3ab927a445eef382487a3fdde6bb97"
 
@@ -15,10 +10,10 @@ cask "evernote" do
 
     url "https://cdn1.evernote.com/mac-smd/public/Evernote_RELEASE_#{version}.dmg"
   else
-    version "10.9.10,2439"
-    sha256 "5e3991b7e9018c4f5872847bc0bec3472a335126eb3e748e829cfaad8c0e467e"
+    version "10.39.6,3451,3d1756bc0a"
+    sha256 "b4eff86162b7c950b906cc911adf5202cb856258f048bb754cce34b55fab9802"
 
-    url "https://cdn1.evernote.com/boron/mac/builds/Evernote-#{version.before_comma}-mac-ddl-ga-#{version.after_comma}.dmg"
+    url "https://cdn1.evernote.com/boron/mac/builds/Evernote-#{version.csv.first}-mac-ddl-ga-#{version.csv.second}-#{version.csv.third}.dmg"
   end
 
   name "Evernote"
@@ -27,9 +22,14 @@ cask "evernote" do
 
   livecheck do
     url "https://evernote.s3.amazonaws.com/boron/mac/public/latest-mac.yml"
-    strategy :page_match do |page|
-      match = page.match(/(\d+(?:\.\d+)*)-mac-ddl-ga-(\d+)\.zip/)
-      "#{match[1]},#{match[2]}"
+    regex(/Evernote[._-](\d+(?:\.\d+)+)-mac-ddl-ga-(\d+(?:\.\d+)*)-([0-9a-f]+)\.dmg/i)
+    strategy :electron_builder do |yaml, regex|
+      yaml["files"]&.map do |file|
+        match = file["url"]&.match(regex)
+        next if match.blank?
+
+        "#{match[1]},#{match[2]},#{match[3]}"
+      end
     end
   end
 
@@ -43,15 +43,15 @@ cask "evernote" do
   ]
 
   zap trash: [
-    "~/Library/Application Support/Evernote",
+    "~/Library/Application Support/Caches/evernote-client-updater",
     "~/Library/Application Support/com.evernote.Evernote",
     "~/Library/Application Support/com.evernote.EvernoteHelper",
-    "~/Library/Application Support/Caches/evernote-client-updater",
+    "~/Library/Application Support/Evernote",
     "~/Library/Caches/com.evernote.Evernote",
+    "~/Library/Cookies/com.evernote.Evernote.binarycookies",
+    "~/Library/Logs/Evernote",
     "~/Library/Preferences/com.evernote.Evernote.plist",
     "~/Library/Preferences/com.evernote.EvernoteHelper.plist",
-    "~/Library/Logs/Evernote",
-    "~/Library/Cookies/com.evernote.Evernote.binarycookies",
     "~/Library/Saved Application State/com.evernote.Evernote.savedState",
   ]
 end

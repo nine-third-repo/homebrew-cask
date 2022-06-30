@@ -1,29 +1,23 @@
 cask "vlc" do
+  arch = Hardware::CPU.intel? ? "intel64" : "arm64"
+
+  version "3.0.17.3"
+
   if Hardware::CPU.intel?
-    version "3.0.12"
-    sha256 "9b8b5a78ee0d7448e840680df34c1417f7c8c87161127c2d150794b2449be5d1"
-
-    url "https://get.videolan.org/vlc/#{version}/macosx/vlc-#{version}-intel64.dmg"
-
-    livecheck do
-      url "https://update.videolan.org/vlc/sparkle/vlc-intel64.xml"
-      strategy :sparkle
-    end
+    sha256 "cca267f2c51ae568e02f3b4d8a6adba87b2bde5f011a2b87c595c102d89f11d8"
   else
-    version "3.0.12.1"
-    sha256 "5a5572c3a0bcf5c7a286dee0fbc027899a916a1c3fea919492894ae714789efa"
-
-    url "https://get.videolan.org/vlc/#{version}/macosx/vlc-#{version}-arm64.dmg"
-
-    livecheck do
-      url "https://update.videolan.org/vlc/sparkle/vlc-arm64.xml"
-      strategy :sparkle
-    end
+    sha256 "cdee78a660c88758cbaa3424948dfbdb7c969824be1becfcbbe2aef725655200"
   end
 
+  url "https://download.videolan.org/vlc/#{version}/macosx/vlc-#{version}-#{arch}.dmg"
   name "VLC media player"
   desc "Multimedia player"
   homepage "https://www.videolan.org/vlc/"
+
+  livecheck do
+    url "https://www.videolan.org/vlc/download-macosx.html"
+    regex(%r{href=.*?/vlc[._-]v?(\d+(?:\.\d+)+)(?:[._-][a-z]\w*)?\.dmg}i)
+  end
 
   auto_updates true
   conflicts_with cask: "homebrew/cask-versions/vlc-nightly"
@@ -34,7 +28,7 @@ cask "vlc" do
   binary shimscript, target: "vlc"
 
   preflight do
-    IO.write shimscript, <<~EOS
+    File.write shimscript, <<~EOS
       #!/bin/sh
       exec '#{appdir}/VLC.app/Contents/MacOS/VLC' "$@"
     EOS

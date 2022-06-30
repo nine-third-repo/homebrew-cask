@@ -1,12 +1,17 @@
 cask "kubernetic" do
-  version "3.1.0"
-  sha256 "aabfb1497d3d3407adc0040c8af83b189cf395d74021c508653d5d9385ed4132"
+  version "4.2.0"
+  sha256 "bac0c8b17f84a5abc1d9895c26db1a13a28be2982241eb42f7ebf9730a1e4446"
 
   url "https://kubernetic.s3.amazonaws.com/Kubernetic-#{version}.dmg",
       verified: "kubernetic.s3.amazonaws.com/"
-  appcast "https://kubernetic.s3.amazonaws.com/latest-mac.yml"
   name "Kubernetic"
+  desc "Kubernetes desktop client"
   homepage "https://kubernetic.com/"
+
+  livecheck do
+    url "https://kubernetic.s3.amazonaws.com/latest-mac.yml"
+    strategy :electron_builder
+  end
 
   app "Kubernetic.app"
 

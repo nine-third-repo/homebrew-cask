@@ -1,15 +1,22 @@
 cask "sentinel" do
-  version "0.17.1"
-  sha256 "9ff6f740dab5d149600b4e7968ce83383bf444f0ff2b5761f1bac2fff2d3ae1d"
+  arch = Hardware::CPU.intel? ? "amd64" : "arm64"
 
-  url "https://releases.hashicorp.com/sentinel/#{version}/sentinel_#{version}_darwin_amd64.zip"
+  version "0.18.11"
+
+  if Hardware::CPU.intel?
+    sha256 "267f2d2d2bf62476c6b40f112b7c222966da4ee27098cadb99e4446b48e9b68a"
+  else
+    sha256 "c6c638426c8ef50b5b8500e082a0e8b116f7311f2ee24d24336f22d64b23c5a0"
+  end
+
+  url "https://releases.hashicorp.com/sentinel/#{version}/sentinel_#{version}_darwin_#{arch}.zip"
   name "Sentinel"
-  homepage "https://docs.hashicorp.com/sentinel/"
+  desc "Language and framework for policy as code"
+  homepage "https://docs.hashicorp.com/sentinel"
 
   livecheck do
-    url "https://docs.hashicorp.com/sentinel/downloads/"
-    strategy :page_match
-    regex(%r{href=.*?/sentinel_(\d+(?:\.\d+)*)_darwin_amd64\.zip}i)
+    url "https://docs.hashicorp.com/sentinel/downloads"
+    regex(%r{href=.*?/sentinel[._-]?v?(\d+(?:\.\d+)+)[._-]darwin[._-]#{arch}\.zip}i)
   end
 
   binary "sentinel"

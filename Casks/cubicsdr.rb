@@ -4,10 +4,15 @@ cask "cubicsdr" do
 
   url "https://github.com/cjcliffe/CubicSDR/releases/download/#{version}/CubicSDR-#{version}-Darwin.dmg",
       verified: "github.com/cjcliffe/CubicSDR/"
-  appcast "https://github.com/cjcliffe/CubicSDR/releases.atom"
   name "CubicSDR"
-  desc "Cross-Platform Software-Defined Radio Application"
+  desc "Cross-platform software-defined radio application"
   homepage "https://cubicsdr.com/"
+
+  livecheck do
+    url "https://github.com/cjcliffe/CubicSDR/releases/"
+    strategy :page_match
+    regex(/CubicSDR[._-]v?(\d+(?:\.\d+)+)[._-]Darwin\.dmg/i)
+  end
 
   app "CubicSDR.app"
 end

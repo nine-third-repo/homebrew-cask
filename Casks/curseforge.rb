@@ -1,11 +1,18 @@
 cask "curseforge" do
-  version :latest
-  sha256 :no_check
+  version "0.201.1-5"
+  sha256 "6c053ca1029aa44e6ff91545b5082a076ee0dd0d69e69fc50c06405178eae3ed"
 
-  url "https://curseforge.overwolf.com/downloads/curseforge-latest.dmg"
+  url "https://curseforge.overwolf.com/electron/mac/CurseForge-#{version}.dmg"
   name "CurseForge"
   desc "Download and manage your addons and mods"
   homepage "https://curseforge.overwolf.com/"
+
+  livecheck do
+    url "https://curseforge.overwolf.com/electron/mac/latest-mac.yml"
+    strategy :electron_builder
+  end
+
+  auto_updates true
 
   app "CurseForge.app"
 

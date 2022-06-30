@@ -1,12 +1,17 @@
 cask "yt-music" do
-  version "1.0.6"
-  sha256 "a49bbdd1a6da40a55de3a356f9f9dc8a8a537bcc4908379ee6b856f1e57bc43b"
+  version "1.3.3"
+  sha256 "f54fe4892b2df4853f76bdbb94ffe24b3e9878884333da90c3681a52d184cca2"
 
-  url "https://github.com/steve228uk/YouTube-Music/releases/download/#{version}/YT.Music.zip"
-  appcast "https://github.com/steve228uk/YouTube-Music/releases.atom"
+  url "https://github.com/steve228uk/YouTube-Music/releases/download/#{version}/YT-Music-#{version}.zip"
   name "YouTube Music"
   desc "App wrapper for music.youtube.com"
   homepage "https://github.com/steve228uk/YouTube-Music"
 
   app "YT Music.app"
+
+  zap trash: [
+    "~/Library/Caches/uk.co.wearecocoon.YT-Music",
+    "~/Library/Preferences/uk.co.wearecocoon.YT-Music.plist",
+    "~/Library/WebKit/uk.co.wearecocoon.YT-Music",
+  ]
 end

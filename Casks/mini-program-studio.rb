@@ -1,12 +1,39 @@
 cask "mini-program-studio" do
-  version "1.15.7,b9179b0f-9656-4f2a-a42d-f08e335dd696"
-  sha256 "1a0d1e322a36a83e1d887d569efcdb0a88f0edec786a60301599d9c99e150b8c"
+  arch = Hardware::CPU.intel? ? "-x64" : "-arm64-arm64"
 
-  url "https://gw.alipayobjects.com/os/bmw-prod/#{version.after_comma}.dmg",
+  if Hardware::CPU.intel?
+    version "3.0.2,5b62b07a-3d4e-4127-95d4-d3420bb869c1"
+    sha256 "23eb62f4cee0769b516caff79c77da15039a2d0fac4102d17f76d18b1cfcd909"
+  else
+    version "2.9.1,db0a5e6d-b8df-4a9f-b17e-8c8222b5f8b7"
+    sha256 "3326024c093f66c15ebd32f70e0d226ae9215ddc68538d399549216faa6bb92f"
+  end
+
+  url "https://gw.alipayobjects.com/os/volans-demo/#{version.csv.second}/MiniProgramStudio-#{version.csv.first}#{arch}.dmg",
       verified: "gw.alipayobjects.com/"
   name "Mini Program Studio"
   name "小程序开发者工具"
-  homepage "https://open.alipay.com/channel/miniIndex.htm"
+  desc "IDE for the development of Alipay applets"
+  homepage "https://opendocs.alipay.com/mini/ide"
+
+  # The download page (https://opendocs.alipay.com/mini/ide/download) is
+  # rendered using JavaScript. The URL below returns JSON data that contains
+  # the HTML for the release information, so we can match within that.
+  livecheck do
+    url "https://opendocs.alipay.com/api/content/006l6m"
+    strategy :page_match do |page|
+      # Get stable branch major_minor version
+      major_minor = page.match(/(\d+(?:\.\d+)+)\s+稳定版/i)[1]
+      next if major_minor.blank?
+
+      # Get major_minor_patch of latest stable release
+      # https://gw.alipayobjects.com/os/volans-demo/64838471-01a5-4d01-8895-b82f93a8ea6d/MiniProgramStudio-2.9.1-x64.dmg
+      dynamic_regex = %r{href.*?/([a-z\d-]+)/MiniProgramStudio[._-]v?(#{major_minor}\.(?:\d+(?:\.\d+)*))#{arch}\.dmg}i
+      page.scan(dynamic_regex).map do |match|
+        (match[0] && match[1]) ? "#{match[1]},#{match[0]}" : ""
+      end
+    end
+  end
 
   app "小程序开发者工具.app"
 

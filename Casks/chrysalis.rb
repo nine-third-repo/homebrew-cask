@@ -1,6 +1,6 @@
 cask "chrysalis" do
-  version "0.8.2"
-  sha256 "4008f87f49271bed6e27f3f7d359ce8537df179cad35dd8b0f6e56b4179b66e4"
+  version "0.10.2"
+  sha256 "37cdfc76d1e380b2e35e3bd4c98b6b682cc09a213d888539eca4771cd09aca0a"
 
   url "https://github.com/keyboardio/Chrysalis/releases/download/v#{version}/Chrysalis-#{version}.dmg"
   name "Chrysalis"
@@ -10,7 +10,7 @@ cask "chrysalis" do
   livecheck do
     url :url
     strategy :github_latest
-    regex(%r{href=.*?/Chrysalis-(\d+(?:\.\d+)*)\.dmg}i)
+    regex(%r{href=.*?/Chrysalis-(\d+(?:\.\d+)+)\.dmg}i)
   end
 
   app "Chrysalis.app"

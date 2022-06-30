@@ -1,17 +1,24 @@
 cask "rekordbox" do
-  version "6.5.0,20210127201749"
-  sha256 "c285f601dd8087b64f938f6af805ac885e1932a7da173db8497c437e8d910e8b"
+  version "6.6.4,20220623170231"
+  sha256 "5a4459944a6d0233ec9dcc5e55e94a43b682845913f71e6d0f62dec4fa2f9386"
 
-  url "https://cdn.rekordbox.com/files/#{version.after_comma}/Install_rekordbox_#{version.before_comma.dots_to_underscores}.pkg_.zip"
-  appcast "https://rekordbox.com/en/download/"
+  url "https://cdn.rekordbox.com/files/#{version.csv.second}/Install_rekordbox_#{version.csv.first.dots_to_underscores}.pkg_.zip"
   name "rekordbox"
   desc "Free Dj app to prepare and manage your music files"
   homepage "https://rekordbox.com/en/"
 
+  livecheck do
+    url "https://rekordbox.com/en/download/"
+    regex(%r{data-url=.*?/(\d+)/Install[._-]rekordbox[._-]v?(\d+(?:[._]\d+)+)\.pkg_\.zip}i)
+    strategy :page_match do |page, regex|
+      page.scan(regex).map { |match| "#{match.second.tr("_", ".")},#{match.first}" }
+    end
+  end
+
   auto_updates true
   depends_on macos: ">= :high_sierra"
 
-  pkg "Install_rekordbox_#{version.before_comma.dots_to_underscores}.pkg"
+  pkg "Install_rekordbox_#{version.csv.first.dots_to_underscores}.pkg"
 
   uninstall pkgutil: "com.pioneer.rekordbox.#{version.major}.*",
             delete:  "/Applications/rekordbox #{version.major}"

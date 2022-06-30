@@ -1,8 +1,8 @@
 cask "yed" do
-  version "3.20.1"
-  sha256 "8cf3666b7c83dcd365ef1308ab8f5eeb53bea2405682ae9cae01a3cfd055ca98"
+  version "3.22"
+  sha256 "fe3fad42c89bd5a2730887c8bd15fa75d6580b08940e7d7365ab4333b6c9d880"
 
-  url "https://www.yworks.com/resources/yed/demo/yEd-#{version}_with-JRE14.dmg"
+  url "https://www.yworks.com/resources/yed/demo/yEd-#{version}_with-JRE15.dmg"
   name "yWorks yEd"
   desc "Create diagrams manually, or import external data for analysis"
   homepage "https://www.yworks.com/products/yed"

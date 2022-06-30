@@ -1,17 +1,19 @@
 cask "basictex" do
-  version "2020.0407"
-  sha256 "c6a27c95a8af3bc26121cc3be415f3fc7120ffaa4ff4c1a860a7fe9fe78ac31e"
+  version "2022.0314"
+  sha256 "5ef0678318c2b947b78b77c0cddae09e763359596c6c1fd0362f5cdca9714b78"
 
-  url "http://mirror.ctan.org/systems/mac/mactex/mactex-basictex-#{version.no_dots}.pkg",
+  url "https://mirror.ctan.org/systems/mac/mactex/mactex-basictex-#{version.no_dots}.pkg",
       verified: "mirror.ctan.org/systems/mac/mactex/"
   name "BasicTeX"
   desc "Compact TeX distribution as alternative to the full TeX Live / MacTeX"
   homepage "https://www.tug.org/mactex/morepackages.html"
 
   livecheck do
-    url "http://mirror.ctan.org/systems/mac/mactex/"
+    url "https://ctan.org/texarchive/systems/mac/mactex/"
     strategy :page_match do |page|
       match = page.match(/href=.*?mactex-basictex-(\d{4})(\d{2})(\d{2})\.pkg/)
+      next if match.blank?
+
       "#{match[1]}.#{match[2]}#{match[3]}"
     end
   end
@@ -20,7 +22,7 @@ cask "basictex" do
     "mactex-no-gui",
     "mactex",
   ]
-  depends_on macos: ">= :high_sierra"
+  depends_on macos: ">= :mojave"
 
   pkg "mactex-basictex-#{version.no_dots}.pkg"
 

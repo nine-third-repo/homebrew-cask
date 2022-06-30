@@ -1,12 +1,21 @@
 cask "pym-player" do
-  version "7.1,7B49"
-  sha256 "f78f110b2136a7bb107ca7a3a159d09fabbf8222f7dff1c12195f5f3a533726d"
+  version "8.0.0,8A181"
+  sha256 "18d5dd49daad460cdc03283b4613d47ddcd75553b6b6c1b98f1a87a9ce51b62d"
 
-  url "http://pym.uce.pl/download/pliki/PYMPlayer#{version.after_comma}.dmg"
-  appcast "http://pym.uce.pl/pym-player/"
+  url "https://pym.uce.pl/download/pliki/PYMPlayer#{version.csv.second}.dmg"
   name "PYM Player"
   desc "Media player that automatically searches for subtitles"
-  homepage "http://pym.uce.pl/pym-player/"
+  homepage "https://pym.uce.pl/pym-player/"
+
+  livecheck do
+    url "https://pym.uce.pl/downloads/"
+    regex(/href=.*?PYMPlayer[._-]?v?([^.]+)\.dmg.*v[^\d]*(\d+(?:\.\d+)+)["< ]/i)
+    strategy :page_match do |page, regex|
+      page.scan(regex).map { |match| "#{match.second},#{match.first}" }
+    end
+  end
+
+  depends_on macos: ">= :big_sur"
 
   app "PYM Player.app"
 end

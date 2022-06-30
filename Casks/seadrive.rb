@@ -1,6 +1,6 @@
 cask "seadrive" do
-  version "2.0.12"
-  sha256 "3b6591e2b6fc3b8a45fc384e57965c2db1c65b1f1be014d49d6801ee23de293f"
+  version "2.0.22"
+  sha256 "d42ff60925ce8ded9ae7d7c07e88c21f4702828f5cb0b438c5a40ac1f8f1b904"
 
   url "https://download.seadrive.org/seadrive-#{version}.dmg",
       verified: "download.seadrive.org/"
@@ -10,9 +10,10 @@ cask "seadrive" do
 
   livecheck do
     url "https://www.seafile.com/en/download/"
-    strategy :page_match
-    regex(%r{href=.*?/seadrive-(\d+(?:\.\d+)*)\.dmg}i)
+    regex(%r{href=.*?/seadrive[._-]v?(\d+(?:\.\d+)+)\.dmg}i)
   end
 
-  app "Seadrive.app"
+  depends_on macos: ">= :high_sierra"
+
+  app "SeaDrive.app"
 end

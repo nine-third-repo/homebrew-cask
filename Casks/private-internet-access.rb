@@ -1,23 +1,46 @@
 cask "private-internet-access" do
-  version "2.7.1-06182"
-  sha256 "2f2f9ab9f532d30d1a0d3dec6bf3a0e777d03e5040f5f4c945af014b1f2c6ed7"
+  version "3.3.1-06924"
+  sha256 "62e2f46f0b072d03c2b03d79e19d52c3386fe131b698b70f8b6d99a8ee5c0100"
 
   url "https://installers.privateinternetaccess.com/download/pia-macos-#{version}.zip"
-  appcast "https://www.privateinternetaccess.com/pages/download"
   name "Private Internet Access"
   desc "VPN client"
   homepage "https://www.privateinternetaccess.com/"
 
-  auto_updates true
-  depends_on macos: ">= :sierra"
-
-  installer manual: "Private Internet Access Installer.app"
-
-  postflight do
-    set_ownership "~/.pia_manager"
+  livecheck do
+    url "https://www.privateinternetaccess.com/installer/x/download_installer_osx"
+    regex(/pia-macos-(\d+(?:.\d+)*)\.zip/i)
   end
 
-  uninstall delete: "/Applications/Private Internet Access.app"
+  auto_updates true
+  depends_on macos: ">= :high_sierra"
 
-  zap trash: "~/.pia_manager"
+  installer script: {
+    executable: "Private Internet Access Installer.app/Contents/Resources/vpn-installer.sh",
+    sudo:       true,
+  }
+
+  uninstall quit:      "com.privateinternetaccess.vpn",
+            delete:    [
+              "/Applications/Private Internet Access.app",
+              "/usr/local/bin/piactl",
+            ],
+            launchctl: [
+              "com.privateinternetaccess.vpn.installhelper",
+              "com.privateinternetaccess.vpn.daemon",
+            ]
+
+  # The uninstall script should only be used with --zap because it removes all preference files
+  zap script: {
+    executable: "/Applications/Private Internet Access.app/Contents/Resources/vpn-installer.sh",
+    args:       ["uninstall"],
+    sudo:       true,
+  }, trash: [
+    "~/Library/Application Support/com.privateinternetaccess.vpn",
+    "~/Library/LaunchAgents/com.privateinternetaccess.vpn",
+    "~/Library/LaunchAgents/com.privateinternetaccess.vpn.client.plist",
+    "~/Library/Preferences/com.privateinternetaccess.vpn",
+    "~/Library/Preferences/com.privateinternetaccess.vpn.plist",
+    "~/Library/Preferences/com.privateinternetaccess.vpn.support-tool.com.privateinternetaccess.vpn.plist",
+  ]
 end

@@ -1,14 +1,14 @@
 cask "curio" do
-  version "14.4,14040.7"
-  sha256 "0b7cce92c557ae664c2bf86b754d7df952823efcc11b5e081ceaf421cac5f37a"
+  version "22.1.1,22111"
+  sha256 "d49099665bdd4608fd3569d4b563fb7a2d4768b2f4b204aefded89716a118b2e"
 
-  url "https://www.zengobi.com/downloads/Curio#{version.after_comma.no_dots}.zip"
+  url "https://www.zengobi.com/downloads/Curio#{version.csv.second.no_dots}.zip"
   name "Curio"
   desc "Note-taking and organizing app"
   homepage "https://zengobi.com/curio/"
 
   livecheck do
-    url "https://www.zengobi.com/appcasts/Curio14-2ZaxaUUlKorRS4Hf.xml"
+    url "https://www.zengobi.com/curio/appcasts/Curio#{version.major}.xml"
     strategy :sparkle
   end
 

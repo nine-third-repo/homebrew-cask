@@ -7,12 +7,12 @@ cask "bartender" do
   elsif MacOS.version <= :catalina
     version "3.1.25,31125"
     sha256 "bd31aa2aab3262ed08f5c421d504b82893b5dfc546f37fc98eae23bc47494c8a"
-    url "https://macbartender.com/B2/updates/#{version.before_comma.dots_to_hyphens}/Bartender%20#{version.major}.zip",
+    url "https://macbartender.com/B2/updates/#{version.csv.first.dots_to_hyphens}/Bartender%20#{version.major}.zip",
         referer: "https://www.macbartender.com"
   else
-    version "4.0.35,40035"
-    sha256 "48af1784622de26fe5b6115652ed0b6ab777933a6188c501d20a44e69d7878ba"
-    url "https://macbartender.com/B2/updates/B4Latest/Bartender%20#{version.major}.dmg",
+    version "4.2.0,42000"
+    sha256 "b6c0172af9bd24bf10114eb7528ff7de40e9ba6fbb14bce92fa9a2f8e92edb0a"
+    url "https://macbartender.com/B2/updates/#{version.csv.first.major}-#{version.csv.first.minor}-#{version.csv.first.patch.rjust(1, "0")}/Bartender%20#{version.major}.dmg",
         referer: "https://www.macbartender.com"
   end
 

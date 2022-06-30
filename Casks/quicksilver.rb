@@ -1,16 +1,16 @@
 cask "quicksilver" do
-  version "1.6.1"
-  sha256 "abc2c084913f95d3036a0cfe696bf9cd4b9fd0d6c3c16bec6e4a98ae600492c8"
+  version "2.3.0"
+  sha256 "18e020bcaf01cccf4f7891ea53d5daf23ce75917fe9c22192bf59d45b7b5a65e"
 
-  url "https://qsapp.com/archives/downloads/Quicksilver%20#{version}.dmg"
+  url "https://github.com/quicksilver/Quicksilver/releases/download/v#{version}/Quicksilver.#{version}.dmg",
+      verified: "github.com/quicksilver/Quicksilver"
   name "Quicksilver"
   desc "Productivity application"
   homepage "https://qsapp.com/"
 
   livecheck do
-    url "https://qsapp.com/archives/"
-    strategy :page_match
-    regex(%r{href=.*?/Quicksilver%20(\d+(?:\.\d+)*)\.dmg}i)
+    url :url
+    strategy :github_latest
   end
 
   auto_updates true

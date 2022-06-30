@@ -1,12 +1,16 @@
 cask "pcoipclient" do
-  version "20.10.2"
-  sha256 "b03b7a4358427011d5bdfa940c8ebe74a9115246e2dfd9667538ea6bf6c5c25d"
+  version "22.04.2"
+  sha256 "ff788a24b63e60f45eebfbeb65a7d0a7ab68c7b8cfd487f00fd597d0edce9406"
 
-  url "https://downloads.teradici.com/mac/stable/pcoip-client_#{version}.dmg"
-  appcast "https://downloads.teradici.com/mac/stable/"
+  url "https://dl.teradici.com/DeAdBCiUYInHcSTy/pcoip-client/raw/names/pcoip-client-dmg/versions/#{version}/pcoip-client_#{version}.dmg"
   name "Teradici PCoIP Software Client for macOS"
   desc "Client for VM agents and remote workstation cards"
   homepage "https://docs.teradici.com/find/product/software-and-mobile-clients/"
+
+  livecheck do
+    url "https://dl.teradici.com/DeAdBCiUYInHcSTy/pcoip-client/raw/names/pcoip-client-dmg/versions/latest/pcoip-client_latest.dmg"
+    strategy :header_match
+  end
 
   app "PCoIPClient.app"
 
@@ -16,8 +20,12 @@ cask "pcoipclient" do
   ]
 
   zap trash: [
+    "~/Library/Preferences/com.teradici.PCoIP Client Connection Info.plist",
     "~/Library/Preferences/com.teradici.swiftclient.plist",
     "~/Library/Preferences/com.teradici.Teradici PCoIP Client.plist",
-    "~/Library/Preferences/com.teradici.PCoIP Client Connection Info.plist",
   ]
+
+  caveats do
+    license "https://docs.teradici.com/reference/eula/teradici-end-user-license-agreement"
+  end
 end

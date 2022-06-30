@@ -1,8 +1,8 @@
 cask "typeface" do
-  version "2.7.0,2023"
-  sha256 :no_check
+  version "3.6.0,3299"
+  sha256 "ba244441a0ef0dd9c579e69da34aee1952679e025df487eff87dc136772a8525"
 
-  url "https://dcdn.typefaceapp.com/latest"
+  url "https://dcdn.typefaceapp.com/Typeface-#{version.csv.first}-#{version.csv.second}/Typeface-#{version.csv.first}-#{version.csv.second}.dmg"
   name "Typeface"
   desc "Font manager application"
   homepage "https://typefaceapp.com/"

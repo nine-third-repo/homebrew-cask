@@ -1,6 +1,6 @@
 cask "banksiagui" do
-  version "0.38"
-  sha256 "97d79126c90646f73f2fe4b11d65817cba10cd24731ec2c5980a997fb40a8c4c"
+  version "0.54a"
+  sha256 "1bd1b1526f0431b086f0480d4e10887601c6b4a514e954fb0c46971150286970"
 
   url "https://banksiagui.com/dl/BanksiaGui-#{version}-mac.zip"
   name "BanksiaGui"
@@ -9,8 +9,7 @@ cask "banksiagui" do
 
   livecheck do
     url "https://banksiagui.com/download/"
-    strategy :page_match
-    regex(/BanksiaGui-(\d+(?:\.\d+)*)-mac\.zip/i)
+    regex(/BanksiaGui[._-]v?(\d+(?:\.\d+)+\w?)[._-]mac\.zip/i)
   end
 
   app "BanksiaGui.app"

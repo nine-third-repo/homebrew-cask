@@ -1,9 +1,8 @@
 cask "liteide" do
-  version "37.1"
-  sha256 "f739a15d05c227dc53c9501bfa8de917b1b2b7dcc8517c156a49bc55b75e8e67"
+  version "38.0"
+  sha256 "a48f7ab142144ba0c3b7fee1ea9cb2c03a999d48f0a2e486270cb2cd6e6762d8"
 
-  url "https://github.com/visualfc/liteide/releases/download/x#{version}/liteidex#{version}.macos-qt5.12.5.zip"
-  appcast "https://github.com/visualfc/liteide/releases.atom"
+  url "https://github.com/visualfc/liteide/releases/download/x#{version}/liteidex#{version}.macos-qt5.15.2.zip"
   name "LiteIDE"
   desc "Go IDE"
   homepage "https://github.com/visualfc/liteide"

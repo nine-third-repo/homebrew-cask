@@ -1,8 +1,15 @@
 cask "inkscape" do
-  version "1.0.2"
-  sha256 "2e8eb5f8aa8a974b4621151e17af8b9106363518a5834c54da6a2649a5191b81"
+  arch = Hardware::CPU.intel? ? "x86_64" : "arm64"
 
-  url "https://media.inkscape.org/dl/resources/file/Inkscape-#{version}.dmg"
+  version "1.2"
+
+  if Hardware::CPU.intel?
+    sha256 "189fb5b3fb9a12b115784620113234e6bc4aca537e88d98200bbcd5255ca3193"
+  else
+    sha256 "9a3fce6630b7268e1548f7f1d96dc7cf0f0614284895d6e09eeba503b804d372"
+  end
+
+  url "https://media.inkscape.org/dl/resources/file/Inkscape-#{version}.0_#{arch}.dmg"
   name "Inkscape"
   desc "Vector graphics editor"
   homepage "https://inkscape.org/"
@@ -18,7 +25,7 @@ cask "inkscape" do
   binary shimscript, target: "inkscape"
 
   preflight do
-    IO.write shimscript, <<~EOS
+    File.write shimscript, <<~EOS
       #!/bin/sh
       exec '#{staged_path}/Inkscape.app/Contents/MacOS/inkscape' "$@"
     EOS
@@ -28,6 +35,7 @@ cask "inkscape" do
     "~/.config/inkscape",
     "~/Library/Application Support/Inkscape",
     "~/Library/Application Support/org.inkscape.Inkscape",
+    "~/Library/Caches/org.inkscape.Inkscape*",
     "~/Library/Preferences/org.inkscape.Inkscape.plist",
     "~/Library/Saved Application State/org.inkscape.Inkscape.savedState",
   ]

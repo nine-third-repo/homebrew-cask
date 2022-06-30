@@ -1,15 +1,25 @@
 cask "keyboard-maestro" do
-  version "9.2"
-  sha256 "a3a25d0663074e726e4d89692196f2e4a5b7ae013b5f3ed9eb1aae784d457c5d"
+  version "10.1.1,1011"
+  sha256 "6076df7010c3212f8c55d33023ad7d810dd585435ac11c8c8ceee2fe1fdc6bac"
 
-  url "https://files.stairways.com/keyboardmaestro-#{version.no_dots}.zip",
+  url "https://files.stairways.com/keyboardmaestro-#{version.csv.second}.zip",
       verified: "stairways.com/"
-  appcast "https://www.keyboardmaestro.com/action/sivc?M&U&08248000&6ABF5EF7&xxxxxxxx&00000000&000010E0&KM&EN"
   name "Keyboard Maestro"
+  desc "Automation software"
   homepage "https://www.keyboardmaestro.com/main/"
 
+  livecheck do
+    url "https://files.stairways.com/index.html"
+    strategy :page_match do |page|
+      match = page.match(/href=.*?keyboardmaestro[._-]v?(\d+)\.zip.*?Maestro\s*(\d+(?:\.\d+)+)/i)
+      next if match.blank?
+
+      "#{match[2]},#{match[1]}"
+    end
+  end
+
   auto_updates true
-  depends_on macos: ">= :yosemite"
+  depends_on macos: ">= :el_capitan"
 
   app "Keyboard Maestro.app"
 

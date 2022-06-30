@@ -1,8 +1,8 @@
 cask "nordvpn" do
-  version "6.0.3,155"
-  sha256 "c29464c47a7a82e735a82fbdf46ae2d3dfbd0f1c22915f5181fd3fd6a00194eb"
+  version "7.7.3,194"
+  sha256 "93e3e431ba6472f407853818c75c5dc7c3534058b74e341cf493d55c18776375"
 
-  url "https://downloads.nordcdn.com/apps/macos/generic/NordVPN-OpenVPN/#{version.before_comma}/NordVPN.pkg",
+  url "https://downloads.nordcdn.com/apps/macos/generic/NordVPN-OpenVPN/#{version.csv.first}/NordVPN.pkg",
       verified: "downloads.nordcdn.com/"
   name "NordVPN"
   desc "VPN client for secure internet access and private browsing"
@@ -18,26 +18,27 @@ cask "nordvpn" do
   pkg "NordVPN.pkg"
 
   uninstall quit:       [
-    "com.nordvpn.osx",
-    "com.nordvpn.osx.NordVPNLauncher",
+    "com.nordvpn.macos",
+    "com.nordvpn.macos.NordVPNLauncher",
   ],
             launchctl:  [
-              "com.nordvpn.osx.helper",
+              "com.nordvpn.macos.helper",
               "com.nordvpn.NordVPN.Helper",
             ],
             delete:     [
-              "/Library/PrivilegedHelperTools/com.nordvpn.osx.helper",
-              "/Library/PrivilegedHelperTools/com.nordvpn.osx.ovpnDnsManager",
+              "/Library/PrivilegedHelperTools/com.nordvpn.macos.helper",
+              "/Library/PrivilegedHelperTools/com.nordvpn.macos.ovpnDnsManager",
+              "/Library/PrivilegedHelperTools/ovpn",
             ],
             login_item: "NordVPN",
-            pkgutil:    "com.nordvpn.osx"
+            pkgutil:    "com.nordvpn.macos"
 
   zap trash: [
-    "~/Library/Application Support/com.nordvpn.osx",
-    "~/Library/Caches/com.nordvpn.osx",
+    "~/Library/Application Support/com.nordvpn.macos",
+    "~/Library/Caches/com.nordvpn.macos",
+    "~/Library/Cookies/com.nordvpn.macos.binarycookies",
     "~/Library/Logs/NordVPN/",
-    "~/Library/Preferences/com.nordvpn.osx.plist",
-    "~/Library/Saved Application State/com.nordvpn.osx.savedState",
-    "~/Library/Cookies/com.nordvpn.osx.binarycookies",
+    "~/Library/Preferences/com.nordvpn.macos.plist",
+    "~/Library/Saved Application State/com.nordvpn.macos.savedState",
   ]
 end

@@ -1,9 +1,10 @@
 cask "prepros" do
-  version "7.3.35"
-  sha256 "7dc9fdd8bd584d02cc61874f120e85754751e6fe899e0dad2ec8ac8454f38721"
+  version "7.6.0"
+  sha256 "bc11e9b6127e487dc9b33b583e74565dab18c569c4ae627df28f78ad8da75355"
 
   url "https://downloads.prepros.io/v#{version.major}/Prepros-#{version}.zip"
   name "Prepros"
+  desc "Web development companion"
   homepage "https://prepros.io/"
 
   livecheck do

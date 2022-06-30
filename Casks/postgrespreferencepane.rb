@@ -1,10 +1,10 @@
 cask "postgrespreferencepane" do
-  version "2.4.2"
-  sha256 "fb3f618321efec12cbad21ec2d77e6a024a35f7a17bb304b421970f85e38337f"
+  version "2.7"
+  sha256 "970510169d0e37fb3feca6fa700d26fa2421aabcd19fc17db58eb0dca89ebb14"
 
-  url "https://github.com/MaccaTech/PostgresPrefs/releases/download/v#{version}/PostgreSQL.prefPane-v#{version}.zip"
-  appcast "https://github.com/MaccaTech/PostgresPrefs/releases.atom"
+  url "https://github.com/MaccaTech/PostgresPrefs/releases/download/v#{version}/PostgresPrefs-v#{version}.dmg"
   name "PostgresPrefs"
+  desc "Preference Pane for controlling PostgreSQL database servers"
   homepage "https://github.com/MaccaTech/PostgresPrefs"
 
   prefpane "PostgreSQL.prefPane"

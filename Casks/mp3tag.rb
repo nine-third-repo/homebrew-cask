@@ -1,20 +1,21 @@
 cask "mp3tag" do
-  version "3.01"
-  sha256 "410ead1f2005b73b48a141fffb5b07d93d791f7817ac1fe0673683daa9813ab3"
+  version "1.5.0"
+  sha256 "aa8b66d81271ab34da96e8f732f4419c481a3431f2e15358b93745907192039f"
 
-  url "https://download.mp3tag.de/mp3tagv#{version.no_dots}-macOS-Wine.zip"
-  appcast "https://www.mp3tag.de/en/mac-osx.html"
-  name "MP3TAG"
-  homepage "https://www.mp3tag.de/en/"
+  url "https://updates.mp3tag.app/Mp3tag-#{version}.zip"
+  name "Mp3tag"
+  desc "Tool for editing metadata of audio files including MP3, FLAC, OGG, and more"
+  homepage "https://mp3tag.app/"
 
-  depends_on macos: "<= :mojave"
+  livecheck do
+    url "https://mp3tag.app/get/"
+    regex(/href=.*?Mp3tag[._-]?(\d+(?:\.\d+)+)\.zip/i)
+  end
 
-  app "mp3tagv#{version.no_dots}-macOS-Wine/Mp3tag.app"
+  app "Mp3tag.app"
 
   zap trash: [
-    "~/Library/Application Support/de.mp3tag.Mp3tag_*",
-    "~/Library/Application Support/com.apple.sharedfilelist/com.apple.LSSharedFileList.ApplicationRecentDocuments/de.mp3tag.mp3tag_*.sfl*",
-    "~/Library/Caches/org.kronenberg.Winetricks",
-    "~/Library/Preferences/org.kronenberg.Winetricks.plist",
+    "~/Library/Application Scripts/app.mp3tag.Mp3tag",
+    "~/Library/Containers/app.mp3tag.Mp3tag",
   ]
 end

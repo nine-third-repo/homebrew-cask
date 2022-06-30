@@ -1,11 +1,16 @@
 cask "mediainfo" do
-  version "20.09"
-  sha256 "4591f29bdfe5b9b0880e645635bd07d7670ed25c8da9ded91f7d28e8989480e8"
+  version "22.06"
+  sha256 "f02afd380af8f95afa79012cc1812d84b8e6c454bef72135bfe2abb6440814e2"
 
   url "https://mediaarea.net/download/binary/mediainfo-gui/#{version}/MediaInfo_GUI_#{version}_Mac.dmg"
-  appcast "https://mediaarea.net/rss/mediainfo_updates.xml"
   name "MediaInfo"
+  desc "Display technical and tag data for video and audio files"
   homepage "https://mediaarea.net/en/MediaInfo"
+
+  livecheck do
+    url "https://mediaarea.net/rss/mediainfo_updates.xml"
+    strategy :sparkle
+  end
 
   depends_on macos: ">= :high_sierra"
 

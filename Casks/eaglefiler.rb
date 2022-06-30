@@ -1,6 +1,6 @@
 cask "eaglefiler" do
-  version "1.9.3"
-  sha256 "5c265098119bfb7c03ca5c62c3b9e16a8019c126eaf8b7948f64546bf3e3bf66"
+  version "1.9.8"
+  sha256 "7e6dfcab228529eb45731a0a2d29ebc826729e8d5d08393c92bdd9fd0c5e7d15"
 
   url "https://c-command.com/downloads/EagleFiler-#{version}.dmg"
   name "EagleFiler"
@@ -9,8 +9,7 @@ cask "eaglefiler" do
 
   livecheck do
     url :homepage
-    strategy :page_match
-    regex(%r{href=.*?/EagleFiler-(\d+(?:\.\d+)*)\.dmg}i)
+    regex(%r{href=.*?/EagleFiler[._-]v?(\d+(?:\.\d+)+)\.dmg}i)
   end
 
   app "EagleFiler.app"

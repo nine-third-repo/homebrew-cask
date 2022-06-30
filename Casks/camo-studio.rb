@@ -1,8 +1,8 @@
 cask "camo-studio" do
-  version "1.2.4,144"
-  sha256 "37aea984109f4c8bf6f007a8bd8cb55de2e745773684c8cca3d736b421023ce0"
+  version "1.7.0,7547"
+  sha256 "e06772458454050fd53e2c78fd46d187b9bb0ec10aedfe92c39bdb94e613a3d0"
 
-  url "https://reincubate.com/res/labs/camo/Camo%20Studio%20#{version.before_comma}%20%28#{version.after_comma}%29%20%5BRelease%5D.app.zip"
+  url "https://reincubate.com/res/labs/camo/CamoStudioMac-#{version.csv.first}-#{version.csv.second}-Release.app.zip"
   name "Camo Studio"
   desc "Use your phone as a high-quality webcam with image tuning controls"
   homepage "https://reincubate.com/camo/"
@@ -13,20 +13,27 @@ cask "camo-studio" do
   end
 
   auto_updates true
+  depends_on macos: ">= :high_sierra"
 
   app "Camo Studio.app"
-  installer script: {
-    executable:   "#{staged_path}/Camo Studio.app/Contents/MacOS/Camo Studio",
-    args:         ["-install"],
-    sudo:         true,
-    must_succeed: false,
-  }
 
-  uninstall quit:   "com.reincubate.macos.cam",
-            script: {
-              executable:   "/Applications/Camo Studio.app/Contents/MacOS/Camo Studio",
-              args:         ["-uninstall"],
-              sudo:         true,
-              must_succeed: false, # necessary for now (see https://github.com/Homebrew/homebrew-cask/pull/100248)
-            }
+  uninstall delete: [
+    "/Library/Application Support/Reincubate/Camo",
+    "/Library/Audio/Plug-Ins/HAL/ReincubateCamoAudio.driver",
+    "/Library/CoreMediaIO/Plug-Ins/DAL/ReincubateCamoDAL.plugin",
+    "/Library/LaunchDaemons/com.reincubate.macos.cam.PrivilegedHelper.plist",
+    "/Library/PrivilegedHelperTools/com.reincubate.macos.cam.PrivilegedHelper",
+  ],
+            rmdir:  "/Library/Application Support/Reincubate"
+
+  zap trash: [
+    "~/Library/Application Support/CrashReporter/Camo Studio",
+    "~/Library/Application Support/Reincubate/Camo",
+    "~/Library/Caches/SentryCrash/Camo Studio",
+    "~/Library/Caches/com.reincubate.macos.cam",
+    "~/Library/HTTPStorages/com.reincubate.macos.cam",
+    "~/Library/Preferences/com.reincubate.macos.cam.plist",
+    "~/Library/WebKit/com.reincubate.macos.cam",
+  ],
+      rmdir: "~/Library/Application Support/Reincubate"
 end

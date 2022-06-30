@@ -1,22 +1,25 @@
 cask "browserosaurus" do
-  version "13.3.2"
+  arch = Hardware::CPU.intel? ? "x64" : "arm64"
+
+  version "18.4.2"
 
   if Hardware::CPU.intel?
-    sha256 "49df861cf356a10d8fe22e29596257346f9e1dc1b6e64557e486bca9cd927cd3"
-    url "https://github.com/will-stone/browserosaurus/releases/download/v#{version}/Browserosaurus-darwin-x64-#{version}.zip",
-        verified: "github.com/will-stone/browserosaurus/"
+    sha256 "1942ce8bff7315de9ec24a8df0461641a2209139a46f93897e4759d0bb6e8708"
   else
-    sha256 "d1c427a8cf6df2b92e04715a4bea9f980b9f86d7dfa7ae28d5f09a84bbb07a63"
-    url "https://github.com/will-stone/browserosaurus/releases/download/v#{version}/Browserosaurus-darwin-arm64-#{version}.zip",
-        verified: "github.com/will-stone/browserosaurus/"
+    sha256 "544ff0fd1886f8474449f96a51bb26e8b303e7d1a16ad8f80e38b645af22b384"
   end
 
-  appcast "https://github.com/will-stone/browserosaurus/releases.atom"
+  url "https://github.com/will-stone/browserosaurus/releases/download/v#{version}/Browserosaurus-darwin-#{arch}-#{version}.zip"
   name "Browserosaurus"
   desc "Open-source browser prompter"
-  homepage "https://wstone.io/browserosaurus/"
+  homepage "https://github.com/will-stone/browserosaurus"
 
   auto_updates true
 
   app "Browserosaurus.app"
+
+  zap trash: [
+    "~/Library/Application Support/Browserosaurus",
+    "~/Library/Preferences/com.browserosaurus.plist",
+  ]
 end

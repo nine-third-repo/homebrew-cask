@@ -1,15 +1,20 @@
 cask "spatterlight" do
-  version "0.7.6"
-  sha256 "832de7b1ee0455a331c2854bcfe9f2a7411678331593dda912329345980ba32a"
+  version "0.9.5"
+  sha256 "1aaa9869d40fdf0074fcd20bb2f449ce1fcd0fafe870ed272ec73fb676469d9b"
 
   url "https://github.com/angstsmurf/spatterlight/releases/download/v#{version}/Spatterlight.zip",
       verified: "github.com/angstsmurf/spatterlight/"
-  appcast "https://github.com/angstsmurf/spatterlight/releases.atom"
   name "Spatterlight"
   desc "Play most kinds of interactive fiction game files"
-  homepage "http://ccxvii.net/spatterlight/"
+  homepage "https://ccxvii.net/spatterlight/"
 
   depends_on macos: ">= :catalina"
 
   app "Spatterlight.app"
+
+  zap trash: [
+    "~/Library/Application Scripts/net.ccxvii.spatterlight.*",
+    "~/Library/Containers/net.ccxvii.spatterlight.*",
+    "~/Library/Preferences/net.ccxvii.spatterlight.plist",
+  ]
 end

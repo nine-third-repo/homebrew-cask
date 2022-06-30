@@ -1,6 +1,6 @@
 cask "kindle" do
-  version "1.30.59055"
-  sha256 "1b70345bb96394f5662c1dfedf15a318e83f259553c83d81e32fc1e25fa251ab"
+  version "1.37.65278"
+  sha256 "1e611c27dae14ef6b07f6126e82d2bb5d9a6c38e983ed8ade9cc5a4753f9a832"
 
   url "https://kindleformac.s3.amazonaws.com/#{version.patch}/KindleForMac-#{version}.dmg",
       verified: "kindleformac.s3.amazonaws.com/"
@@ -12,6 +12,8 @@ cask "kindle" do
     url "https://www.amazon.com/kindlemacdownload/ref=klp_hz_mac"
     strategy :header_match
   end
+
+  auto_updates true
 
   app "Kindle.app"
 

@@ -1,6 +1,6 @@
 cask "balenaetcher" do
-  version "1.5.116"
-  sha256 "3bf5c0ebf0bf424ab3a3134e1bfb1b6e341b90267fe7b9137a9908ff2454663c"
+  version "1.7.9"
+  sha256 "4651afc3f51763df3cc496a00c26f29dba6d4ce4989151d3bc820c8e181d6c23"
 
   url "https://github.com/balena-io/etcher/releases/download/v#{version}/balenaEtcher-#{version}.dmg",
       verified: "github.com/balena-io/etcher/"
@@ -12,6 +12,8 @@ cask "balenaetcher" do
     url :url
     strategy :github_latest
   end
+
+  auto_updates true
 
   app "balenaEtcher.app"
 

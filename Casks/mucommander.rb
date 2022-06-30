@@ -1,13 +1,18 @@
 cask "mucommander" do
-  version "0.9.6-1"
-  sha256 "fe0cf62f5b3d1f729936d0887b82e248e89c407d48d8b4fb1089a44570ae2040"
+  version "1.0.1-1"
+  sha256 "1a2df75b5defa1b69ec2e4a2f9d50d3b8b9c9bcfc312d96dd807fefe807fa38f"
 
-  url "https://github.com/mucommander/mucommander/releases/download/#{version}/mucommander-#{version}.dmg",
+  url "https://github.com/mucommander/mucommander/releases/download/#{version}/muCommander-#{version}.dmg",
       verified: "github.com/mucommander/mucommander/"
-  appcast "https://github.com/mucommander/mucommander/releases.atom"
   name "muCommander"
   desc "File manager with a dual-pane interface"
   homepage "https://www.mucommander.com/"
+
+  livecheck do
+    url "https://github.com/mucommander/mucommander/releases"
+    strategy :page_match
+    regex(/href=.*?mucommander[._-]v?(\d+(?:\.\d+)+-?\d?)\.dmg/i)
+  end
 
   app "muCommander.app"
 end

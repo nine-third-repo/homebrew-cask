@@ -1,15 +1,23 @@
 cask "td-agent" do
-  version "3.1.1-0"
-  sha256 "aea92474070fc973315228dde287a32111d29cb52f4a94bc7f73cfa73d88afc8"
+  version "4.3.2"
+  sha256 "dd6c0d2bdef0056a30d6422b843ed207465b3b87772e16c1f604dde5800db00b"
 
   url "https://s3.amazonaws.com/packages.treasuredata.com/#{version.major}/macosx/td-agent-#{version}.dmg",
       verified: "s3.amazonaws.com/packages.treasuredata.com/"
-  appcast "https://td-agent-package-browser.herokuapp.com/#{version.major}/macosx"
   name "td-agent"
+  desc "Fluentd distribution package"
   homepage "https://www.fluentd.org/"
+
+  livecheck do
+    url "https://td-agent-package-browser.herokuapp.com/#{version.major}/macosx"
+    regex(/href=.*?td-agent[._-]?v?(\d+(?:\.\d+)+)\.dmg/i)
+  end
 
   pkg "td-agent-#{version}.pkg"
 
-  uninstall pkgutil:   "test.treasuredatainc.pkg.td-agent",
+  uninstall pkgutil:   [
+    "com.treasuredata.tdagent",
+    "test.treasuredatainc.pkg.td-agent",
+  ],
             launchctl: "td-agent"
 end

@@ -1,23 +1,24 @@
 cask "setapp" do
-  version "2.7.15,1608219081"
-  sha256 "b5ab580ef30d48b0f981f1fdf57a91028598f8b9b0c7b2e31ae3e8692f848080"
+  version "3.5.0,1655046682"
+  sha256 "e732dd8ace075046ec27d9971dbc971080cfa1440b0f72edbb40085a369dda96"
 
-  url "https://dl.devmate.com/com.setapp.InstallSetapp/#{version.before_comma}/#{version.after_comma}/InstallSetapp-#{version.before_comma}.zip",
-      verified: "devmate.com/com.setapp.InstallSetapp/"
-  appcast "https://updates.devmate.com/com.setapp.InstallSetapp.xml"
+  url "https://dl.devmate.com/com.setapp.DesktopClient/#{version.csv.first}/#{version.csv.second}/Setapp-#{version.csv.first}.zip",
+      verified: "devmate.com/com.setapp.DesktopClient/"
   name "Setapp"
   desc "Collection of apps available by subscription"
   homepage "https://setapp.com/"
 
+  livecheck do
+    url "https://s3-us-west-2.amazonaws.com/updateinfo.devmate.com/com.setapp.DesktopClient/updates.xml"
+    strategy :sparkle do |item|
+      "#{item.short_version},#{item.url[%r{/(\d+)/Setapp-(?:\d+(?:\.\d+)*)\.zip}i, 1]}"
+    end
+  end
+
   auto_updates true
-  depends_on macos: ">= :sierra"
+  depends_on macos: ">= :catalina"
 
-  installer manual: "Install Setapp.app"
-
-  uninstall script: {
-    executable: "#{appdir}/Setapp.app/Contents/Resources/SetappUninstaller.app/Contents/Resources/removeSetapp.sh",
-    sudo:       true,
-  }
+  app "Setapp.app"
 
   zap trash: [
     "~/Library/Application Scripts/com.setapp.DesktopClient.SetappAgent.FinderSyncExt",

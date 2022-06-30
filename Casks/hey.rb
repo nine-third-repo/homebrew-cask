@@ -1,13 +1,24 @@
 cask "hey" do
-  version "1.1.0"
-  sha256 "87eff282d69d160e4232a3b7678b40c6c81196b6c7c9c74c6934b8618f6c585c"
+  arch = Hardware::CPU.intel? ? "" : "-arm64"
 
-  url "https://hey-desktop.s3.amazonaws.com/HEY-#{version}.dmg",
+  version "1.2.5"
+
+  if Hardware::CPU.intel?
+    sha256 "a13b0fca4db8c054d37414c32887b07ddc4870c525cc60ac38d29f0ffc1c4cb1"
+  else
+    sha256 "e52204ea81ed2ad30bdd0fac3e38f243f1e26c3e74a1911b9f7e602f7c78701a"
+  end
+
+  url "https://hey-desktop.s3.amazonaws.com/HEY-#{version}#{arch}.dmg",
       verified: "hey-desktop.s3.amazonaws.com/"
-  appcast "https://hey-desktop.s3.amazonaws.com/latest-mac.yml"
   name "HEY"
   desc "Access the HEY email service"
   homepage "https://hey.com/"
+
+  livecheck do
+    url "https://hey-desktop.s3.amazonaws.com/latest-mac.yml"
+    strategy :electron_builder
+  end
 
   auto_updates true
 

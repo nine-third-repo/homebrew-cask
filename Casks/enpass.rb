@@ -1,12 +1,16 @@
 cask "enpass" do
-  version "6.6.0.775"
-  sha256 "d5c08071267e91bbd5428e580d38b72d27a2c9ddd6ba4b2afb3d04e3b8f55cc1"
+  version "6.8.2.1081"
+  sha256 "7cf13297d2f1e5a0c52682d3890d60edc04fc539e1d019c761e421b3a436ed20"
 
   url "https://dl.enpass.io/stable/mac/package/#{version}/Enpass.pkg"
-  appcast "https://rest.enpass.io/enpass/alert/?format=json&language=en%7Cen&os=osx%7C10.14&package=in.sinew.Enpass-Desktop.App&version=0.0.0"
   name "Enpass"
   desc "Password and credentials mananger"
   homepage "https://www.enpass.io/"
+
+  livecheck do
+    url "https://www.enpass.io/downloads/"
+    regex(%r{href=.*?/(\d+(?:\.\d+)+)/Enpass\.pkg}i)
+  end
 
   depends_on macos: ">= :sierra"
 
